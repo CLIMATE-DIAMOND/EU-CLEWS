@@ -11,8 +11,8 @@ Soem uncertainites with the model structure:
 
 - Do we need a potential for crop land land technology if we already have specific crop land technologies? (currently exlcuded from the template)
 - which crops for biofuel? (we currently have technologies for both biodiesal and bioethanal) 
-- I have excluded the technology 'land for protected tree cover' for now 
-- please check if Seawater techs and fules are coherent in the technology list/ Referece diagram -on shared drive
+- I have excluded the technology and realted fuels 'land for protected tree cover' for now 
+- please check if Seawater techs and fuels are coherent in the technology list/ Reference diagram - see the diamond shared drive
 
 I have also uploaded a couple of python scripts to aid populating the template quicker 
 Leigh 
