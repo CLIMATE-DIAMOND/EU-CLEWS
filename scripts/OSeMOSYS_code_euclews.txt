@@ -55,7 +55,7 @@
 set YEAR;
 set TECHNOLOGY;
 set TIMESLICE;
-set COMMODITY;
+set FUEL;
 set EMISSION;
 set MODE_OF_OPERATION;
 set REGION;
@@ -64,13 +64,13 @@ set DAYTYPE;
 set DAILYTIMEBRACKET;
 set FLEXIBLEDEMANDTYPE;
 set STORAGE;
-set STORAGEINTRADAY;
-set STORAGEINTRAYEAR;
-set MODEperTECHNOLOGY{TECHNOLOGY} within MODE_OF_OPERATION;
-set MODExTECHNOLOGYperFUELout{COMMODITY} within MODE_OF_OPERATION cross TECHNOLOGY;
-set MODExTECHNOLOGYperFUELin{COMMODITY} within MODE_OF_OPERATION cross TECHNOLOGY;
-set MODExTECHNOLOGYperSTORAGEto{STORAGE} within MODE_OF_OPERATION cross TECHNOLOGY;
-set MODExTECHNOLOGYperSTORAGEfrom{STORAGE} within MODE_OF_OPERATION cross TECHNOLOGY;
+#set STORAGEINTRADAY;
+#set STORAGEINTRAYEAR;
+#set MODEperTECHNOLOGY{TECHNOLOGY} within MODE_OF_OPERATION;
+#set MODExTECHNOLOGYperFUELout{FUEL} within MODE_OF_OPERATION cross TECHNOLOGY;
+#set MODExTECHNOLOGYperFUELin{FUEL} within MODE_OF_OPERATION cross TECHNOLOGY;
+#set MODExTECHNOLOGYperSTORAGEto{STORAGE} within MODE_OF_OPERATION cross TECHNOLOGY;
+#set MODExTECHNOLOGYperSTORAGEfrom{STORAGE} within MODE_OF_OPERATION cross TECHNOLOGY;
 #
 #####################
 #    Parameters     #
@@ -86,14 +86,14 @@ param Conversionls{l in TIMESLICE, ls in SEASON};
 param Conversionld{l in TIMESLICE, ld in DAYTYPE};
 param Conversionlh{l in TIMESLICE, lh in DAILYTIMEBRACKET};
 param DaysInDayType{ls in SEASON, ld in DAYTYPE, y in YEAR};
-param TradeRoute{r in REGION, rr in REGION, f in COMMODITY, y in YEAR};
+param TradeRoute{r in REGION, rr in REGION, f in FUEL, y in YEAR};
 param DepreciationMethod{r in REGION}, default 1;
 #
 ########                        Demands                                         #############
 #
-param SpecifiedAnnualDemand{r in REGION, f in COMMODITY, y in YEAR};
-param SpecifiedDemandProfile{r in REGION, f in COMMODITY, l in TIMESLICE, y in YEAR};
-param AccumulatedAnnualDemand{r in REGION, f in COMMODITY, y in YEAR};
+param SpecifiedAnnualDemand{r in REGION, f in FUEL, y in YEAR};
+param SpecifiedDemandProfile{r in REGION, f in FUEL, l in TIMESLICE, y in YEAR};
+param AccumulatedAnnualDemand{r in REGION, f in FUEL, y in YEAR};
 #
 #########                        Performance                                        #############
 #
@@ -103,8 +103,8 @@ param CapacityFactor{r in REGION, t in TECHNOLOGY, l in TIMESLICE, y in YEAR};
 param AvailabilityFactor{r in REGION, t in TECHNOLOGY, y in YEAR};
 param OperationalLife{r in REGION, t in TECHNOLOGY};
 param ResidualCapacity{r in REGION, t in TECHNOLOGY, y in YEAR};
-param InputActivityRatio{r in REGION, t in TECHNOLOGY, f in COMMODITY, m in MODE_OF_OPERATION, y in YEAR};
-param OutputActivityRatio{r in REGION, t in TECHNOLOGY, f in COMMODITY, m in MODE_OF_OPERATION, y in YEAR};
+param InputActivityRatio{r in REGION, t in TECHNOLOGY, f in FUEL, m in MODE_OF_OPERATION, y in YEAR};
+param OutputActivityRatio{r in REGION, t in TECHNOLOGY, f in FUEL, m in MODE_OF_OPERATION, y in YEAR};
 #
 #########                        Technology Costs                        #############
 #
@@ -145,13 +145,13 @@ param TotalTechnologyModelPeriodActivityLowerLimit{r in REGION, t in TECHNOLOGY}
 #########                        Reserve Margin                                #############
 #
 param ReserveMarginTagTechnology{r in REGION, t in TECHNOLOGY, y in YEAR};
-param ReserveMarginTagFuel{r in REGION, f in COMMODITY, y in YEAR};
+param ReserveMarginTagFuel{r in REGION, f in FUEL, y in YEAR};
 param ReserveMargin{r in REGION, y in YEAR};
 #
 #########                        RE Generation Target                #############
 #
 param RETagTechnology{r in REGION, t in TECHNOLOGY, y in YEAR};
-param RETagFuel{r in REGION, f in COMMODITY, y in YEAR};
+param RETagFuel{r in REGION, f in FUEL, y in YEAR};
 param REMinProductionTarget{r in REGION, y in YEAR};
 #
 #########                        Emissions & Penalties                #############
@@ -173,15 +173,15 @@ param TechnologyActivityDecreaseByModeLimit{r in REGION, t in TECHNOLOGY, m in M
 
 
 ##########                       Fuel->Technology Connections         #############
-#set MODExTECHNOLOGYperFUELout{f in COMMODITY} within MODE_OF_OPERATION cross TECHNOLOGY
-#    := {m in MODE_OF_OPERATION, t in TECHNOLOGY : exists{r in REGION, y in YEAR} OutputActivityRatio[r,t,f,m,y] <> 0};
-#set MODExTECHNOLOGYperFUELin{f in COMMODITY} within MODE_OF_OPERATION cross TECHNOLOGY
-#    := {m in MODE_OF_OPERATION, t in TECHNOLOGY : exists{r in REGION, y in YEAR} InputActivityRatio[r,t,f,m,y] <> 0};
+set MODExTECHNOLOGYperFUELout{f in FUEL} within MODE_OF_OPERATION cross TECHNOLOGY
+    := {m in MODE_OF_OPERATION, t in TECHNOLOGY : exists{r in REGION, y in YEAR} OutputActivityRatio[r,t,f,m,y] <> 0};
+set MODExTECHNOLOGYperFUELin{f in FUEL} within MODE_OF_OPERATION cross TECHNOLOGY
+    := {m in MODE_OF_OPERATION, t in TECHNOLOGY : exists{r in REGION, y in YEAR} InputActivityRatio[r,t,f,m,y] <> 0};
 
-#set MODExTECHNOLOGYperSTORAGEto{s in STORAGE} within MODE_OF_OPERATION cross TECHNOLOGY
-#    := {m in MODE_OF_OPERATION, t in TECHNOLOGY : exists{r in REGION} TechnologyToStorage[r,t,s,m] > 0};
-#set MODExTECHNOLOGYperSTORAGEfrom{s in STORAGE} within MODE_OF_OPERATION cross TECHNOLOGY
-#    := {m in MODE_OF_OPERATION, t in TECHNOLOGY : exists{r in REGION} TechnologyFromStorage[r,t,s,m] > 0};
+set MODExTECHNOLOGYperSTORAGEto{s in STORAGE} within MODE_OF_OPERATION cross TECHNOLOGY
+    := {m in MODE_OF_OPERATION, t in TECHNOLOGY : exists{r in REGION} TechnologyToStorage[r,t,s,m] > 0};
+set MODExTECHNOLOGYperSTORAGEfrom{s in STORAGE} within MODE_OF_OPERATION cross TECHNOLOGY
+    := {m in MODE_OF_OPERATION, t in TECHNOLOGY : exists{r in REGION} TechnologyFromStorage[r,t,s,m] > 0};
 
 set TIMESLICEofSEASON{ls in SEASON} within TIMESLICE := {l in TIMESLICE : Conversionls[l,ls] = 1};
 set TIMESLICEofDAYTYPE{ld in DAYTYPE} within TIMESLICE := {l in TIMESLICE : Conversionld[l,ld] = 1};
@@ -191,10 +191,10 @@ set TIMESLICEofSDB{ls in SEASON, ld in DAYTYPE, lh in DAILYTIMEBRACKET} within T
 set MODExTECHNOLOGYperEMISSION{e in EMISSION} within MODE_OF_OPERATION cross TECHNOLOGY
     := {m in MODE_OF_OPERATION, t in TECHNOLOGY : exists{r in REGION, y in YEAR} EmissionActivityRatio[r,t,e,m,y] <> 0};
 
-#set MODEperTECHNOLOGY{t in TECHNOLOGY} within MODE_OF_OPERATION
-#    := {m in MODE_OF_OPERATION : (exists {f in COMMODITY} (m, t) in MODExTECHNOLOGYperFUELout[f] union MODExTECHNOLOGYperFUELin[f]) or
-#                                 (exists {s in STORAGE} (m, t) in MODExTECHNOLOGYperSTORAGEto[s] union MODExTECHNOLOGYperSTORAGEfrom[s]) or
-#                                 (exists {e in EMISSION} (m, t) in MODExTECHNOLOGYperEMISSION[e])};
+set MODEperTECHNOLOGY{t in TECHNOLOGY} within MODE_OF_OPERATION
+    := {m in MODE_OF_OPERATION : (exists {f in FUEL} (m, t) in MODExTECHNOLOGYperFUELout[f] union MODExTECHNOLOGYperFUELin[f]) or
+                                 (exists {s in STORAGE} (m, t) in MODExTECHNOLOGYperSTORAGEto[s] union MODExTECHNOLOGYperSTORAGEfrom[s]) or
+                                 (exists {e in EMISSION} (m, t) in MODExTECHNOLOGYperEMISSION[e])};
 
 #
 ######################
@@ -203,8 +203,8 @@ set MODExTECHNOLOGYperEMISSION{e in EMISSION} within MODE_OF_OPERATION cross TEC
 #
 ########                        Demands                                         #############
 #
-#var RateOfDemand{r in REGION, l in TIMESLICE, f in COMMODITY, y in YEAR}>= 0;
-var Demand{r in REGION, l in TIMESLICE, f in COMMODITY, y in YEAR}>= 0;
+#var RateOfDemand{r in REGION, l in TIMESLICE, f in FUEL, y in YEAR}>= 0;
+var Demand{r in REGION, l in TIMESLICE, f in FUEL, y in YEAR}>= 0;
 #
 ########                     Storage                                 #############
 #
@@ -238,25 +238,25 @@ var TotalCapacityAnnual{r in REGION, t in TECHNOLOGY, y in YEAR}>= 0;
 #########                    Activity Variables                         #############
 #
 var RateOfActivity{r in REGION, l in TIMESLICE, t in TECHNOLOGY, m in MODEperTECHNOLOGY[t], y in YEAR} >= 0;
-#var UseByTechnology{r in REGION, l in TIMESLICE, t in TECHNOLOGY, f in COMMODITY, y in YEAR}>= 0;
-var Trade{r in REGION, rr in REGION, l in TIMESLICE, f in COMMODITY, y in YEAR};
-var UseAnnual{r in REGION, f in COMMODITY, y in YEAR}>= 0;
+#var UseByTechnology{r in REGION, l in TIMESLICE, t in TECHNOLOGY, f in FUEL, y in YEAR}>= 0;
+var Trade{r in REGION, rr in REGION, l in TIMESLICE, f in FUEL, y in YEAR};
+var UseAnnual{r in REGION, f in FUEL, y in YEAR}>= 0;
 var RateOfTotalActivity{r in REGION, t in TECHNOLOGY, l in TIMESLICE, y in YEAR} >= 0;
 var TotalTechnologyAnnualActivity{r in REGION, t in TECHNOLOGY, y in YEAR} >= 0;
 var TotalAnnualTechnologyActivityByMode{r in REGION, t in TECHNOLOGY, m in MODEperTECHNOLOGY[t], y in YEAR}>=0;
-#var RateOfProductionByTechnologyByMode{r in REGION, l in TIMESLICE, t in TECHNOLOGY, m in MODEperTECHNOLOGY[t], f in COMMODITY, y in YEAR}>= 0;
-#var RateOfProductionByTechnology{r in REGION, l in TIMESLICE, t in TECHNOLOGY, f in COMMODITY, y in YEAR}>= 0;
-#var ProductionByTechnology{r in REGION, l in TIMESLICE, t in TECHNOLOGY, f in COMMODITY, y in YEAR}>= 0;
-var ProductionByTechnologyAnnual{r in REGION, t in TECHNOLOGY, f in COMMODITY, y in YEAR}>= 0;
-#var RateOfProduction{r in REGION, l in TIMESLICE, f in COMMODITY, y in YEAR} >= 0;
-#var Production{r in REGION, l in TIMESLICE, f in COMMODITY, y in YEAR} >= 0;
-#var RateOfUseByTechnologyByMode{r in REGION, l in TIMESLICE, t in TECHNOLOGY, m in MODEperTECHNOLOGY[t], f in COMMODITY, y in YEAR}>= 0;
-#var RateOfUseByTechnology{r in REGION, l in TIMESLICE, t in TECHNOLOGY, f in COMMODITY, y in YEAR} >= 0;
-var UseByTechnologyAnnual{r in REGION, t in TECHNOLOGY, f in COMMODITY, y in YEAR}>= 0;
-#var RateOfUse{r in REGION, l in TIMESLICE, f in COMMODITY, y in YEAR}>= 0;
-#var Use{r in REGION, l in TIMESLICE, f in COMMODITY, y in YEAR}>= 0;
-#var TradeAnnual{r in REGION, rr in REGION, f in COMMODITY, y in YEAR};
-#var ProductionAnnual{r in REGION, f in COMMODITY, y in YEAR}>= 0;
+#var RateOfProductionByTechnologyByMode{r in REGION, l in TIMESLICE, t in TECHNOLOGY, m in MODEperTECHNOLOGY[t], f in FUEL, y in YEAR}>= 0;
+#var RateOfProductionByTechnology{r in REGION, l in TIMESLICE, t in TECHNOLOGY, f in FUEL, y in YEAR}>= 0;
+#var ProductionByTechnology{r in REGION, l in TIMESLICE, t in TECHNOLOGY, f in FUEL, y in YEAR}>= 0;
+var ProductionByTechnologyAnnual{r in REGION, t in TECHNOLOGY, f in FUEL, y in YEAR}>= 0;
+#var RateOfProduction{r in REGION, l in TIMESLICE, f in FUEL, y in YEAR} >= 0;
+#var Production{r in REGION, l in TIMESLICE, f in FUEL, y in YEAR} >= 0;
+#var RateOfUseByTechnologyByMode{r in REGION, l in TIMESLICE, t in TECHNOLOGY, m in MODEperTECHNOLOGY[t], f in FUEL, y in YEAR}>= 0;
+#var RateOfUseByTechnology{r in REGION, l in TIMESLICE, t in TECHNOLOGY, f in FUEL, y in YEAR} >= 0;
+var UseByTechnologyAnnual{r in REGION, t in TECHNOLOGY, f in FUEL, y in YEAR}>= 0;
+#var RateOfUse{r in REGION, l in TIMESLICE, f in FUEL, y in YEAR}>= 0;
+#var Use{r in REGION, l in TIMESLICE, f in FUEL, y in YEAR}>= 0;
+#var TradeAnnual{r in REGION, rr in REGION, f in FUEL, y in YEAR};
+#var ProductionAnnual{r in REGION, f in FUEL, y in YEAR}>= 0;
 #
 #########                    Costing Variables                         #############
 #
@@ -297,7 +297,7 @@ var AnnualTechnologyEmission{r in REGION, t in TECHNOLOGY, e in EMISSION, y in Y
 var AnnualEmissions{r in REGION, e in EMISSION, y in YEAR}>= 0;
 #
 #        table data IN "CSV" "data.csv": s <- [FROM,TO], d~DISTANCE, c~COST;
-#        table capacity IN "CSV" "SpecifiedAnnualDemand.csv": [YEAR, COMMODITY, REGION], SpecifiedAnnualDemand~ColumnNameInCSVSheet;
+#        table capacity IN "CSV" "SpecifiedAnnualDemand.csv": [YEAR, FUEL, REGION], SpecifiedAnnualDemand~ColumnNameInCSVSheet;
 #
 ######################
 # Objective Function #
@@ -311,7 +311,7 @@ minimize cost: sum{r in REGION, t in TECHNOLOGY, y in YEAR} ((((sum{yy in YEAR: 
 # Constraints       #
 #####################
 #
-#s.t. EQ_SpecifiedDemand{r in REGION, l in TIMESLICE, f in COMMODITY, y in YEAR}: SpecifiedAnnualDemand[r,f,y]*SpecifiedDemandProfile[r,f,l,y] / YearSplit[l,y]=RateOfDemand[r,l,f,y];
+#s.t. EQ_SpecifiedDemand{r in REGION, l in TIMESLICE, f in FUEL, y in YEAR}: SpecifiedAnnualDemand[r,f,y]*SpecifiedDemandProfile[r,f,l,y] / YearSplit[l,y]=RateOfDemand[r,l,f,y];
 #
 #########               Capacity Adequacy A                     #############
 #
@@ -329,29 +329,29 @@ s.t. CAb1_PlannedMaintenance{r in REGION, t in TECHNOLOGY, y in YEAR}: sum{l in 
 #
 #########                Energy Balance A                     #############
 #
-#s.t. EBa1_RateOfFuelProduction1{r in REGION, l in TIMESLICE, f in COMMODITY, t in TECHNOLOGY, m in MODEperTECHNOLOGY[t], y in YEAR}:  RateOfActivity[r,l,t,m,y]*OutputActivityRatio[r,t,f,m,y]  = RateOfProductionByTechnologyByMode[r,l,t,m,f,y];
-#s.t. EBa2_RateOfFuelProduction2{r in REGION, l in TIMESLICE, f in COMMODITY, t in TECHNOLOGY, y in YEAR}: sum{m in MODEperTECHNOLOGY[t]} RateOfActivity[r,l,t,m,y]*OutputActivityRatio[r,t,f,m,y] = RateOfProductionByTechnology[r,l,t,f,y] ;
-#s.t. EBa3_RateOfFuelProduction3{r in REGION, l in TIMESLICE, f in COMMODITY, y in YEAR}: sum{(m,t) in MODExTECHNOLOGYperFUELout[f]} RateOfActivity[r,l,t,m,y]*OutputActivityRatio[r,t,f,m,y]  =  RateOfProduction[r,l,f,y];
-#s.t. EBa4_RateOfFuelUse1{r in REGION, l in TIMESLICE, f in COMMODITY, t in TECHNOLOGY, m in MODEperTECHNOLOGY[t], y in YEAR}: RateOfActivity[r,l,t,m,y]*InputActivityRatio[r,t,f,m,y]  = RateOfUseByTechnologyByMode[r,l,t,m,f,y];
-#s.t. EBa5_RateOfFuelUse2{r in REGION, l in TIMESLICE, f in COMMODITY, t in TECHNOLOGY, y in YEAR}: sum{m in MODEperTECHNOLOGY[t]} RateOfActivity[r,l,t,m,y]*InputActivityRatio[r,t,f,m,y] = RateOfUseByTechnology[r,l,t,f,y];
-#s.t. EBa6_RateOfFuelUse3{r in REGION, l in TIMESLICE, f in COMMODITY, y in YEAR}: sum{(m,t) in MODExTECHNOLOGYperFUELin[f]} RateOfActivity[r,l,t,m,y]*InputActivityRatio[r,t,f,m,y]  = RateOfUse[r,l,f,y];
-#s.t. EBa7_EnergyBalanceEachTS1{r in REGION, l in TIMESLICE, f in COMMODITY, y in YEAR}: sum{(m,t) in MODExTECHNOLOGYperFUELout[f]} RateOfActivity[r,l,t,m,y]*OutputActivityRatio[r,t,f,m,y]*YearSplit[l,y] = Production[r,l,f,y];
-#s.t. EBa8_EnergyBalanceEachTS2{r in REGION, l in TIMESLICE, f in COMMODITY, y in YEAR}: sum{(m,t) in MODExTECHNOLOGYperFUELin[f]} RateOfActivity[r,l,t,m,y]*InputActivityRatio[r,t,f,m,y]*YearSplit[l,y] = Use[r,l,f,y];
-s.t. EBa9_EnergyBalanceEachTS3{r in REGION, l in TIMESLICE, f in COMMODITY, y in YEAR}: SpecifiedAnnualDemand[r,f,y]*SpecifiedDemandProfile[r,f,l,y] = Demand[r,l,f,y];
-s.t. EBa10_EnergyBalanceEachTS4{r in REGION, rr in REGION, l in TIMESLICE, f in COMMODITY, y in YEAR}: Trade[r,rr,l,f,y] = -Trade[rr,r,l,f,y];
-s.t. EBa11_EnergyBalanceEachTS5{r in REGION, l in TIMESLICE, f in COMMODITY, y in YEAR}: sum{(m,t) in MODExTECHNOLOGYperFUELout[f]} RateOfActivity[r,l,t,m,y]*OutputActivityRatio[r,t,f,m,y]*YearSplit[l,y] >= SpecifiedAnnualDemand[r,f,y]*SpecifiedDemandProfile[r,f,l,y] + sum{(m,t) in MODExTECHNOLOGYperFUELin[f]} RateOfActivity[r,l,t,m,y]*InputActivityRatio[r,t,f,m,y]*YearSplit[l,y] + sum{rr in REGION} Trade[r,rr,l,f,y]*TradeRoute[r,rr,f,y];
+#s.t. EBa1_RateOfFuelProduction1{r in REGION, l in TIMESLICE, f in FUEL, t in TECHNOLOGY, m in MODEperTECHNOLOGY[t], y in YEAR}:  RateOfActivity[r,l,t,m,y]*OutputActivityRatio[r,t,f,m,y]  = RateOfProductionByTechnologyByMode[r,l,t,m,f,y];
+#s.t. EBa2_RateOfFuelProduction2{r in REGION, l in TIMESLICE, f in FUEL, t in TECHNOLOGY, y in YEAR}: sum{m in MODEperTECHNOLOGY[t]} RateOfActivity[r,l,t,m,y]*OutputActivityRatio[r,t,f,m,y] = RateOfProductionByTechnology[r,l,t,f,y] ;
+#s.t. EBa3_RateOfFuelProduction3{r in REGION, l in TIMESLICE, f in FUEL, y in YEAR}: sum{(m,t) in MODExTECHNOLOGYperFUELout[f]} RateOfActivity[r,l,t,m,y]*OutputActivityRatio[r,t,f,m,y]  =  RateOfProduction[r,l,f,y];
+#s.t. EBa4_RateOfFuelUse1{r in REGION, l in TIMESLICE, f in FUEL, t in TECHNOLOGY, m in MODEperTECHNOLOGY[t], y in YEAR}: RateOfActivity[r,l,t,m,y]*InputActivityRatio[r,t,f,m,y]  = RateOfUseByTechnologyByMode[r,l,t,m,f,y];
+#s.t. EBa5_RateOfFuelUse2{r in REGION, l in TIMESLICE, f in FUEL, t in TECHNOLOGY, y in YEAR}: sum{m in MODEperTECHNOLOGY[t]} RateOfActivity[r,l,t,m,y]*InputActivityRatio[r,t,f,m,y] = RateOfUseByTechnology[r,l,t,f,y];
+#s.t. EBa6_RateOfFuelUse3{r in REGION, l in TIMESLICE, f in FUEL, y in YEAR}: sum{(m,t) in MODExTECHNOLOGYperFUELin[f]} RateOfActivity[r,l,t,m,y]*InputActivityRatio[r,t,f,m,y]  = RateOfUse[r,l,f,y];
+#s.t. EBa7_EnergyBalanceEachTS1{r in REGION, l in TIMESLICE, f in FUEL, y in YEAR}: sum{(m,t) in MODExTECHNOLOGYperFUELout[f]} RateOfActivity[r,l,t,m,y]*OutputActivityRatio[r,t,f,m,y]*YearSplit[l,y] = Production[r,l,f,y];
+#s.t. EBa8_EnergyBalanceEachTS2{r in REGION, l in TIMESLICE, f in FUEL, y in YEAR}: sum{(m,t) in MODExTECHNOLOGYperFUELin[f]} RateOfActivity[r,l,t,m,y]*InputActivityRatio[r,t,f,m,y]*YearSplit[l,y] = Use[r,l,f,y];
+s.t. EBa9_EnergyBalanceEachTS3{r in REGION, l in TIMESLICE, f in FUEL, y in YEAR}: SpecifiedAnnualDemand[r,f,y]*SpecifiedDemandProfile[r,f,l,y] = Demand[r,l,f,y];
+s.t. EBa10_EnergyBalanceEachTS4{r in REGION, rr in REGION, l in TIMESLICE, f in FUEL, y in YEAR}: Trade[r,rr,l,f,y] = -Trade[rr,r,l,f,y];
+s.t. EBa11_EnergyBalanceEachTS5{r in REGION, l in TIMESLICE, f in FUEL, y in YEAR}: sum{(m,t) in MODExTECHNOLOGYperFUELout[f]} RateOfActivity[r,l,t,m,y]*OutputActivityRatio[r,t,f,m,y]*YearSplit[l,y] >= SpecifiedAnnualDemand[r,f,y]*SpecifiedDemandProfile[r,f,l,y] + sum{(m,t) in MODExTECHNOLOGYperFUELin[f]} RateOfActivity[r,l,t,m,y]*InputActivityRatio[r,t,f,m,y]*YearSplit[l,y] + sum{rr in REGION} Trade[r,rr,l,f,y]*TradeRoute[r,rr,f,y];
 #
 #########                Energy Balance B                         #############
 #
-#s.t. EBb1_EnergyBalanceEachYear1{r in REGION, f in COMMODITY, y in YEAR}: sum{(m,t) in MODExTECHNOLOGYperFUELout[f], l in TIMESLICE} RateOfActivity[r,l,t,m,y]*OutputActivityRatio[r,t,f,m,y]*YearSplit[l,y] = ProductionAnnual[r,f,y];
-#s.t. EBb2_EnergyBalanceEachYear2{r in REGION, f in COMMODITY, y in YEAR}: sum{(m,t) in MODExTECHNOLOGYperFUELin[f], l in TIMESLICE} RateOfActivity[r,l,t,m,y]*InputActivityRatio[r,t,f,m,y]*YearSplit[l,y] = UseAnnual[r,f,y];
-#s.t. EBb3_EnergyBalanceEachYear3{r in REGION, rr in REGION, f in COMMODITY, y in YEAR}: sum{l in TIMESLICE} Trade[r,rr,l,f,y] = TradeAnnual[r,rr,f,y];
-s.t. EBb4_EnergyBalanceEachYear4{r in REGION, f in COMMODITY, y in YEAR}: sum{(m,t) in MODExTECHNOLOGYperFUELout[f], l in TIMESLICE} RateOfActivity[r,l,t,m,y]*OutputActivityRatio[r,t,f,m,y]*YearSplit[l,y] >= sum{(m,t) in MODExTECHNOLOGYperFUELin[f], l in TIMESLICE} RateOfActivity[r,l,t,m,y]*InputActivityRatio[r,t,f,m,y]*YearSplit[l,y] + sum{l in TIMESLICE, rr in REGION} Trade[r,rr,l,f,y]*TradeRoute[r,rr,f,y] + AccumulatedAnnualDemand[r,f,y];
+#s.t. EBb1_EnergyBalanceEachYear1{r in REGION, f in FUEL, y in YEAR}: sum{(m,t) in MODExTECHNOLOGYperFUELout[f], l in TIMESLICE} RateOfActivity[r,l,t,m,y]*OutputActivityRatio[r,t,f,m,y]*YearSplit[l,y] = ProductionAnnual[r,f,y];
+#s.t. EBb2_EnergyBalanceEachYear2{r in REGION, f in FUEL, y in YEAR}: sum{(m,t) in MODExTECHNOLOGYperFUELin[f], l in TIMESLICE} RateOfActivity[r,l,t,m,y]*InputActivityRatio[r,t,f,m,y]*YearSplit[l,y] = UseAnnual[r,f,y];
+#s.t. EBb3_EnergyBalanceEachYear3{r in REGION, rr in REGION, f in FUEL, y in YEAR}: sum{l in TIMESLICE} Trade[r,rr,l,f,y] = TradeAnnual[r,rr,f,y];
+s.t. EBb4_EnergyBalanceEachYear4{r in REGION, f in FUEL, y in YEAR}: sum{(m,t) in MODExTECHNOLOGYperFUELout[f], l in TIMESLICE} RateOfActivity[r,l,t,m,y]*OutputActivityRatio[r,t,f,m,y]*YearSplit[l,y] >= sum{(m,t) in MODExTECHNOLOGYperFUELin[f], l in TIMESLICE} RateOfActivity[r,l,t,m,y]*InputActivityRatio[r,t,f,m,y]*YearSplit[l,y] + sum{l in TIMESLICE, rr in REGION} Trade[r,rr,l,f,y]*TradeRoute[r,rr,f,y] + AccumulatedAnnualDemand[r,f,y];
 #
 #########                Accounting Technology Production/Use        #############
 #
-#s.t. Acc1_FuelProductionByTechnology{r in REGION, l in TIMESLICE, t in TECHNOLOGY, f in COMMODITY, y in YEAR}: sum{m in MODEperTECHNOLOGY[t]} RateOfActivity[r,l,t,m,y]*OutputActivityRatio[r,t,f,m,y] * YearSplit[l,y] = ProductionByTechnology[r,l,t,f,y];
-#s.t. Acc2_FuelUseByTechnology{r in REGION, l in TIMESLICE, t in TECHNOLOGY, f in COMMODITY, y in YEAR}: sum{m in MODEperTECHNOLOGY[t]} RateOfActivity[r,l,t,m,y]*InputActivityRatio[r,t,f,m,y] * YearSplit[l,y] = UseByTechnology[r,l,t,f,y];
+#s.t. Acc1_FuelProductionByTechnology{r in REGION, l in TIMESLICE, t in TECHNOLOGY, f in FUEL, y in YEAR}: sum{m in MODEperTECHNOLOGY[t]} RateOfActivity[r,l,t,m,y]*OutputActivityRatio[r,t,f,m,y] * YearSplit[l,y] = ProductionByTechnology[r,l,t,f,y];
+#s.t. Acc2_FuelUseByTechnology{r in REGION, l in TIMESLICE, t in TECHNOLOGY, f in FUEL, y in YEAR}: sum{m in MODEperTECHNOLOGY[t]} RateOfActivity[r,l,t,m,y]*InputActivityRatio[r,t,f,m,y] * YearSplit[l,y] = UseByTechnology[r,l,t,f,y];
 s.t. Acc3_AverageAnnualRateOfActivity{r in REGION, t in TECHNOLOGY, m in MODEperTECHNOLOGY[t], y in YEAR}: sum{l in TIMESLICE} RateOfActivity[r,l,t,m,y]*YearSplit[l,y] = TotalAnnualTechnologyActivityByMode[r,t,m,y];
 #s.t. Acc4_ModelPeriodCostByRegion{r in REGION}:sum{t in TECHNOLOGY, y in YEAR}(((((sum{yy in YEAR: y-yy < OperationalLife[r,t] && y-yy>=0} NewCapacity[r,t,yy])+ ResidualCapacity[r,t,y])*FixedCost[r,t,y] + sum{m in MODEperTECHNOLOGY[t], l in TIMESLICE} RateOfActivity[r,l,t,m,y]*YearSplit[l,y]*VariableCost[r,t,m,y])/((1+DiscountRate[r])^(y-min{yy in YEAR} min(yy)+0.5))+CapitalCost[r,t,y] * NewCapacity[r,t,y]/((1+DiscountRate[r])^(y-min{yy in YEAR} min(yy)))+DiscountedTechnologyEmissionsPenalty[r,t,y]-DiscountedSalvageValue[r,t,y]) + sum{s in STORAGE} (CapitalCostStorage[r,s,y] * NewStorageCapacity[r,s,y]/((1+DiscountRate[r])^(y-min{yy in YEAR} min(yy)))-DiscountedSalvageValueStorage[r,s,y])) = ModelPeriodCostByRegion[r];
 #
@@ -389,8 +389,8 @@ s.t. S11_and_S12_StorageLevelDayTypeStart{r in REGION, s in STORAGE, ls in SEASO
 #    then StorageLevelSeasonStart[r,s,ls+1,y]
 #    else StorageLevelDayTypeFinish[r,s,ls,ld+1,y] - sum{lh in DAILYTIMEBRACKET} (((sum{(m,t) in MODExTECHNOLOGYperSTORAGEto[s], l in TIMESLICEofSDB[ls,ld+1,lh]} RateOfActivity[r,l,t,m,y] * TechnologyToStorage[r,t,s,m]) - (sum{(m,t) in MODExTECHNOLOGYperSTORAGEfrom[s], l in TIMESLICEofSDB[ls,ld+1,lh]} RateOfActivity[r,l,t,m,y] * TechnologyFromStorage[r,t,s,m])) * DaySplit[lh,y]) * DaysInDayType[ls,ld+1,y]
 s.t. S30_StorageLevelYearStart2{r in REGION, s in STORAGE, y in YEAR,l in TIMESLICE}:	StorageLevelYearStart[r,s,y]  = 0.5*AccumulatedNewStorageCapacity[r,s,y];
-s.t. S39_StorageIntraday{r in REGION, s in STORAGEINTRADAY, ls in SEASON, ld in DAYTYPE, y in YEAR}: sum{lh in DAILYTIMEBRACKET} (NetChargeWithinDay[r,s,ls,ld,lh,y])=0;
-s.t. S39_StorageIntrayear{r in REGION, s in STORAGEINTRAYEAR, y in YEAR}: sum{ls in SEASON, ld in DAYTYPE, lh in DAILYTIMEBRACKET} (NetChargeWithinYear[r,s,ls,ld,lh,y])=0;
+#s.t. S39_StorageIntraday{r in REGION, s in STORAGEINTRADAY, ls in SEASON, ld in DAYTYPE, y in YEAR}: sum{lh in DAILYTIMEBRACKET} (NetChargeWithinDay[r,s,ls,ld,lh,y])=0;
+#s.t. S39_StorageIntrayear{r in REGION, s in STORAGEINTRAYEAR, y in YEAR}: sum{ls in SEASON, ld in DAYTYPE, lh in DAILYTIMEBRACKET} (NetChargeWithinYear[r,s,ls,ld,lh,y])=0;
 #
 ##########                Storage Constraints                                #############
 #
@@ -468,17 +468,17 @@ s.t. TAC1_TotalModelHorizonTechnologyActivity{r in REGION, t in TECHNOLOGY}: sum
 #
 #########                   Reserve Margin Constraint        ############## NTS: Should change demand for production
 #
-s.t. RM3_ReserveMargin_Constraint{r in REGION, l in TIMESLICE, y in YEAR}: sum{f in COMMODITY, (m,t) in MODExTECHNOLOGYperFUELout[f]} RateOfActivity[r,l,t,m,y]*OutputActivityRatio[r,t,f,m,y] * ReserveMarginTagFuel[r,f,y] * ReserveMargin[r,y]<= sum {t in TECHNOLOGY} ((sum{yy in YEAR: y-yy < OperationalLife[r,t] && y-yy>=0} NewCapacity[r,t,yy])+ ResidualCapacity[r,t,y]) * ReserveMarginTagTechnology[r,t,y] * CapacityToActivityUnit[r,t];
+s.t. RM3_ReserveMargin_Constraint{r in REGION, l in TIMESLICE, y in YEAR}: sum{f in FUEL, (m,t) in MODExTECHNOLOGYperFUELout[f]} RateOfActivity[r,l,t,m,y]*OutputActivityRatio[r,t,f,m,y] * ReserveMarginTagFuel[r,f,y] * ReserveMargin[r,y]<= sum {t in TECHNOLOGY} ((sum{yy in YEAR: y-yy < OperationalLife[r,t] && y-yy>=0} NewCapacity[r,t,yy])+ ResidualCapacity[r,t,y]) * ReserveMarginTagTechnology[r,t,y] * CapacityToActivityUnit[r,t];
 #s.t. RM1_ReserveMargin_TechnologiesIncluded_In_Activity_Units{r in REGION, l in TIMESLICE, y in YEAR}: sum {t in TECHNOLOGY} ((sum{yy in YEAR: y-yy < OperationalLife[r,t] && y-yy>=0} NewCapacity[r,t,yy])+ ResidualCapacity[r,t,y]) * ReserveMarginTagTechnology[r,t,y] * CapacityToActivityUnit[r,t]         =         TotalCapacityInReserveMargin[r,y];
-#s.t. RM2_ReserveMargin_FuelsIncluded{r in REGION, l in TIMESLICE, y in YEAR}:  sum{(m,t) in MODExTECHNOLOGYperFUELout[f], f in COMMODITY} RateOfActivity[r,l,t,m,y]*OutputActivityRatio[r,t,f,m,y] * ReserveMarginTagFuel[r,f,y] = DemandNeedingReserveMargin[r,l,y];
+#s.t. RM2_ReserveMargin_FuelsIncluded{r in REGION, l in TIMESLICE, y in YEAR}:  sum{(m,t) in MODExTECHNOLOGYperFUELout[f], f in FUEL} RateOfActivity[r,l,t,m,y]*OutputActivityRatio[r,t,f,m,y] * ReserveMarginTagFuel[r,f,y] = DemandNeedingReserveMargin[r,l,y];
 #
 #########                   RE Production Target                ############## NTS: Should change demand for production
 #
-s.t. RE4_EnergyConstraint{r in REGION, y in YEAR}:REMinProductionTarget[r,y]*sum{l in TIMESLICE, f in COMMODITY} sum{(m,t) in MODExTECHNOLOGYperFUELout[f]} RateOfActivity[r,l,t,m,y]*OutputActivityRatio[r,t,f,m,y]*RETagFuel[r,f,y] <= sum{f in COMMODITY, (m,t) in MODExTECHNOLOGYperFUELout[f], l in TIMESLICE} RateOfActivity[r,l,t,m,y]*OutputActivityRatio[r,t,f,m,y] * YearSplit[l,y]*RETagTechnology[r,t,y];
-#s.t. RE1_FuelProductionByTechnologyAnnual{r in REGION, t in TECHNOLOGY, f in COMMODITY, y in YEAR}: sum{m in MODEperTECHNOLOGY[t], l in TIMESLICE} RateOfActivity[r,l,t,m,y]*OutputActivityRatio[r,t,f,m,y] * YearSplit[l,y] = ProductionByTechnologyAnnual[r,t,f,y];
-#s.t. RE2_TechIncluded{r in REGION, y in YEAR}: sum{m in MODEperTECHNOLOGY[t], l in TIMESLICE, t in TECHNOLOGY, f in COMMODITY} RateOfActivity[r,l,t,m,y]*OutputActivityRatio[r,t,f,m,y] * YearSplit[l,y]*RETagTechnology[r,t,y] = TotalREProductionAnnual[r,y];
-#s.t. RE3_FuelIncluded{r in REGION, y in YEAR}: sum{l in TIMESLICE, f in COMMODITY} sum{(m,t) in MODExTECHNOLOGYperFUELout[f]} RateOfActivity[r,l,t,m,y]*OutputActivityRatio[r,t,f,m,y]*RETagFuel[r,f,y] = RETotalProductionOfTargetFuelAnnual[r,y];
-#s.t. RE5_FuelUseByTechnologyAnnual{r in REGION, t in TECHNOLOGY, f in COMMODITY, y in YEAR}: sum{m in MODEperTECHNOLOGY[t], l in TIMESLICE} RateOfActivity[r,l,t,m,y]*InputActivityRatio[r,t,f,m,y]*YearSplit[l,y] = UseByTechnologyAnnual[r,t,f,y];
+s.t. RE4_EnergyConstraint{r in REGION, y in YEAR}:REMinProductionTarget[r,y]*sum{l in TIMESLICE, f in FUEL} sum{(m,t) in MODExTECHNOLOGYperFUELout[f]} RateOfActivity[r,l,t,m,y]*OutputActivityRatio[r,t,f,m,y]*RETagFuel[r,f,y] <= sum{f in FUEL, (m,t) in MODExTECHNOLOGYperFUELout[f], l in TIMESLICE} RateOfActivity[r,l,t,m,y]*OutputActivityRatio[r,t,f,m,y] * YearSplit[l,y]*RETagTechnology[r,t,y];
+#s.t. RE1_FuelProductionByTechnologyAnnual{r in REGION, t in TECHNOLOGY, f in FUEL, y in YEAR}: sum{m in MODEperTECHNOLOGY[t], l in TIMESLICE} RateOfActivity[r,l,t,m,y]*OutputActivityRatio[r,t,f,m,y] * YearSplit[l,y] = ProductionByTechnologyAnnual[r,t,f,y];
+#s.t. RE2_TechIncluded{r in REGION, y in YEAR}: sum{m in MODEperTECHNOLOGY[t], l in TIMESLICE, t in TECHNOLOGY, f in FUEL} RateOfActivity[r,l,t,m,y]*OutputActivityRatio[r,t,f,m,y] * YearSplit[l,y]*RETagTechnology[r,t,y] = TotalREProductionAnnual[r,y];
+#s.t. RE3_FuelIncluded{r in REGION, y in YEAR}: sum{l in TIMESLICE, f in FUEL} sum{(m,t) in MODExTECHNOLOGYperFUELout[f]} RateOfActivity[r,l,t,m,y]*OutputActivityRatio[r,t,f,m,y]*RETagFuel[r,f,y] = RETotalProductionOfTargetFuelAnnual[r,y];
+#s.t. RE5_FuelUseByTechnologyAnnual{r in REGION, t in TECHNOLOGY, f in FUEL, y in YEAR}: sum{m in MODEperTECHNOLOGY[t], l in TIMESLICE} RateOfActivity[r,l,t,m,y]*InputActivityRatio[r,t,f,m,y]*YearSplit[l,y] = UseByTechnologyAnnual[r,t,f,y];
 #
 #########                   Emissions Accounting                ##############
 #
@@ -521,13 +521,13 @@ solve;
 #table tout {r in REGION, t in TECHNOLOGY, e in EMISSION, m in MODE_OF_OPERATION, y in YEAR} OUT "CSV" "res/csv/AnnualTechnologyEmissionByMode.csv" : r, t, e, m, y, AnnualTechnologyEmissionByMode[r, t, e, m, y];
 #table tout {r in REGION, t in TECHNOLOGY, y in YEAR} OUT "CSV" "res/csv/AnnualVariableOperatingCost.csv" : r, t, y, AnnualVariableOperatingCost[r, t, y];
 #table tout {r in REGION, t in TECHNOLOGY, y in YEAR} OUT "CSV" "res/csv/CapitalInvestment.csv" : r, t, y, CapitalInvestment[r, t, y];
-#table tout {r in REGION, l in TIMESLICE, f in COMMODITY, y in YEAR} OUT "CSV" "res/csv/Demand.csv" : r, l, f, y, Demand[r, l, f, y];
+#table tout {r in REGION, l in TIMESLICE, f in FUEL, y in YEAR} OUT "CSV" "res/csv/Demand.csv" : r, l, f, y, Demand[r, l, f, y];
 #table tout {r in REGION, t in TECHNOLOGY, y in YEAR} OUT "CSV" "res/csv/DiscountedSalvageValue.csv" : r, t, y, DiscountedSalvageValue[r, t, y];
 #table tout {r in REGION, t in TECHNOLOGY, y in YEAR} OUT "CSV" "res/csv/DiscountedTechnologyEmissionsPenalty.csv" : r, t, y, DiscountedTechnologyEmissionsPenalty[r, t, y];
 #table tout {r in REGION, t in TECHNOLOGY, y in YEAR} OUT "CSV" "res/csv/NewCapacity.csv" : r, t, y, NewCapacity[r, t, y];
 #table tout {r in REGION, s in STORAGE, y in YEAR} OUT "CSV" "res/csv/NewStorageCapacity.csv" : r, s, y, NewStorageCapacity[r, s, y];
 #table tout {r in REGION, t in TECHNOLOGY, y in YEAR} OUT "CSV" "res/csv/NumberOfNewTechnologyUnits.csv" : r, t, y, NumberOfNewTechnologyUnits[r, t, y];
-#table tout {r in REGION, t in TECHNOLOGY, f in COMMODITY, y in YEAR} OUT "CSV" "res/csv/ProductionByTechnologyAnnual.csv" : r, t, f, y, ProductionByTechnologyAnnual[r, t, f, y];
+#table tout {r in REGION, t in TECHNOLOGY, f in FUEL, y in YEAR} OUT "CSV" "res/csv/ProductionByTechnologyAnnual.csv" : r, t, f, y, ProductionByTechnologyAnnual[r, t, f, y];
 #table tout {r in REGION, l in TIMESLICE, t in TECHNOLOGY, m in MODE_OF_OPERATION, y in YEAR} OUT "CSV" "res/csv/RateOfActivity.csv" : r, l, t, m, y, RateOfActivity[r, l, t, m, y];
 #table tout {r in REGION, t in TECHNOLOGY, l in TIMESLICE, y in YEAR} OUT "CSV" "res/csv/RateOfTotalActivity.csv" : r, t, l, y, RateOfTotalActivity[r, t, l, y];
 #table tout {r in REGION, t in TECHNOLOGY, y in YEAR} OUT "CSV" "res/csv/SalvageValue.csv" : r, t, y, SalvageValue[r, t, y];
@@ -536,8 +536,8 @@ solve;
 #table tout {r in REGION, t in TECHNOLOGY, y in YEAR} OUT "CSV" "res/csv/TotalCapacityAnnual.csv" : r, t, y, TotalCapacityAnnual[r, t, y];
 #table tout {r in REGION, t in TECHNOLOGY, y in YEAR} OUT "CSV" "res/csv/TotalTechnologyAnnualActivity.csv" : r, t, y, TotalTechnologyAnnualActivity[r, t, y];
 #table tout {r in REGION, t in TECHNOLOGY} OUT "CSV" "res/csv/TotalTechnologyModelPeriodActivity.csv" : r, t, TotalTechnologyModelPeriodActivity[r, t];
-#table tout {r in REGION, rr in REGION, l in TIMESLICE, f in COMMODITY, y in YEAR} OUT "CSV" "res/csv/Trade.csv" : r, rr, l, f, y, Trade[r, rr, l, f, y];
-#table tout {r in REGION, l in TIMESLICE, t in TECHNOLOGY, f in COMMODITY, y in YEAR} OUT "CSV" "res/csv/UseByTechnology.csv" : r, l, t, f, y, UseByTechnology[r, l, t, f, y];
-#table tout {r in REGION, l in TIMESLICE, t in TECHNOLOGY, f in COMMODITY, y in YEAR} OUT "CSV" "res/csv/ProductionByTechnology.csv" : r, l, t, f, y, ProductionByTechnology[r, l, t, f, y];
+#table tout {r in REGION, rr in REGION, l in TIMESLICE, f in FUEL, y in YEAR} OUT "CSV" "res/csv/Trade.csv" : r, rr, l, f, y, Trade[r, rr, l, f, y];
+#table tout {r in REGION, l in TIMESLICE, t in TECHNOLOGY, f in FUEL, y in YEAR} OUT "CSV" "res/csv/UseByTechnology.csv" : r, l, t, f, y, UseByTechnology[r, l, t, f, y];
+#table tout {r in REGION, l in TIMESLICE, t in TECHNOLOGY, f in FUEL, y in YEAR} OUT "CSV" "res/csv/ProductionByTechnology.csv" : r, l, t, f, y, ProductionByTechnology[r, l, t, f, y];
 #
 end;
