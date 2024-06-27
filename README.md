@@ -33,10 +33,15 @@ b.	Disaggregated model, in which the level of spatial resolution will extend to 
 
 ## Energy module
 Five overarching sectors are developed to represent the broader energy system. Each of these will include a large set of technologies to capture the current status of energy mix, as well as future technology options for decarbonisation. A simplified representation of the structure of the energy module is provided in Figure 1. Specifically, the following sectors will be modelled:
+
 a)	Primary energy supply – this relates to fossil fuel supply, nuclear fuel supply, renewable energy potential and hydrogen imports. Primary energy supply and transformation infrastructure (e.g., gas pipelines, LNG regasification terminals, oil refineries, etc.) will not be modelled explicitly, with the only exception of electricity interconnectors between countries in the disaggregated version of the CLEWs-EU model. Supply of biomass into the energy system will occur via an interlinkage with the land module of the model.
+
 b)	Electricity and heat generation – fossil fuel, nuclear and renewable energy technologies will be represented, along with a simplified representation of grid networks to capture associated losses. Additional technology options to be represented include electricity storage, use of Carbon Capture and Storage (CCS) technologies, electrolysers for the production of green hydrogen; hydrogen production will also be possible through steam methane reforming (i.e., using natural gas as feedstock) with or without CCS. 
+
 c)	Transport – the transport sector will include road transport, which will be further broken down to passenger (passenger cars and buses) and freight (light commercial vans and heavy trucks), rail transport (passenger and freight), aviation and shipping. 
+
 d)	Buildings – this sector basically comprises of the households and service sectors. It will be broken down into end-use services (i.e., space heating, space cooling, cooking, sanitary hot water, lighting and appliances).
+
 e)	Industry – the five most energy intensive industries – a considerable variation exists according to the latest energy balances – will be represented separately for each country, while the rest of the industries will be lumped together in a sixth category . The output of each of the industries will be represented in generic terms (i.e., PJ of energy services).
 
 ![image](https://github.com/vignesh1987/EU-CLEWS/assets/148845953/663686cc-87ab-4ef3-be1b-286e56236da5)
@@ -48,13 +53,18 @@ The water and land use modules are effectively interlinked in nature. Though we 
 Figure 2 represents a diagrammatic illustration of the land component within a general CLEWs systems framework. The diagram breaks down "Total land" into various land uses and their subsequent products or services.
 
 Land Uses: 
+
 This includes various classifications of land such as Cropland, Barren land, Forests, Pastures/Grasslands, Built-up land, and Water bodies. Each category of land use is dedicated to a specific type of production or ecosystem service.
 
 Production:
 From each type of land use, there is also a corresponding output:
+
 •	Cropland is associated with the production of agricultural commodities like Maize, Rice, Coffee, Sugarcane, Bananas, and other crops.
+
 •	Forests contribute to the production of wood and other forest products.
+
 •	Pastures and Grasslands are tied to the production of meat and dairy, implying livestock farming.
+
 •	Built-up land is related to residential, industrial, commercial, and transport services, indicating areas of human development and infrastructure.
 The arrows indicate the flow from land use to the type of production. The diagram encapsulates the interconnectedness of land use with various economic and environmental outputs, emphasising the integrated approach of the CLEWs framework where changes or policies affecting land use have cascading effects on food, energy, water, and ecosystem services.
 
@@ -64,9 +74,13 @@ Figure 2. Primary level of land categories breakdown in the land module.
 
 A more complex system diagram is illustrated in Figure 3 and portrays how the CLEWs-EU land and water modules will be represented, along with key interactions with the energy module. 
 The diagram is organised into several columns, each representing different components of the CLEWs systems:
+
 •	Land Use (left-most column): This column lists various types of land uses such as agricultural land (which will be divided into up to 10 different crop types), barren land, forests, built-up land, and water bodies. Each land type is linked to specific outputs, i.e., specific crops and the different aspects of the water system. 
+
 •	Precipitation and Sea Water (bottom rows and centre columns): This section details the sources (precipitation and sea water) and uses of water, distinguishing between surface water and groundwater, and their respective uses in agriculture, power generation (PWR), and other needs.
+
 •	Energy Supply and Use (top right box): The diagram includes simplified forms of electricity generation, to show how these energy sources contribute to meeting the demands of different sectors, including transport, meat processing, and the transport and distribution (T&D) of water resources.
+
 •	Interlinkages (arrows and lines): The arrows and lines represent the flow of resources and interconnections between the land, water, and energy components. For example, water from different sources is used for land irrigation, electricity generation requires water for cooling, and agriculture produces biofuels.
 
 ![image](https://github.com/vignesh1987/EU-CLEWS/assets/148845953/2716755e-5f45-4781-8196-ebfa53832f5d)
