@@ -57,6 +57,7 @@ Land Uses:
 This includes various classifications of land such as Cropland, Barren land, Forests, Pastures/Grasslands, Built-up land, and Water bodies. Each category of land use is dedicated to a specific type of production or ecosystem service.
 
 Production:
+
 From each type of land use, there is also a corresponding output:
 
 •	Cropland is associated with the production of agricultural commodities like Maize, Rice, Coffee, Sugarcane, Bananas, and other crops.
