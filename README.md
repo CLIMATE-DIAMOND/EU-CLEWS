@@ -31,7 +31,7 @@ Two levels of geographical resolution will be adopted:
 a.	Aggregated regional model, in which the EU will be represented as a single node, serving as an engagement model, upon which capacity development activities on EU climate policy can be developed due to its simplified structure and low computational effort. Coupled with the adoption of a user-friendly interface, enabling direct changes in model parameters and visualisation of the system dynamics, it will allow the exploration of climate change mitigation pathways by a broad range of stakeholders. This will ensure consistency with the philosophy behind the initial development of the Global CLEWs model. 
 b.	Disaggregated model, in which the level of spatial resolution will extend to the national level, to be used for more extensive analyses. Unlike the high-level focus of the aggregated model, the disaggregated model will be able to provide more focused insights and can be used to support development of national policies within the context of mutual EU obligations/targets. As expected, the disaggregated model will require a larger volume of input data compared to the aggregated model.
 
-# Energy module
+## Energy module
 Five overarching sectors are developed to represent the broader energy system. Each of these will include a large set of technologies to capture the current status of energy mix, as well as future technology options for decarbonisation. A simplified representation of the structure of the energy module is provided in Figure 1. Specifically, the following sectors will be modelled:
 a)	Primary energy supply – this relates to fossil fuel supply, nuclear fuel supply, renewable energy potential and hydrogen imports. Primary energy supply and transformation infrastructure (e.g., gas pipelines, LNG regasification terminals, oil refineries, etc.) will not be modelled explicitly, with the only exception of electricity interconnectors between countries in the disaggregated version of the CLEWs-EU model. Supply of biomass into the energy system will occur via an interlinkage with the land module of the model.
 b)	Electricity and heat generation – fossil fuel, nuclear and renewable energy technologies will be represented, along with a simplified representation of grid networks to capture associated losses. Additional technology options to be represented include electricity storage, use of Carbon Capture and Storage (CCS) technologies, electrolysers for the production of green hydrogen; hydrogen production will also be possible through steam methane reforming (i.e., using natural gas as feedstock) with or without CCS. 
@@ -40,6 +40,7 @@ d)	Buildings – this sector basically comprises of the households and service s
 e)	Industry – the five most energy intensive industries – a considerable variation exists according to the latest energy balances – will be represented separately for each country, while the rest of the industries will be lumped together in a sixth category . The output of each of the industries will be represented in generic terms (i.e., PJ of energy services).
 
 ![image](https://github.com/vignesh1987/EU-CLEWS/assets/148845953/663686cc-87ab-4ef3-be1b-286e56236da5)
+
 Figure 1. Simplified representation of CLEWs-EU energy module.
 
 # Land and water module
@@ -58,6 +59,7 @@ From each type of land use, there is also a corresponding output:
 The arrows indicate the flow from land use to the type of production. The diagram encapsulates the interconnectedness of land use with various economic and environmental outputs, emphasising the integrated approach of the CLEWs framework where changes or policies affecting land use have cascading effects on food, energy, water, and ecosystem services.
 
 ![image](https://github.com/vignesh1987/EU-CLEWS/assets/148845953/98c9b0bf-5dec-4366-9d62-425e961a800b)
+
 Figure 2. Primary level of land categories breakdown in the land module.
 
 A more complex system diagram is illustrated in Figure 3 and portrays how the CLEWs-EU land and water modules will be represented, along with key interactions with the energy module. 
@@ -68,4 +70,5 @@ The diagram is organised into several columns, each representing different compo
 •	Interlinkages (arrows and lines): The arrows and lines represent the flow of resources and interconnections between the land, water, and energy components. For example, water from different sources is used for land irrigation, electricity generation requires water for cooling, and agriculture produces biofuels.
 
 ![image](https://github.com/vignesh1987/EU-CLEWS/assets/148845953/2716755e-5f45-4781-8196-ebfa53832f5d)
+
 Figure 3. Simplified representation of CLEWs-EU land and water modules and illustration of key interactions with the energy module.
