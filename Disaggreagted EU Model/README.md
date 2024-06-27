@@ -1,4 +1,4 @@
-#Dis-aggregated EU-CLEWs model
+# Disaggregated EU-CLEWs model
 
 This folder contains the model, data files and associated scripts that are used for setting up the Dis-aggregated EU-CLEWs model. please refer to the individual folders for the respective contents. 
 
