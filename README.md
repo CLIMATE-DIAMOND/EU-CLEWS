@@ -1,6 +1,6 @@
 # EU-CLEWS
 This repository contains the EU-CLEWs model development work carried out under the Horizon-DIAMOND project. 
-This reposiroty is a work in progress. It has two main sections: The Aggregated EU CLEWs model and the Diaggregated CLEWs model. The later is yet to be started. The former is being developed and is ints fial stages of development.
+The repository is a work in progress. It has two main sections: The Aggregated EU CLEWs model and the Diaggregated EU CLEWs model. The later, a detailed country level modelling work, is yet to be started. The former, a single node aggregated model for teh whole EU, is being developed and is its final stages of development.
 
 # Land-Water Modules
 
