@@ -1,5 +1,5 @@
-# EU-CLEWS
-This repository contains the EU-CLEWs model development work carried out under the Horizon-DIAMOND project. 
+# CLEWS-EU
+This repository contains the CLEWs-EU model development work carried out under the Horizon-DIAMOND project. 
 The repository is a work in progress. It has two main sections: The Aggregated EU CLEWs model and the Diaggregated EU CLEWs model. The later, a detailed country level modelling work, is yet to be started. The former, a single node aggregated model for the EU27 countries, is being developed and is its final stages of development.
 
 # Structure of CLEWs-EU
