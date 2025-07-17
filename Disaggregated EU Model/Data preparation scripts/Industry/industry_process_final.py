@@ -988,7 +988,7 @@ for k in countries.index:
     energy_intensity_df.to_csv(path_dir_export + '/Energy_Intensity.csv')
         
     # Intensity projections
-    path_dir_sup = 'C:/Users/m.karmellos/OneDrive - The Cyprus Institute/Research/Projects/Horizon projects/Horizon Europe/DIAMOND/04 Data/Industry/'
+    path_dir_sup = '' # Insert respective path
     supplemantary_data_file = 'Supplementary data for industry projections.xlsx'
     sheet_efficiency = 'Efficiency'
     
