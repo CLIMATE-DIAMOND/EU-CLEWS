@@ -1,0 +1,36 @@
+# Industrial sector
+Representation of industry in the CLEWs-EU model is largely based on data retrieved from the JRC-IDEES 2021 database. Specifically, the database provides statistics on the final energy demand and useful energy demand for each sector by process and by technology/fuel for the period 2000-2021, but for the purposes of CLEWs-EU, we only focused on the period 2018-2021. As a first step, the key industrial sectors in each country are identified based on the level of final energy demand in 2021 (see Table 1 below); for each country up to 4 main sectors are represented separately, while the rest of the sectors are aggregated into an “Other industrial sectors” category. In countries where industrial energy demand is low, the number of sectors represented is lower (e.g., Cyprus, Luxembourg, Malta etc.). As mentioned above, the output of each of the industries is represented in generic energy terms (i.e., PJ of useful energy services). As data becomes available in the future after completion of the DIAMOND project, more explicit representation of key industries can be pursued.
+Table 2. Industrial sector representation in the disaggregated CLEWs-EU version.
+Country	ISI	NFM	CHI	NMM	PPA	FBT	TRE	MAE	TEL	WWP	OIS
+AT	X		X	X	X						X
+BE	X		X	X		X					X
+BG		X	X	X		X					X
+CY				X		X					X
+CZ	X		X	X	X						X
+DE	X		X	X	X						X
+DK			X	X		X		X			X
+EE					X	X		X		X	X
+GR	X	X		X		X					X
+ES	X		X	X		X					X
+FI	X		X		X					X	X
+FR			X	X	X	X					X
+HR			X	X	X	X					X
+HU			X	X		X		X			X
+IE		X	X	X		X					X
+IT	X		X	X				X			X
+LT			X	X		X				X	X
+LU	X			X							X
+LV				X		X				X	X
+MT											X
+NL	X		X	X		X					X
+PL	X		X	X		X					X
+PT			X	X	X	X					X
+RO	X	X	X	X							X
+SE	X		X		X	X					X
+SI	X		X	X				X			X
+SK	X		X	X	X						X
+_Note: The industrial sectors represented are the following: Iron and Steel (ISI), Non-ferrous metals (NFM), Chemical industry (CHI), Non-metallic minerals (NMM), Pulp, paper and printing (PPA), Food, beverages and tobacco (FBT), Transport equipment (TRE), Machinery equipment (MAE), Textiles and leather (TEL), Wood and wood products (WWP), Other industrial sectors (OIS)_.
+
+Data on final energy demand and useful energy demand are aggregated for each fuel category in each of the represented sectors and an efficiency is calculated for the years 2018-2021. Specifically, the technological/fuel options for satisfaction of demand for useful energy are the following:
+- Thermal energy – coal (with and without CCS), oil, natural gas (with and without CCS), biomass/biofuels, hydrogen, solar thermal, centralised steam, electricity.
+- Electrical processes (lighting, motor drives etc.) – electricity.
