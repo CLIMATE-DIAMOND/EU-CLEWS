@@ -3,6 +3,7 @@ Representation of industry in the CLEWs-EU model is largely based on data retrie
 
 Table 2. Industrial sector representation in the disaggregated CLEWs-EU version.
 <img width="673" height="703" alt="image" src="https://github.com/user-attachments/assets/8789d137-7e45-4daa-96f2-41bd9a28c643" />
+
 _Note: The industrial sectors represented are the following: Iron and Steel (ISI), Non-ferrous metals (NFM), Chemical industry (CHI), Non-metallic minerals (NMM), Pulp, paper and printing (PPA), Food, beverages and tobacco (FBT), Transport equipment (TRE), Machinery equipment (MAE), Textiles and leather (TEL), Wood and wood products (WWP), Other industrial sectors (OIS)_.
 
 Data on final energy demand and useful energy demand are aggregated for each fuel category in each of the represented sectors and an efficiency is calculated for the years 2018-2021. Specifically, the technological/fuel options for satisfaction of demand for useful energy are the following:
