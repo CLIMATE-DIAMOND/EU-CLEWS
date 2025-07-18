@@ -1,0 +1,7 @@
+#Buildings sector
+The buildings module represents the residential and commercial services sectors, for four primary end-uses: heating (i.e., space heating & hot water), space cooling, cooking and electrical appliances. 
+For space heating, the module incorporates a number of technologies to reflect the heterogeneity of heating systems in buildings. These include solid fuel furnaces for solid fuels, oil boilers for LPG and gas/diesel oil, gas-based systems (including gas heat pumps and heaters), biomass boilers for biomass and waste, district heating systems, heat pumps (indicated as advanced electric heating in the JRC-IDEES 2021 database), electric furnaces (representing conventional electric heating and circulation systems), and solar thermal installations.
+Space cooling is represented by electric space cooling systems due the predominance of electricity-based cooling technologies in both residential and commercial buildings. Cooking is represented using three primary technologies: LPG stoves, gas stoves, and electric stoves, capturing the most common cooking appliances across the sectors. Lighting and electrical appliances are treated as a single, aggregated category without further technological disaggregation. 
+
+<img width="1079" height="623" alt="image" src="https://github.com/user-attachments/assets/95e7eb59-95f3-429a-bffd-1e0f0a1d3be5" />
+Simplified representation of CLEWs-EU buildings module Reference Energy System (RES).
