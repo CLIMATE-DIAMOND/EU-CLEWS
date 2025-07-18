@@ -1,7 +1,7 @@
 # Industrial sector
 Representation of industry in the CLEWs-EU model is largely based on data retrieved from the JRC-IDEES 2021 database. Specifically, the database provides statistics on the final energy demand and useful energy demand for each sector by process and by technology/fuel for the period 2000-2021, but for the purposes of CLEWs-EU, we only focused on the period 2018-2021. As a first step, the key industrial sectors in each country are identified based on the level of final energy demand in 2021 (see Table 1 below); for each country up to 4 main sectors are represented separately, while the rest of the sectors are aggregated into an “Other industrial sectors” category. In countries where industrial energy demand is low, the number of sectors represented is lower (e.g., Cyprus, Luxembourg, Malta etc.). As mentioned above, the output of each of the industries is represented in generic energy terms (i.e., PJ of useful energy services). As data becomes available in the future after completion of the DIAMOND project, more explicit representation of key industries can be pursued.
 
-Table 2. Industrial sector representation in the disaggregated CLEWs-EU version.
+Table 1. Industrial sector representation in the disaggregated CLEWs-EU version.
 <img width="673" height="703" alt="image" src="https://github.com/user-attachments/assets/8789d137-7e45-4daa-96f2-41bd9a28c643" />
 
 _Note: The industrial sectors represented are the following: Iron and Steel (ISI), Non-ferrous metals (NFM), Chemical industry (CHI), Non-metallic minerals (NMM), Pulp, paper and printing (PPA), Food, beverages and tobacco (FBT), Transport equipment (TRE), Machinery equipment (MAE), Textiles and leather (TEL), Wood and wood products (WWP), Other industrial sectors (OIS)_.
