@@ -4,5 +4,5 @@ For space heating, the module incorporates a number of technologies to reflect t
 Space cooling is represented by electric space cooling systems due the predominance of electricity-based cooling technologies in both residential and commercial buildings. Cooking is represented using three primary technologies: LPG stoves, gas stoves, and electric stoves, capturing the most common cooking appliances across the sectors. Lighting and electrical appliances are treated as a single, aggregated category without further technological disaggregation. 
 
 <img width="1079" height="623" alt="image" src="https://github.com/user-attachments/assets/95e7eb59-95f3-429a-bffd-1e0f0a1d3be5" />
-_Simplified representation of CLEWs-EU buildings module Reference Energy System (RES)_
+Simplified representation of CLEWs-EU buildings module Reference Energy System (RES)
 
