@@ -1,0 +1,6 @@
+# Transport sector
+Similar to the other sectors of the energy system, representation of the transport sector is constructed using data from the JRC-IDEES 2021 database. Specifically, relevant statistics are retrieved on the biofuel blending ratios in each mode of transport, existing stock of technologies, annual rate of activity and current efficiency levels of each technology. Key assumptions (e.g., efficiencies, annual mileage etc.) vary considerably between member states, hence country-specific information is adopted. Table 1 summarises the technology options represented for each mode of transport. 
+Technoeconomic characteristics of the various technologies and the evolution of the mobility demand for each mode of transport are based on the equivalent assumptions from the European Commission's EU Reference Scenario 2020, but are adjusted to agree with the base year statistics. Specifically, technology efficiency and activity for each mode of transport from JRC-IDEES is used as the starting point and their evolution is indexed to the growth rate projected in the EU Reference Scenario for the period up to 2050.
+
+_Table 1. Technology options in the transport module of CLEWs-EU_.
+<img width="833" height="522" alt="image" src="https://github.com/user-attachments/assets/64bc0276-22e8-49ec-a7ca-a23a841b0c3d" />
