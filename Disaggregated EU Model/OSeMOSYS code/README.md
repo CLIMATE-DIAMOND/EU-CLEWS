@@ -12,3 +12,4 @@ The code _OSeMOSYS_CLEWs-EU_multi_yr.txt_ should be used to run the following mo
 - Integrated Energy module
 - Electricity & heat generation model
 
+The respective confi.yaml files provided here should be used when converting the available model data files from Excel to csv/datafile format, using [Otoole](https://otoole.readthedocs.io/en/latest/index.html)
