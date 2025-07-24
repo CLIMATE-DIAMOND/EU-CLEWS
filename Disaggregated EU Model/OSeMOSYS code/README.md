@@ -10,3 +10,5 @@ The code _OSeMOSYS_CLEWs-EU_annual.txt_ should be used to run the following mode
 The code _OSeMOSYS_CLEWs-EU_multi_yr.txt_ should be used to run the following models:
 - Integrated CLEWs-EU model
 - Integrated Energy module
+- Electricity & heat generation model
+
