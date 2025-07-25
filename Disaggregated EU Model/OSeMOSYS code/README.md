@@ -10,6 +10,8 @@ The code _OSeMOSYS_CLEWs-EU_annual.txt_ should be used to run the following mode
 The code _OSeMOSYS_CLEWs-EU_multi_yr.txt_ should be used to run the following models:
 - Integrated CLEWs-EU model
 - Integrated Energy module
+
+The code _OSeMOSYS_CLEWs-EU_multi_yr_el_h.txt_ should be used to run the following models:
 - Electricity & heat generation model
 
 The respective confi.yaml files provided here should be used when converting the available model data files from Excel to csv/datafile format, using [Otoole](https://otoole.readthedocs.io/en/latest/index.html)
