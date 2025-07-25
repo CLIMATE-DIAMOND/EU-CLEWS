@@ -15,4 +15,5 @@ The CLEWs-EU model was developed in parallel, with the different sectors having 
 The disaggregated version of the model is computationally intensive and is thus not run with an annual resolution; instead, 5-year steps are adopted. However, an annual resolution is used for each of the sectoral models. As indicated in the table below, the disaggregated version of the integrated CLEWs-EU model requires 260 GB of memory to run. In comparison, despite its annual resolution, the aggregated version of the model requires only 7 GB of memory due to its significantly lower complexity, which allows its use for stakeholder engagement.
 
 <img width="693" height="252" alt="image" src="https://github.com/user-attachments/assets/e7013b96-3b02-44e6-9e2f-217b933b68a5" />
+
 _Key hardware requirements to run the disaggregated version of the CLEWs-EU model and its sectoral components_
