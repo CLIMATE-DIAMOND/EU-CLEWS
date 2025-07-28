@@ -1,6 +1,8 @@
 # CLEWS-EU
 This repository contains the CLEWs-EU model development work carried out under the Horizon-DIAMOND project. The repository is a work in progress. It has two main sections: The Aggregated EU CLEWs model and the Diaggregated EU CLEWs model.
 
+Zenodo link to CLEWs-EU first release: https://doi.org/10.5281/zenodo.16537822
+
 # Structure of CLEWs-EU
 
 The CLEWs-EU model is developed within the OSeMOSYS (Open-Source Energy Systems Model) modelling framework. OSeMOSYS is a long-term cost-optimisation energy system model ([Howells et al., 2011](https://www.sciencedirect.com/science/article/abs/pii/S0301421511004897)). OSeMOSYS has been used in numerous studies with focus ranging from a global, regional and national scale. It is a bottom-up technoeconomic model that is demand-driven, which means the exogenously defined demand has to be met, no matter the cost. The choice of technologies and energy mix is based on the adopted technoeconomic assumptions (e.g., fuel costs, technology costs, resource availability, emission limits). The model’s objective function is the minimisation of the total discounted system cost over the entire modelling horizon.
