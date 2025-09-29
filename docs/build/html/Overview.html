@@ -1,0 +1,151 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="./">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>1. Overview and model Structure &mdash; CLEWS-EU 0.1 documentation</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=92fd9be5" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=e59714d7" />
+
+  
+      <script src="_static/jquery.js?v=5d32c60e"></script>
+      <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="_static/documentation_options.js?v=2709fde1"></script>
+      <script src="_static/doctools.js?v=9a2dae69"></script>
+      <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="2. Energy Module" href="Energy_module.html" />
+    <link rel="prev" title="CLEWs-EU’s documentation!" href="index.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            CLEWS-EU
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="#">1. Overview and model Structure</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#individual-modules-and-their-representation-in-clews-eu">1.1. Individual modules and their representation in CLEWS-EU</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#geographical-resolution-of-the-model">1.2. Geographical resolution of the model</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#aggregated-regional-model">1.2.1. Aggregated regional model</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#disaggregated-regional-model">1.2.2. Disaggregated regional model</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#module-specific-runs">1.2.2.1. Module specific runs</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#lumped-module-runs">1.2.2.2. lumped module runs</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="Energy_module.html">2. Energy Module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Land_and_Water_module.html">3. Land and Water Module</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">CLEWS-EU</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active"><span class="section-number">1. </span>Overview and model Structure</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/Overview.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="overview-and-model-structure">
+<h1><span class="section-number">1. </span>Overview and model Structure<a class="headerlink" href="#overview-and-model-structure" title="Link to this heading"></a></h1>
+<figure class="align-center" id="id1">
+<span id="figure1"></span><a class="reference internal image-reference" href="_images/sectoral_structure_CLEWS_EU.png"><img alt="_images/sectoral_structure_CLEWS_EU.png" src="_images/sectoral_structure_CLEWS_EU.png" style="width: 700px;" />
+</a>
+<figcaption>
+<p><span class="caption-text"><strong>Figure 1</strong>. Modules and sub-modules of CLEWS-EU</span><a class="headerlink" href="#id1" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+<p><a class="reference internal" href="#figure1"><span class="std std-ref">Figure 1</span></a> shows the general structure of the CLEWS`-EU model, which consists of two main modules: the energy module, the land and water module. Each module is designed to simulate specific aspects of the European Union’s resource systems, and they are interconnected to capture the interactions between energy, land, and water resources.</p>
+<section id="individual-modules-and-their-representation-in-clews-eu">
+<h2><span class="section-number">1.1. </span>Individual modules and their representation in CLEWS-EU<a class="headerlink" href="#individual-modules-and-their-representation-in-clews-eu" title="Link to this heading"></a></h2>
+</section>
+<section id="geographical-resolution-of-the-model">
+<h2><span class="section-number">1.2. </span>Geographical resolution of the model<a class="headerlink" href="#geographical-resolution-of-the-model" title="Link to this heading"></a></h2>
+<section id="aggregated-regional-model">
+<h3><span class="section-number">1.2.1. </span>Aggregated regional model<a class="headerlink" href="#aggregated-regional-model" title="Link to this heading"></a></h3>
+</section>
+<section id="disaggregated-regional-model">
+<h3><span class="section-number">1.2.2. </span>Disaggregated regional model<a class="headerlink" href="#disaggregated-regional-model" title="Link to this heading"></a></h3>
+<section id="module-specific-runs">
+<h4><span class="section-number">1.2.2.1. </span>Module specific runs<a class="headerlink" href="#module-specific-runs" title="Link to this heading"></a></h4>
+<p>Individual modules can be run separately to test their functionality and performance. This allows for a more focused analysis of each module’s behavior and its contribution to the overall model.</p>
+</section>
+<section id="lumped-module-runs">
+<h4><span class="section-number">1.2.2.2. </span>lumped module runs<a class="headerlink" href="#lumped-module-runs" title="Link to this heading"></a></h4>
+<p>Modules can be run in a lumped manner, where multiple modules are combined and executed together. This approach helps in understanding the interactions between different modules and their collective impact on the model’s outcomes.</p>
+</section>
+</section>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="index.html" class="btn btn-neutral float-left" title="CLEWs-EU’s documentation!" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="Energy_module.html" class="btn btn-neutral float-right" title="2. Energy Module" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2025, CLEWS-EU modelling team.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>
