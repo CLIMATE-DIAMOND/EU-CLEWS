@@ -164,8 +164,8 @@ param AnnualExogenousEmission{r in REGION, e in EMISSION, y in YEAR};
 param AnnualEmissionLimit{r in REGION, e in EMISSION, y in YEAR};
 param ModelPeriodExogenousEmission{r in REGION, e in EMISSION};
 param ModelPeriodEmissionLimit{r in REGION, e in EMISSION};
-# New parameter for Emissions to Activity change ratio  Not used in EUCLEWs for now
-#param EmissionToActivityChangeRatio{r in REGION, t in TECHNOLOGY, e in EMISSION, m in MODE_OF_OPERATION, y in YEAR};
+# New parameter for Emissions to Activity change ratio
+param EmissionToActivityChangeRatio{r in REGION, t in TECHNOLOGY, e in EMISSION, m in MODE_OF_OPERATION, y in YEAR};
 #
 #########						Land use							############
 #
@@ -201,19 +201,20 @@ set TIMESLICEofSDB{ls in SEASON, ld in DAYTYPE, lh in DAILYTIMEBRACKET} within T
 
 set MODExTECHNOLOGYperEMISSION{e in EMISSION} within MODE_OF_OPERATION cross TECHNOLOGY
     := {m in MODE_OF_OPERATION, t in TECHNOLOGY : exists{r in REGION, y in YEAR} EmissionActivityRatio[r,t,e,m,y] <> 0};
-#New addition for Emissions to change ratio  Not used
-#set MODExTECHNOLOGYperEMISSIONChange{e in EMISSION} within MODE_OF_OPERATION cross TECHNOLOGY
-#    := {m in MODE_OF_OPERATION, t in TECHNOLOGY : exists{r in REGION, y in YEAR} EmissionToActivityChangeRatio[r,t,e,m,y] <> 0};
-#
-set MODEperTECHNOLOGY{t in TECHNOLOGY} within MODE_OF_OPERATION
-    := {m in MODE_OF_OPERATION : (exists {f in FUEL} (m, t) in MODExTECHNOLOGYperFUELout[f] union MODExTECHNOLOGYperFUELin[f]) or
-                                 (exists {s in STORAGE} (m, t) in MODExTECHNOLOGYperSTORAGEto[s] union MODExTECHNOLOGYperSTORAGEfrom[s]) or
-                                 (exists {e in EMISSION} (m, t) in MODExTECHNOLOGYperEMISSION[e])};
-# Old mode and technology link with Emissions to change ratio   Not used##
+# New addition for Emissions to change ratio
+set MODExTECHNOLOGYperEMISSIONChange{e in EMISSION} within MODE_OF_OPERATION cross TECHNOLOGY
+    := {m in MODE_OF_OPERATION, t in TECHNOLOGY : exists{r in REGION, y in YEAR} EmissionToActivityChangeRatio[r,t,e,m,y] <> 0};
+
 #set MODEperTECHNOLOGY{t in TECHNOLOGY} within MODE_OF_OPERATION
 #    := {m in MODE_OF_OPERATION : (exists {f in FUEL} (m, t) in MODExTECHNOLOGYperFUELout[f] union MODExTECHNOLOGYperFUELin[f]) or
-#								 (exists {s in STORAGE} (m, t) in MODExTECHNOLOGYperSTORAGEto[s] union MODExTECHNOLOGYperSTORAGEfrom[s]) or
-#                                (exists {e in EMISSION} (m, t) in MODExTECHNOLOGYperEMISSION[e] union MODExTECHNOLOGYperEMISSIONChange[e])};
+#                                (exists {s in STORAGE} (m, t) in MODExTECHNOLOGYperSTORAGEto[s] union MODExTECHNOLOGYperSTORAGEfrom[s]) or
+#                                 (exists {e in EMISSION} (m, t) in MODExTECHNOLOGYperEMISSION[e])};
+
+# New mode and technology link with Emissions to change ratio included
+ set MODEperTECHNOLOGY{t in TECHNOLOGY} within MODE_OF_OPERATION
+    := {m in MODE_OF_OPERATION : (exists {f in FUEL} (m, t) in MODExTECHNOLOGYperFUELout[f] union MODExTECHNOLOGYperFUELin[f]) or
+								 (exists {s in STORAGE} (m, t) in MODExTECHNOLOGYperSTORAGEto[s] union MODExTECHNOLOGYperSTORAGEfrom[s]) or
+                                 (exists {e in EMISSION} (m, t) in MODExTECHNOLOGYperEMISSION[e] union MODExTECHNOLOGYperEMISSIONChange[e])};
 
 #
 ######################
@@ -314,7 +315,7 @@ var AnnualTechnologyEmission{r in REGION, t in TECHNOLOGY, e in EMISSION, y in Y
 #var AnnualTechnologyEmissionPenaltyByEmission{r in REGION, t in TECHNOLOGY, e in EMISSION, y in YEAR};
 #var AnnualTechnologyEmissionsPenalty{r in REGION, t in TECHNOLOGY, y in YEAR};
 var AnnualEmissions{r in REGION, e in EMISSION, y in YEAR};
-#var EmissionByActivityChange{r in REGION, t in TECHNOLOGY, e in EMISSION, m in MODE_OF_OPERATION, y in YEAR};
+var EmissionByActivityChange{r in REGION, t in TECHNOLOGY, e in EMISSION, m in MODE_OF_OPERATION, y in YEAR};
 #
 #        table data IN "CSV" "data.csv": s <- [FROM,TO], d~DISTANCE, c~COST;
 #        table capacity IN "CSV" "SpecifiedAnnualDemand.csv": [YEAR, FUEL, REGION], SpecifiedAnnualDemand~ColumnNameInCSVSheet;
@@ -502,21 +503,33 @@ s.t. RE4_EnergyConstraint{r in REGION, y in YEAR}:REMinProductionTarget[r,y]*sum
 #
 #########                   Emissions Accounting                ##############
 #
-s.t. E5_DiscountedEmissionsPenaltyByTechnology{r in REGION, t in TECHNOLOGY, y in YEAR}: sum{e in EMISSION, l in TIMESLICE, (m,tt) in MODExTECHNOLOGYperEMISSION[e]: t=tt} EmissionActivityRatio[r,t,e,m,y]*RateOfActivity[r,l,t,m,y]*YearSplit[l,y]*EmissionsPenalty[r,e,y]/((1+DiscountRate[r])^(y-min{yy in YEAR} min(yy)+0.5)) = DiscountedTechnologyEmissionsPenalty[r,t,y];
-s.t. E8_AnnualEmissionsLimit{r in REGION, e in EMISSION, y in YEAR}: sum{l in TIMESLICE, (m,t) in MODExTECHNOLOGYperEMISSION[e]} EmissionActivityRatio[r,t,e,m,y]*RateOfActivity[r,l,t,m,y]*YearSplit[l,y]+AnnualExogenousEmission[r,e,y] <= AnnualEmissionLimit[r,e,y];
-s.t. E9_ModelPeriodEmissionsLimit{r in REGION, e in EMISSION}:  sum{l in TIMESLICE, (m,t) in MODExTECHNOLOGYperEMISSION[e], y in YEAR} EmissionActivityRatio[r,t,e,m,y]*RateOfActivity[r,l,t,m,y]*YearSplit[l,y] + ModelPeriodExogenousEmission[r,e] <= ModelPeriodEmissionLimit[r,e] ;
-s.t. E1_AnnualEmissionProductionByMode{r in REGION, t in TECHNOLOGY, e in EMISSION, m in MODEperTECHNOLOGY[t], y in YEAR}: EmissionActivityRatio[r,t,e,m,y]*sum{l in TIMESLICE} RateOfActivity[r,l,t,m,y]*YearSplit[l,y]=AnnualTechnologyEmissionByMode[r,t,e,m,y];
-s.t. E2_AnnualEmissionProduction{r in REGION, t in TECHNOLOGY, e in EMISSION, y in YEAR}: sum{l in TIMESLICE, m in MODEperTECHNOLOGY[t]: EmissionActivityRatio[r,t,e,m,y]<>0} EmissionActivityRatio[r,t,e,m,y]*RateOfActivity[r,l,t,m,y]*YearSplit[l,y] = AnnualTechnologyEmission[r,t,e,y];
+s.t. E5_DiscountedEmissionsPenaltyByTechnology{r in REGION, t in TECHNOLOGY, y in YEAR}: sum{e in EMISSION} (
+        sum{l in TIMESLICE, (m,tt) in MODExTECHNOLOGYperEMISSION[e]: t=tt} EmissionActivityRatio [r, t, e, m, y] * RateOfActivity [r, l, t, m, y] * YearSplit [l, y]
+        + sum{(m,tt) in MODExTECHNOLOGYperEMISSIONChange[e]: t=tt} EmissionByActivityChange[r, t, e, m, y]) * EmissionsPenalty [r, e, y]/((1+DiscountRate[r])^(y-min{yy in YEAR} min(yy)+0.5)) = DiscountedTechnologyEmissionsPenalty[r,t,y];
+s.t. E8_AnnualEmissionsLimit{r in REGION, e in EMISSION, y in YEAR}: sum{l in TIMESLICE, (m,t) in MODExTECHNOLOGYperEMISSION[e]} EmissionActivityRatio[r,t,e,m,y]*RateOfActivity[r,l,t,m,y]*YearSplit[l,y]+ sum{(m,t) in MODExTECHNOLOGYperEMISSIONChange[e]} EmissionByActivityChange[r, t, e, m, y]+ AnnualExogenousEmission[r,e,y] <= AnnualEmissionLimit[r,e,y];
+s.t. E9_ModelPeriodEmissionsLimit{r in REGION, e in EMISSION}:  sum{l in TIMESLICE, (m,t) in MODExTECHNOLOGYperEMISSION[e], y in YEAR} EmissionActivityRatio[r,t,e,m,y]*RateOfActivity[r,l,t,m,y]*YearSplit[l,y] + sum{(m,t) in MODExTECHNOLOGYperEMISSIONChange[e], y in YEAR} EmissionByActivityChange[r, t, e, m, y] + ModelPeriodExogenousEmission[r,e] <= ModelPeriodEmissionLimit[r,e] ;
+#Annualtechnology Emissions by model is being hashed out as it is not required
+#s.t. E1_AnnualEmissionProductionByMode{r in REGION, t in TECHNOLOGY, e in EMISSION, m in MODEperTECHNOLOGY[t], y in YEAR}: EmissionActivityRatio[r,t,e,m,y]*sum{l in TIMESLICE} RateOfActivity[r,l,t,m,y]*YearSplit[l,y]=AnnualTechnologyEmissionByMode[r,t,e,m,y];
+# TN Modified 2024 Jan
+#s.t. E1_AnnualEmissionProductionByMode{r in REGION, e in EMISSION, (m, t) in MODExTECHNOLOGYperEMISSION[e], y in YEAR}: EmissionActivityRatio[r,t,e,m,y]*sum{l in TIMESLICE} RateOfActivity[r,l,t,m,y]*YearSplit[l,y]=AnnualTechnologyEmissionByMode[r,t,e,m,y];
+#s.t. E2_AnnualEmissionProduction{r in REGION, t in TECHNOLOGY, e in EMISSION, y in YEAR}: sum{l in TIMESLICE, m in MODEperTECHNOLOGY[t]: EmissionActivityRatio[r,t,e,m,y]<>0} EmissionActivityRatio[r,t,e,m,y]*RateOfActivity[r,l,t,m,y]*YearSplit[l,y] + sum{(m,tt) in MODExTECHNOLOGYperEMISSIONChange[e]: t=tt}EmissionByActivityChange[r, t, e, m, y]= AnnualTechnologyEmission[r,t,e,y];
+# Modified TN 2024 Jan  This works and uses the Xsets correctly...  CHeck speed...
+s.t. E2_AnnualEmissionProduction{r in REGION, t in TECHNOLOGY, e in EMISSION, y in YEAR}: sum{l in TIMESLICE, (m, tt) in MODExTECHNOLOGYperEMISSION[e]: t=tt} EmissionActivityRatio[r,t,e,m,y]*RateOfActivity[r,l,t,m,y]*YearSplit[l,y]+ sum{(m,tt) in MODExTECHNOLOGYperEMISSIONChange[e]: t=tt}EmissionByActivityChange[r, t, e, m, y]= AnnualTechnologyEmission[r,t,e,y];
+
+
+
 #s.t. E3_EmissionsPenaltyByTechAndEmission{r in REGION, t in TECHNOLOGY, e in EMISSION, y in YEAR: EmissionActivityRatio[r,t,e,m,y]<>0}: sum{l in TIMESLICE, m in MODEperTECHNOLOGY[t]} EmissionActivityRatio[r,t,e,m,y]*RateOfActivity[r,l,t,m,y]*YearSplit[l,y]*EmissionsPenalty[r,e,y] = AnnualTechnologyEmissionPenaltyByEmission[r,t,e,y];
 #s.t. E4_EmissionsPenaltyByTechnology{r in REGION, t in TECHNOLOGY, y in YEAR}: sum{e in EMISSION, l in TIMESLICE, m in MODEperTECHNOLOGY[t]} EmissionActivityRatio[r,t,e,m,y]*RateOfActivity[r,l,t,m,y]*YearSplit[l,y]*EmissionsPenalty[r,e,y] = AnnualTechnologyEmissionsPenalty[r,t,y];
-s.t. E6_EmissionsAccounting1{r in REGION, e in EMISSION, y in YEAR}: sum{l in TIMESLICE, t in TECHNOLOGY, m in MODEperTECHNOLOGY[t]: EmissionActivityRatio[r,t,e,m,y]<>0} EmissionActivityRatio[r,t,e,m,y]*RateOfActivity[r,l,t,m,y]*YearSplit[l,y] = AnnualEmissions[r,e,y];
+#s.t. E6_EmissionsAccounting1{r in REGION, e in EMISSION, y in YEAR}: sum{l in TIMESLICE, t in TECHNOLOGY, m in MODEperTECHNOLOGY[t]: EmissionActivityRatio[r,t,e,m,y]<>0} EmissionActivityRatio[r,t,e,m,y]*RateOfActivity[r,l,t,m,y]*YearSplit[l,y] = AnnualEmissions[r,e,y];
+# New E6 modified to include EmissionByActivityChange and Exogenous Emissions (to be verified)
+s.t. E6_EmissionsAccounting1{r in REGION, e in EMISSION, y in YEAR}: sum{l in TIMESLICE, (m,tt) in MODExTECHNOLOGYperEMISSION[e]} EmissionActivityRatio[r,tt,e,m,y]* RateOfActivity[r,l,tt,m,y]* YearSplit[l,y]+ sum{(m,tt) in MODExTECHNOLOGYperEMISSIONChange[e]} EmissionByActivityChange[r,tt,e,m,y] + AnnualExogenousEmission[r,e,y] = AnnualEmissions[r,e,y];
 #s.t. E7_EmissionsAccounting2{r in REGION, e in EMISSION}: sum{l in TIMESLICE, t in TECHNOLOGY, m in MODEperTECHNOLOGY[t], y in YEAR: EmissionActivityRatio[r,t,e,m,y]<>0} EmissionActivityRatio[r,t,e,m,y]*RateOfActivity[r,l,t,m,y]*YearSplit[l,y] + ModelPeriodExogenousEmission[r,e] = ModelPeriodEmissions[r,e];
 #
 ##########				Emission activity change ratios (not used. can be enabled)					###############
 # TN Edited 2024 01
-#s.t. E10_InterYearActivityEmissionChange{r in REGION, e in EMISSION, (m, t) in MODExTECHNOLOGYperEMISSIONChange[e], y in YEAR, yy in YEAR: #y-yy==1 && y > min{yyy in YEAR} min(yyy)}: (TotalAnnualTechnologyActivityByMode[r, t, m, y]-TotalAnnualTechnologyActivityByMode[r, t, m, #yy]) * EmissionToActivityChangeRatio[r, t, e, m, y] = EmissionByActivityChange[r, t, e, m, y];
+s.t. E10_InterYearActivityEmissionChange{r in REGION, e in EMISSION, (m, t) in MODExTECHNOLOGYperEMISSIONChange[e], y in YEAR, yy in YEAR: y-yy==1 && y > min{yyy in YEAR} min(yyy)}: (TotalAnnualTechnologyActivityByMode[r, t, m, y]-TotalAnnualTechnologyActivityByMode[r, t, m, yy]) * EmissionToActivityChangeRatio[r, t, e, m, y] = EmissionByActivityChange[r, t, e, m, y];
 # TN Changed 2024 01
-#s.t. E11_InterYearActivityEmissionChange{r in REGION, e in EMISSION, (m, t) in MODExTECHNOLOGYperEMISSIONChange[e], y in YEAR, yy in YEAR: y #== min{yyy in YEAR} min(yyy)}:  0 = EmissionByActivityChange[r, t, e, m, y];
+s.t. E11_InterYearActivityEmissionChange{r in REGION, e in EMISSION, (m, t) in MODExTECHNOLOGYperEMISSIONChange[e], y in YEAR, yy in YEAR: y == min{yyy in YEAR} min(yyy)}:  0 = EmissionByActivityChange[r, t, e, m, y];
 ###########################################################################################
 #
 #########				Land use constraints					###############
