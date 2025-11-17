@@ -18,6 +18,36 @@ AnnualExogenousEmission:
 #    type: param
 #    dtype: float
 #    default: 0
+#UDCMultiplierTotalCapacity:
+#    indices: [REGION,TECHNOLOGY,UDC,YEAR]
+#    type: param
+#    dtype: float
+#    default: 0
+#UDCMultiplierNewCapacity:
+#    indices: [REGION,TECHNOLOGY,UDC,YEAR]
+#    type: param
+#    dtype: float
+#    default: 0
+#UDCMultiplierActivity:
+#    indices: [REGION,TECHNOLOGY,UDC,YEAR]
+#    type: param
+#    dtype: float
+#    default: 0
+#UDCConstant:
+#    indices: [REGION,UDC,YEAR]
+#    type: param
+#    dtype: float
+#    default: 0
+#UDCTag:
+#    indices: [REGION,UDC]
+#    type: param
+#    dtype: int
+#    default: -1
+#InputToTotalCapacityRatio: 
+#    indices: [REGION,TECHNOLOGY,FUEL,YEAR]
+#    type: param
+#    dtype: float
+#    default: 0
 UDCMultiplierTotalCapacity:
     indices: [REGION,TECHNOLOGY,UDC,YEAR]
     type: param
@@ -43,11 +73,11 @@ UDCTag:
     type: param
     dtype: int
     default: -1
-#InputToTotalCapacityRatio: 
-#    indices: [REGION,TECHNOLOGY,FUEL,YEAR]
-#    type: param
-#    dtype: float
-#    default: 0
+NextYear:
+    indices: [YEAR]
+    type: param
+    dtype: float
+    default: 0
 TechnologyActivityByModeLowerLimit:
     short_name: TechActivityByModeLowerLimit
     indices: [REGION,TECHNOLOGY,MODE_OF_OPERATION,YEAR]
@@ -135,7 +165,7 @@ DAYTYPE:
     type: set
 UDC:
     dtype: str
-    type: set   
+    type: set     
 DepreciationMethod:
     indices: [REGION]
     type: param
@@ -190,11 +220,11 @@ ModelPeriodEmissionLimit:
     type: param
     dtype: float
     default: 999999
-#EmissionToActivityChangeRatio:
-#    indices: [REGION,TECHNOLOGY,EMISSION,MODE_OF_OPERATION,YEAR]
-#    type: param
-#    dtype: float
-#    default: 0                              
+EmissionToActivityChangeRatio:
+    indices: [REGION,TECHNOLOGY,EMISSION,MODE_OF_OPERATION,YEAR]
+    type: param
+    dtype: float
+    default: 0                              
 ModelPeriodExogenousEmission:
     indices: [REGION,EMISSION]
     type: param
@@ -234,7 +264,7 @@ ReserveMarginTagFuel:
     dtype: float
     default: 0
 ReserveMarginTagTechnology:
-    indices: [REGION,TECHNOLOGY,YEAR]
+    indices: [REGION,TECHNOLOGY,COUNTRY,YEAR]
     type: param
     dtype: float
     default: 0
@@ -594,6 +624,11 @@ UseByTechnology:
     type: result
     dtype: float
     default: 0
+UseByTechnologyAnnual:
+    indices: [REGION, TECHNOLOGY, FUEL, YEAR]
+    type: result
+    dtype: float
+    default: 0
 RETECHNOLOGY:
     dtype: str
     type: set
@@ -625,6 +660,67 @@ EfficiencyStorage:
     type: param
     dtype: float
     default: 1    
-PHSTORAGE:
+StorageMaxDuration:
+    indices: [REGION,STORAGE]
+    type: param
+    dtype: float
+    default: 9999999
+COUNTRY:
     dtype: str
     type: set
+PeakLoad:
+    indices: [REGION,COUNTRY,YEAR]
+    type: param
+    dtype: float
+    default: 0
+HYDROTECHS:
+    dtype: str
+    type: set
+SeasonalCF:
+    indices: [REGION,HYDROTECHS,SEASON,YEAR]
+    type: param
+    dtype: float
+    default: 0   
+Interconnections:
+    indices: [REGION,TECHNOLOGY,COUNTRY,FUEL]
+    type: param
+    dtype: float
+    default: 0
+TransmissionDemand:
+    indices: [REGION,COUNTRY,FUEL,YEAR]
+    type: param
+    dtype: float
+    default: 0
+ImportsLimit:
+    indices: [REGION,COUNTRY,YEAR]
+    type: param
+    dtype: float
+    default: 0  
+SolarWind:
+    indices: [REGION,TECHNOLOGY,COUNTRY]
+    type: param
+    dtype: float
+    default: 0 
+FUELSWITHLIMIT:
+    dtype: str
+    type: set 
+TotalCapacityLimit:
+    indices: [REGION,FUELSWITHLIMIT,YEAR]
+    type: param
+    dtype: float
+    default: 999999    
+TechsWithCapacityLimit:
+    indices: [REGION,TECHNOLOGY,FUELSWITHLIMIT]
+    type: param
+    dtype: float
+    default: 0
+GenerationLimitTechs:
+    indices: [REGION,TECHNOLOGY,COUNTRY,FUEL]
+    type: param
+    dtype: float
+    default: 0
+CurtailmentPrice:
+    indices: [REGION,YEAR]
+    type: param
+    dtype: float
+    default: 0      
