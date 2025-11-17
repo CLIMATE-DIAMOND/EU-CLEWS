@@ -190,11 +190,11 @@ ModelPeriodEmissionLimit:
     type: param
     dtype: float
     default: 999999
-#EmissionToActivityChangeRatio:
-#    indices: [REGION,TECHNOLOGY,EMISSION,MODE_OF_OPERATION,YEAR]
-#    type: param
-#    dtype: float
-#    default: 0                              
+EmissionToActivityChangeRatio:
+    indices: [REGION,TECHNOLOGY,EMISSION,MODE_OF_OPERATION,YEAR]
+    type: param
+    dtype: float
+    default: 0                              
 ModelPeriodExogenousEmission:
     indices: [REGION,EMISSION]
     type: param
