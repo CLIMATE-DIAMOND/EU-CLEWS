@@ -9,3 +9,5 @@ _Note: The industrial sectors represented are the following: Iron and Steel (ISI
 Data on final energy demand and useful energy demand are aggregated for each fuel category in each of the represented sectors and an efficiency is calculated for the years 2018-2021. Specifically, the technological/fuel options for satisfaction of demand for useful energy are the following:
 - Thermal energy – coal (with and without CCS), oil, natural gas (with and without CCS), biomass/biofuels, hydrogen, solar thermal, centralised steam, electricity.
 - Electrical processes (lighting, motor drives etc.) – electricity.
+
+<img width="802" height="742" alt="CLEWs_EU_RES_Energy-Industry CLEWs-EU RES drawio" src="https://github.com/user-attachments/assets/e19d2f65-3f83-49ec-a61a-93372e97d60b" />
