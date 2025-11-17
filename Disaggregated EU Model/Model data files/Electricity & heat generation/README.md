@@ -1,4 +1,6 @@
 # Electricity & heat generation
+<img width="956" height="885" alt="CLEWs_EU_RES_Energy-ELC   Heat CLEWs-EU  RES  drawio" src="https://github.com/user-attachments/assets/54aa4a5c-85d1-4311-8f32-0bbb3c2dc641" />
+
 ## Electricity
 The electricity supply model accounts for a wide range of technologies which comprise a portfolio of projects to be considered in the optimisation. The technological mix of conventional generators can be distinguished based on the thermodynamic cycle (steam (ST) vs gas, open vs closed cycle vs combined cycle (CCGT)), and on the fuel (biomass, nuclear, coal, natural gas, liquid fuels, waste, biogas etc.). The model also includes CCS for specific technologies, coal-ST with CCS, gas CCGT with CCS and biomass-ST with CCS. Additionally, the model includes two types of electricity storage namely battery energy storage systems (BESS) and pumped hydro. 
 PV and wind generation profiles are adjusted to get the average annual capacity factor based on Eurostat. Wind and PV resources have been broken into high, average and low potential. For each country there are 3 PV and wind technologies/resources associated with a different capacity factor (%) and economic potential (in GW).
