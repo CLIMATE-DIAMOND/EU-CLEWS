@@ -1,0 +1,279 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Software and hardware requirements &mdash; CLEWS-EU 0.1 documentation</title>
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=e59714d7" />
+      <link rel="stylesheet" type="text/css" href="../_static/custom.css?v=326af39b" />
+
+  
+      <script src="../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../_static/documentation_options.js?v=2709fde1"></script>
+      <script src="../_static/doctools.js?v=9bcbadda"></script>
+      <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Overview" href="../limitations/limitations.html" />
+    <link rel="prev" title="Time horizon and temporal resolution" href="../overarching/overarching.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            CLEWS-EU
+              <img src="../_static/logo-diamond.png" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Introduction</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../introduction/intro.html">General Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../introduction/model_overview.html">Model Overview</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Energy Module</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../energy/energy_module.html">Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../energy/energy_module.html#electricity-and-heat-generation">Electricity and heat generation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../energy/energy_module.html#buildings">Buildings</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../energy/energy_module.html#industry">Industry</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../energy/energy_module.html#transport">Transport</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../energy/energy_module.html#hydrogen">Hydrogen</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Land &amp; Water Module</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../land_water/land_and_water_module.html">Land &amp; Water Module</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Overarching model structure</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../overarching/overarching.html">Time horizon and temporal resolution</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../overarching/overarching.html#emissions-accounting">Emissions accounting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../overarching/overarching.html#naming-convention">Naming Convention</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">User Manual</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Software and hardware requirements</a></li>
+<li class="toctree-l1"><a class="reference internal" href="#model-setup">Model setup</a></li>
+<li class="toctree-l1"><a class="reference internal" href="#using-the-clews-eu-model">Using the CLEWs-EU model</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Limitations &amp; Improvements</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../limitations/limitations.html">Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../limitations/limitations.html#energy-module">Energy module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../limitations/limitations.html#land-and-water-module">Land and Water module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../limitations/limitations.html#references">References</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">CLEWS-EU</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Software and hardware requirements</li>
+
+    <span style="float:right; margin-right:20px; font-size:18px;">
+
+        <a href="https://github.com/CLIMATE-DIAMOND/EU-CLEWS"
+           target="_blank" title="GitHub"
+           style="margin-left: 12px; color: inherit;">
+           <i class="fa-brands fa-github"></i>
+        </a>
+
+        <a href="https://zenodo.org/records/16537822"
+           target="_blank" title="Zenodo"
+           style="margin-left: 12px; color: inherit;">
+           <i class="fa-solid fa-database"></i>
+        </a>
+
+    </span>
+
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="software-and-hardware-requirements">
+<h1>Software and hardware requirements<a class="headerlink" href="#software-and-hardware-requirements" title="Link to this heading"></a></h1>
+<p>The input data files for the CLEWs-EU model are constructed in an Excel file with multiple worksheets.
+Each worksheet corresponds to a particular <strong>SET</strong> or <strong>Parameter</strong> in the OSeMOSYS model.</p>
+<p>A Python package, <strong>Otoole</strong>, is used to handle all data manipulations required for running the model.
+Users should ensure they have:</p>
+<ul class="simple">
+<li><p>the latest stable version of <strong>Python</strong>, and</p></li>
+<li><p>the latest version of <strong>Otoole</strong> installed.</p></li>
+</ul>
+<p>To use Otoole, a <strong>YAML configuration file</strong> is required. A project-specific YAML file has been prepared for CLEWs-EU and is available in the <code class="docutils literal notranslate"><span class="pre">model_files</span></code> folder of the model’s GitHub repository.</p>
+<p>An optimisation solver is also required to run the model. Any of the following options may be used:</p>
+<ul class="simple">
+<li><p><strong>GLPSOL</strong> – mandatory, as it is part of the GLPK package and required to generate the model matrix.
+Note: the disaggregated CLEWs-EU model is computationally intensive; GLPSOL should <em>not</em> be used for the optimisation step.</p></li>
+<li><p><strong>GUROBI</strong> – proprietary (academic licence available)</p></li>
+<li><p><strong>CPLEX</strong> – proprietary (academic licence available)</p></li>
+<li><p><strong>CBC</strong> – open-source</p></li>
+</ul>
+<p>As the CLEWs-EU model was developed in parallel modules, computational intensity varies depending on whether:</p>
+<ul class="simple">
+<li><p>the <strong>fully integrated model</strong> is run, or</p></li>
+<li><p>only an <strong>individual sectoral module</strong> is executed.</p></li>
+</ul>
+<p>The primary limiting factor is the <strong>amount of available memory</strong>.</p>
+<p>The disaggregated version of the integrated CLEWs-EU model is computationally intensive and is therefore not run with annual time steps; instead, <strong>5-year steps</strong> are used. In contrast, <strong>annual resolution</strong> is maintained in each standalone sectoral model.</p>
+<p>As indicated in <strong>Table 27</strong>, the disaggregated integrated CLEWs-EU model requires <strong>~260 GB of memory</strong> to run.
+By comparison, the aggregated version requires only <strong>~8 GB</strong>, despite using annual resolution, due to its significantly lower structural complexity, making it suitable for stakeholder engagement.</p>
+<div style="font-size:13px; margin-top:20px; margin-bottom:8px; text-align:center;">
+    <b>Table 27.</b> Key hardware requirements to run the disaggregated version of the CLEWs-EU model and its sectoral components
+</div><table class="docutils align-center">
+<colgroup>
+<col style="width: 66.7%" />
+<col style="width: 33.3%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p><strong>CLEWs-EU sectoral model</strong></p></th>
+<th class="head"><p><strong>Memory requirements (GB RAM)</strong></p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Energy module</p></td>
+<td><p>170 GB</p></td>
+</tr>
+<tr class="row-odd"><td><p>Electricity supply</p></td>
+<td><p>38 GB</p></td>
+</tr>
+<tr class="row-even"><td><p>Buildings</p></td>
+<td><p>12 GB</p></td>
+</tr>
+<tr class="row-odd"><td><p>Industry</p></td>
+<td><p>34 GB</p></td>
+</tr>
+<tr class="row-even"><td><p>Transport</p></td>
+<td><p>32 GB</p></td>
+</tr>
+<tr class="row-odd"><td><p>Land &amp; Water module</p></td>
+<td><p>180 GB</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>Integrated CLEWs-EU model</strong></p></td>
+<td><p><strong>260 GB</strong></p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="model-setup">
+<h1>Model setup<a class="headerlink" href="#model-setup" title="Link to this heading"></a></h1>
+<p>The GitHub repository provides the following material:</p>
+<ol class="loweralpha">
+<li><p><strong>OSeMOSYS code</strong>
+This is the version of the OSeMOSYS code developed specifically for this project.
+Three separate files are provided, depending on which model is used (i.e.,
+the individual sectoral models or the integrated CLEWs-EU model).
+These files are plain-text and include all parameters, variables, and constraints
+that describe the relationship between input data (parameters) and model outputs (variables).</p></li>
+<li><p><strong>CLEWs-EU model data files</strong>
+Model data files are provided as Excel spreadsheets for:</p>
+<ul class="simple">
+<li><p>the energy module and its sub-components,</p></li>
+<li><p>the land and water module,</p></li>
+<li><p>and the integrated CLEWs-EU model (energy + land + water).</p></li>
+</ul>
+<p>These files contain the full model structure in the form of <strong>Sets</strong>
+(e.g., years, fuels/commodities, technologies, emissions, etc.)
+as well as all associated <strong>techno-economic assumptions</strong>
+(e.g., energy service demand projections, costs, efficiencies, and so on).</p>
+</li>
+<li><p><strong>Supporting data</strong>
+This folder contains additional information needed by future CLEWs-EU users.
+The <strong>naming convention</strong> files are included here, along with more detailed input data
+and modelling assumptions for the final version of the model.</p></li>
+<li><p><strong>Data preparation scripts</strong>
+These scripts automate the extraction of required data from external databases
+(e.g., JRC-IDEES 2021).
+They have been developed for the <strong>transport</strong> and <strong>industrial</strong> sectors and may be
+extended to other sectors in future releases.
+The scripts are included for transparency and to support potential future
+updates to model detail.</p></li>
+</ol>
+</section>
+<section id="using-the-clews-eu-model">
+<h1>Using the CLEWs-EU model<a class="headerlink" href="#using-the-clews-eu-model" title="Link to this heading"></a></h1>
+<p>The procedure to run the CLEWs-EU model is the same as for any other OSeMOSYS model.
+Specifically, the following steps should be followed:</p>
+<ol class="arabic">
+<li><p>Using <strong>Otoole</strong>, convert the OSeMOSYS data file from Excel format to a text data file.
+Users may refer to the examples page of the Otoole documentation for the exact syntax.</p></li>
+<li><p>Use <strong>GLPK</strong> to create the LP version of the model (<code class="docutils literal notranslate"><span class="pre">.lp</span></code> file), using as input:</p>
+<ul class="simple">
+<li><p>the OSeMOSYS data file (<code class="docutils literal notranslate"><span class="pre">.txt</span></code>), and</p></li>
+<li><p>the OSeMOSYS code file (<code class="docutils literal notranslate"><span class="pre">.txt</span></code>).</p></li>
+</ul>
+<p>This step generates the problem matrix by loading the data into the OSeMOSYS equations.</p>
+</li>
+<li><p>Optimise the <code class="docutils literal notranslate"><span class="pre">.lp</span></code> file using any of the recommended solvers.
+Once an optimal solution is found, write the <strong>solution file</strong> (<code class="docutils literal notranslate"><span class="pre">.sol</span></code> format).</p></li>
+<li><p>Use <strong>Otoole</strong> to export the results from the solution file into <strong>CSV result files</strong>.</p></li>
+<li><p>Open the CSV files to inspect results in tabular form.
+At a later stage, visualisation scripts will be developed to allow automatic and interactive result exploration.</p></li>
+</ol>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="../overarching/overarching.html" class="btn btn-neutral float-left" title="Time horizon and temporal resolution" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="../limitations/limitations.html" class="btn btn-neutral float-right" title="Overview" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2025, CLEWS-EU modelling team.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

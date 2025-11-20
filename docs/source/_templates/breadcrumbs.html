@@ -1,0 +1,21 @@
+{% extends "!breadcrumbs.html" %}
+
+{% block breadcrumbs %}
+    {{ super() }}
+
+    <span style="float:right; margin-right:20px; font-size:18px;">
+
+        <a href="https://github.com/CLIMATE-DIAMOND/EU-CLEWS"
+           target="_blank" title="GitHub"
+           style="margin-left: 12px; color: inherit;">
+           <i class="fa-brands fa-github"></i>
+        </a>
+
+        <a href="https://zenodo.org/records/16537822"
+           target="_blank" title="Zenodo"
+           style="margin-left: 12px; color: inherit;">
+           <i class="fa-solid fa-database"></i>
+        </a>
+
+    </span>
+{% endblock %}

@@ -1,0 +1,26 @@
+@import url("https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css");
+
+.wy-nav-content {
+    text-align: justify;
+}
+.wy-nav-content p {
+    text-align: justify;
+}
+
+/* Smaller caption */
+.wy-nav-content .figure .caption,
+.wy-nav-content .figure .caption .caption-text {
+    font-size: 13px !important;
+}
+
+/* Add a gap between the figure and its caption */
+.wy-nav-content .figure .image-reference {
+    display: inline-block;
+    margin-bottom: 15px !important;
+}
+
+/* Extra space around the figure block */
+.wy-nav-content .figure {
+    margin-top: 20px !important;
+    margin-bottom: 20px !important;
+}

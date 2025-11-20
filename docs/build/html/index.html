@@ -6,20 +6,21 @@
   <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>CLEWs-EU’s documentation! &mdash; CLEWS-EU 0.1 documentation</title>
-      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=92fd9be5" />
+  <title>CLEWs-EU Model Documentation &mdash; CLEWS-EU 0.1 documentation</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=b86133f3" />
       <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=e59714d7" />
+      <link rel="stylesheet" type="text/css" href="_static/custom.css?v=326af39b" />
 
   
       <script src="_static/jquery.js?v=5d32c60e"></script>
       <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
       <script src="_static/documentation_options.js?v=2709fde1"></script>
-      <script src="_static/doctools.js?v=9a2dae69"></script>
+      <script src="_static/doctools.js?v=9bcbadda"></script>
       <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="_static/js/theme.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="1. Overview and model Structure" href="Overview.html" /> 
+    <link rel="next" title="General Introduction" href="introduction/intro.html" /> 
 </head>
 
 <body class="wy-body-for-nav"> 
@@ -32,6 +33,7 @@
           
           <a href="#" class="icon icon-home">
             CLEWS-EU
+              <img src="_static/logo-diamond.png" class="logo" alt="Logo"/>
           </a>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
@@ -41,13 +43,42 @@
   </form>
 </div>
         </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
-              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+              <p class="caption" role="heading"><span class="caption-text">Introduction</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="Overview.html">1. Overview and model Structure</a></li>
-<li class="toctree-l1"><a class="reference internal" href="Energy_module.html">2. Energy Module</a></li>
-<li class="toctree-l1"><a class="reference internal" href="Land_and_Water_module.html">3. Land and Water Module</a></li>
-<li class="toctree-l1"><a class="reference internal" href="Model_aggregations.html">4. Model aggregations</a></li>
-<li class="toctree-l1"><a class="reference internal" href="How_to_use_CLEWS-EU.html">5. How to use CLEWS-EU</a></li>
+<li class="toctree-l1"><a class="reference internal" href="introduction/intro.html">General Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="introduction/model_overview.html">Model Overview</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Energy Module</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="energy/energy_module.html">Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="energy/energy_module.html#electricity-and-heat-generation">Electricity and heat generation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="energy/energy_module.html#buildings">Buildings</a></li>
+<li class="toctree-l1"><a class="reference internal" href="energy/energy_module.html#industry">Industry</a></li>
+<li class="toctree-l1"><a class="reference internal" href="energy/energy_module.html#transport">Transport</a></li>
+<li class="toctree-l1"><a class="reference internal" href="energy/energy_module.html#hydrogen">Hydrogen</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Land &amp; Water Module</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="land_water/land_and_water_module.html">Land &amp; Water Module</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Overarching model structure</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="overarching/overarching.html">Time horizon and temporal resolution</a></li>
+<li class="toctree-l1"><a class="reference internal" href="overarching/overarching.html#emissions-accounting">Emissions accounting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="overarching/overarching.html#naming-convention">Naming Convention</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">User Manual</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="manual/manual.html">Software and hardware requirements</a></li>
+<li class="toctree-l1"><a class="reference internal" href="manual/manual.html#model-setup">Model setup</a></li>
+<li class="toctree-l1"><a class="reference internal" href="manual/manual.html#using-the-clews-eu-model">Using the CLEWs-EU model</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Limitations &amp; Improvements</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="limitations/limitations.html">Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="limitations/limitations.html#energy-module">Energy module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="limitations/limitations.html#land-and-water-module">Land and Water module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="limitations/limitations.html#references">References</a></li>
 </ul>
 
         </div>
@@ -63,10 +94,27 @@
         <div class="rst-content">
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
+    
       <li><a href="#" class="icon icon-home" aria-label="Home"></a></li>
-      <li class="breadcrumb-item active">CLEWs-EU’s documentation!</li>
+      <li class="breadcrumb-item active">CLEWs-EU Model Documentation</li>
+
+    <span style="float:right; margin-right:20px; font-size:18px;">
+
+        <a href="https://github.com/CLIMATE-DIAMOND/EU-CLEWS"
+           target="_blank" title="GitHub"
+           style="margin-left: 12px; color: inherit;">
+           <i class="fa-brands fa-github"></i>
+        </a>
+
+        <a href="https://zenodo.org/records/16537822"
+           target="_blank" title="Zenodo"
+           style="margin-left: 12px; color: inherit;">
+           <i class="fa-solid fa-database"></i>
+        </a>
+
+    </span>
+
       <li class="wy-breadcrumbs-aside">
-            <a href="_sources/index.rst.txt" rel="nofollow"> View page source</a>
       </li>
   </ul>
   <hr/>
@@ -74,50 +122,110 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
              
-  <section id="clews-eu-s-documentation">
-<h1>CLEWs-EU’s documentation!<a class="headerlink" href="#clews-eu-s-documentation" title="Link to this heading"></a></h1>
-<p>This repository is the online documentation for the CLEWS-EU model developed for the Horizon DIAMOND project. The documentation gives a brief overview on the model structure, the individual modules and their design, the data and assumptions that go into the developmeent of each module.</p>
+  <section id="clews-eu-model-documentation">
+<h1>CLEWs-EU Model Documentation<a class="headerlink" href="#clews-eu-model-documentation" title="Link to this heading"></a></h1>
+</section>
+<section id="welcome-to-the-clews-eu-documentation">
+<h1>Welcome to the CLEWs-EU Documentation<a class="headerlink" href="#welcome-to-the-clews-eu-documentation" title="Link to this heading"></a></h1>
+<p>This documentation provides the complete technical manual for the CLEWs-EU
+model, developed under the Horizon Europe project DIAMOND. It includes model
+structure, data sources, methodology, sectoral modules, assumptions, and
+instructions for running and modifying the model.</p>
+<section id="disclaimer">
+<h2>Disclaimer<a class="headerlink" href="#disclaimer" title="Link to this heading"></a></h2>
+<p>Funded by the European Union. Views and opinions expressed are however those of
+the author(s) only and do not necessarily reflect those of the European Union or
+the European Climate, Infrastructure and Environment Executive Agency (CINEA).
+Neither the European Union nor the granting authority can be held responsible
+for them.</p>
+</section>
+<section id="copyright">
+<h2>Copyright<a class="headerlink" href="#copyright" title="Link to this heading"></a></h2>
+<p>This documentation and the associated model (unless otherwise stated) are
+licensed under the <strong>Creative Commons Attribution 4.0 International License
+(CC BY 4.0)</strong>.</p>
+<p>You are free to:</p>
+<ul class="simple">
+<li><p>share — copy and redistribute the material</p></li>
+<li><p>adapt — remix, transform, and build upon the material</p></li>
+</ul>
+<p>Under the following terms:</p>
+<ul class="simple">
+<li><p>attribution — appropriate credit and link to the license</p></li>
+<li><p>no additional restrictions — no further legal/technical restrictions may be
+applied</p></li>
+</ul>
+<p>License information: <a class="reference external" href="https://creativecommons.org/licenses/by/4.0/">https://creativecommons.org/licenses/by/4.0/</a></p>
+</section>
+<section id="project-information">
+<h2>Project Information<a class="headerlink" href="#project-information" title="Link to this heading"></a></h2>
+<p><strong>Grant Agreement Number:</strong> 101081179
+<strong>Acronym:</strong> DIAMOND
+<strong>Funding Scheme:</strong> Horizon Europe, RIA – Research and Innovation Action
+<strong>Topic:</strong> HORIZON-CL5-2022-D1-02
+<strong>Project Duration:</strong> December 2022 – November 2026
+<strong>Project Website:</strong> <a class="reference external" href="http://www.climate-diamond.eu/">http://www.climate-diamond.eu/</a></p>
+<p><strong>Project Coordinator:</strong>
+Institute of Communications and Computer Systems (ICCS), Greece
+<strong>EU Project Advisor:</strong> Silvia Vaghi (CINEA)</p>
+<p><strong>Deliverable:</strong> D3.5 – CLEWs-EU Final Version &amp; Documentation
+<strong>Work Package:</strong> WP3 – Update &amp; Upgrade
+<strong>Lead Beneficiary:</strong> The Cyprus Institute (CYI)
+<strong>Responsible Author:</strong> Constantinos Taliotis (CYI)
+<strong>Contact:</strong> <a class="reference external" href="mailto:c&#46;taliotis&#37;&#52;&#48;cyi&#46;ac&#46;cy">c<span>&#46;</span>taliotis<span>&#64;</span>cyi<span>&#46;</span>ac<span>&#46;</span>cy</a></p>
+</section>
+<section id="contributors">
+<h2>Contributors<a class="headerlink" href="#contributors" title="Link to this heading"></a></h2>
+<p>Vignesh Sridharan, Leigh Martindale, Nathan Johnson (Imperial),
+Anastasios Karamaneas, Thomas Nikolakakis, Sophia Kokoni (ICCS),
+Marios Karmellos, Irene Gkiouleka (CYI)</p>
+</section>
+<section id="preface">
+<h2>Preface<a class="headerlink" href="#preface" title="Link to this heading"></a></h2>
+<p>DIAMOND will update, upgrade, and fully open six Integrated Assessment Models (IAMs) that are emblematic in scientific and policy processes, improving their sectoral and technological detail, spatiotemporal resolution, and geographic granularity. It will further enhance modelling capacity to assess the feasibility and desirability of Paris-compliant mitigation pathways, their interplay with adaptation, circular economy, and other SDGs, their distributional and equity effects, and their resilience to extremes, as well as robust risk management and investment strategies. This will be done via integration of tools and insights from psychology, finance research, behavioural and labour economics, operational research, and physical science. The project will develop a transdisciplinary scientific approach to legitimise the implementation process and co-create research questions that stretch the frontiers of climate science, as well as establish vibrant communities of practice to transparently open model enhancements and to develop capacities, thereby lowering the entrance barriers to the established IAM community.</p>
+</section>
+<section id="consortium">
+<h2>Consortium<a class="headerlink" href="#consortium" title="Link to this heading"></a></h2>
+<p><strong>ICCS</strong> – Institute of Communications and Computer Systems (EL)
+<strong>BC3</strong> – Basque Centre for Climate Change (ES)
+<strong>CESAR</strong> – Kratena Kurt (AT)
+<strong>CICERO</strong> – Centre for International Climate Research (NO)
+<strong>CYI</strong> – The Cyprus Institute (CY)
+<strong>E4SMA</strong> – Energy Engineering Economic Environment Systems Modelling (IT)
+<strong>HOLISTIC</strong> – Holistic IKE (EL)
+<strong>COMILLAS</strong> – Universidad Pontificia Comillas (ES)
+<strong>ISINNOVA</strong> – Istituto di Studi per l’Integrazione dei Sistemi (IT)
+<strong>SEURECO</strong> – SEURECO SARL (FR)
+<strong>UM</strong> – Maastricht University (NL)
+<strong>ESMIA</strong> – ESMIA Consultants (CA)
+<strong>USMF</strong> – University of Maryland Foundation (US)
+<strong>UMD</strong> – University of Maryland (US)
+<strong>EPFL</strong> – École Polytechnique Fédérale de Lausanne (CH)
+<strong>ETH Zurich</strong> – Eidgenössische Technische Hochschule (CH)
+<strong>UNIBAS</strong> – University of Basel (CH)
+<strong>Imperial College London</strong> – UK
+<strong>University of Oxford</strong> – UK
+<strong>UCL</strong> – University College London (UK)</p>
 <div class="toctree-wrapper compound">
-<p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="Overview.html">1. Overview and model Structure</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="Overview.html#individual-modules-and-their-representation-in-clews-eu">1.1. Individual modules and their representation in CLEWS-EU</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Overview.html#geographical-resolution-of-the-model">1.2. Geographical resolution of the model</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="Energy_module.html">2. Energy Module</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="Energy_module.html#electricity-and-heat-generation">2.1. Electricity and heat generation</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Energy_module.html#buildings">2.2. Buildings</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Energy_module.html#industry">2.3. Industry</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Energy_module.html#transport">2.4. Transport</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="Land_and_Water_module.html">3. Land and Water Module</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="Land_and_Water_module.html#agricultural-land-use">3.1. Agricultural land use</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Land_and_Water_module.html#non-agricultural-land-use">3.2. Non agricultural land use</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Land_and_Water_module.html#representation-of-the-water-system">3.3. Representation of the water system</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Land_and_Water_module.html#livestock-representation">3.4. Livestock representation</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="Model_aggregations.html">4. Model aggregations</a></li>
-<li class="toctree-l1"><a class="reference internal" href="How_to_use_CLEWS-EU.html">5. How to use CLEWS-EU</a></li>
-</ul>
+</div>
+<div class="toctree-wrapper compound">
+</div>
+<div class="toctree-wrapper compound">
+</div>
+<div class="toctree-wrapper compound">
+</div>
+<div class="toctree-wrapper compound">
+</div>
+<div class="toctree-wrapper compound">
 </div>
 </section>
-<section id="indices-and-tables">
-<h1>Indices and tables<a class="headerlink" href="#indices-and-tables" title="Link to this heading"></a></h1>
-<ul class="simple">
-<li><p><a class="reference internal" href="genindex.html"><span class="std std-ref">Index</span></a></p></li>
-<li><p><a class="reference internal" href="py-modindex.html"><span class="std std-ref">Module Index</span></a></p></li>
-<li><p><a class="reference internal" href="search.html"><span class="std std-ref">Search Page</span></a></p></li>
-</ul>
 </section>
 
 
            </div>
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
-        <a href="Overview.html" class="btn btn-neutral float-right" title="1. Overview and model Structure" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="introduction/intro.html" class="btn btn-neutral float-right" title="General Introduction" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
   <hr/>

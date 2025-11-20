@@ -1,0 +1,2345 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Overview &mdash; CLEWS-EU 0.1 documentation</title>
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=e59714d7" />
+      <link rel="stylesheet" type="text/css" href="../_static/custom.css?v=326af39b" />
+
+  
+      <script src="../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../_static/documentation_options.js?v=2709fde1"></script>
+      <script src="../_static/doctools.js?v=9bcbadda"></script>
+      <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+      <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Land &amp; Water Module" href="../land_water/land_and_water_module.html" />
+    <link rel="prev" title="Model Overview" href="../introduction/model_overview.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            CLEWS-EU
+              <img src="../_static/logo-diamond.png" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Introduction</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../introduction/intro.html">General Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../introduction/model_overview.html">Model Overview</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Energy Module</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Overview</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#overarching-assumptions">Overarching assumptions</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="#electricity-and-heat-generation">Electricity and heat generation</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#electricity">Electricity</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#heat">Heat</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#units-of-electricity-and-heat-generation-technologies">Units of electricity and heat generation technologies</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="#buildings">Buildings</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#technoeconomic-characteristics-of-building-technology-options">Technoeconomic characteristics of building technology options</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#input-data-transformation">Input data transformation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#building-demand-projections">Building demand projections</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#units-of-building-sector-technologies-and-commodities">Units of building sector technologies and commodities</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="#industry">Industry</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#technoeconomic-characteristics-of-industrial-technology-options">Technoeconomic characteristics of industrial technology options</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#industrial-demand-projections">Industrial demand projections</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#units-of-industrial-sector-technologies-and-commodities">Units of industrial sector technologies and commodities</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="#transport">Transport</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#technoeconomic-characteristics-of-mobility-technology-options">Technoeconomic characteristics of mobility technology options</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#new-ets-and-automotive-fuel-price-assumptions">New ETS and automotive fuel price assumptions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#mobility-demand-projections">Mobility demand projections</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#charging-infrastructure">Charging infrastructure</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#biofuel-and-alternative-fuel-supply">Biofuel and alternative fuel supply</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#units-of-transport-sector-technologies-and-commodities">Units of transport sector technologies and commodities</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="#hydrogen">Hydrogen</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Land &amp; Water Module</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../land_water/land_and_water_module.html">Land &amp; Water Module</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Overarching model structure</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../overarching/overarching.html">Time horizon and temporal resolution</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../overarching/overarching.html#emissions-accounting">Emissions accounting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../overarching/overarching.html#naming-convention">Naming Convention</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">User Manual</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../manual/manual.html">Software and hardware requirements</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../manual/manual.html#model-setup">Model setup</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../manual/manual.html#using-the-clews-eu-model">Using the CLEWs-EU model</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Limitations &amp; Improvements</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../limitations/limitations.html">Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../limitations/limitations.html#energy-module">Energy module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../limitations/limitations.html#land-and-water-module">Land and Water module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../limitations/limitations.html#references">References</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">CLEWS-EU</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Overview</li>
+
+    <span style="float:right; margin-right:20px; font-size:18px;">
+
+        <a href="https://github.com/CLIMATE-DIAMOND/EU-CLEWS"
+           target="_blank" title="GitHub"
+           style="margin-left: 12px; color: inherit;">
+           <i class="fa-brands fa-github"></i>
+        </a>
+
+        <a href="https://zenodo.org/records/16537822"
+           target="_blank" title="Zenodo"
+           style="margin-left: 12px; color: inherit;">
+           <i class="fa-solid fa-database"></i>
+        </a>
+
+    </span>
+
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="overview">
+<h1>Overview<a class="headerlink" href="#overview" title="Link to this heading"></a></h1>
+<p>Five overarching sectors are developed to represent the broader energy system. Each of these includes a large set of technologies to capture the status of the current energy mix, as well as future technology options for decarbonisation. Specifically, the following sectors are modelled:</p>
+<ol class="loweralpha simple">
+<li><p><strong>Primary energy supply</strong> – this relates to fossil fuel supply, nuclear fuel supply, renewable energy potential and hydrogen imports. Primary energy supply and transformation infrastructure (e.g., gas pipelines, LNG regasification terminals, oil refineries, etc.) is not modelled explicitly, with the only exception of electricity interconnectors between countries in the disaggregated version of the CLEWs-EU model and hydrogen production. Supply of biomass into the energy system occurs via an interlinkage with the land module of the model.</p></li>
+<li><p><strong>Electricity and heat generation</strong> – fossil fuel, nuclear and renewable energy technologies are represented, along with a simplified representation of grid networks to capture associated losses. Additional technology options represented include electricity storage, use of Carbon Capture and Storage (CCS) technologies, hydrogen production through electrolysers to produce green hydrogen and steam methane reforming (i.e., using natural gas as feedstock) with or without CCS to produce blue and grey hydrogen respectively.</p></li>
+<li><p><strong>Transport</strong> – the transport sector includes road transport, which is further broken down to passenger (passenger cars and buses) and freight (light commercial vans and heavy trucks), rail transport (passenger and freight), aviation and shipping.</p></li>
+<li><p><strong>Buildings</strong> – this sector basically comprises of the households and service sectors. It is broken down into end-use services (i.e., space heating, space cooling, cooking, sanitary hot water, lighting and appliances).</p></li>
+<li><p><strong>Industry</strong> –up to four distinct industries, based on the most energy-consuming sectors, are represented separately for each country, while the rest of the industries are lumped together in a fifth category . The output of each of the industries is represented in generic energy terms (i.e., PJ of useful energy services).</p></li>
+</ol>
+<div style="margin-top:20px; margin-bottom:20px; text-align:center;">
+    <img src="../_static/energy_module.png" style="width:90%; margin-bottom:15px;">
+    <div style="font-size:13px;">
+        <b>Figure 2.</b> Simplified representation of CLEWs-EU energy module.
+    </div>
+</div><p>It should be noted that the energy demands in all sectors are inputs to the model . A simplified representation of the structure of the energy module is provided in Figure 2. Further disaggregation of technologies is available in the model than is depicted. For instance, the various vehicle technologies will be further broken down into passenger cars, buses, light commercial vans and heavy trucks. Similarly, the structure of the industrial sector will be constructed for each of the four key industries (and other industries) to be represented in each country.</p>
+<section id="overarching-assumptions">
+<h2>Overarching assumptions<a class="headerlink" href="#overarching-assumptions" title="Link to this heading"></a></h2>
+<p>Among the most crucial assumptions adopted in the model are the international fuel price projections. The model uses as a base the international fuel price projections of the European Commission recommendations (European Commission – DG CLIMA, 2024). The same source provides projections on the existing Emission Trading System (ETS) and the new ETS (Table 1).</p>
+<p>The existing ETS initially applied only to electricity and heat generation and energy-intensive industries. The new Emission Trading System (ETS2) will be expanded to include buildings, road transport, and smaller industries (i.e., those not already covered by the existing ETS), becoming fully operational in 2027 (European Commission – Directorate-General for Energy, n.d.-a). Both the ETS and the ETS2 are included in the baseline setup of the CLEWs-EU model.</p>
+<div style="font-size:13px; margin-top:10px; margin-bottom:8px; text-align:center;">
+    <b>Table 1.</b> International fuel and ETS price projections.
+</div><table class="docutils align-center">
+<colgroup>
+<col style="width: 19.0%" />
+<col style="width: 14.3%" />
+<col style="width: 9.5%" />
+<col style="width: 9.5%" />
+<col style="width: 9.5%" />
+<col style="width: 9.5%" />
+<col style="width: 9.5%" />
+<col style="width: 9.5%" />
+<col style="width: 9.5%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p><strong>Fuel / ETS</strong></p></th>
+<th class="head"><p><strong>Unit</strong></p></th>
+<th class="head"><p><strong>2021</strong></p></th>
+<th class="head"><p><strong>2025</strong></p></th>
+<th class="head"><p><strong>2030</strong></p></th>
+<th class="head"><p><strong>20335</strong></p></th>
+<th class="head"><p><strong>2040</strong></p></th>
+<th class="head"><p><strong>2045</strong></p></th>
+<th class="head"><p><strong>2050</strong></p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Oil</p></td>
+<td><p>EUR2018/GJ</p></td>
+<td><p>10.24</p></td>
+<td><p>10.16</p></td>
+<td><p>11.39</p></td>
+<td><p>12.62</p></td>
+<td><p>12.95</p></td>
+<td><p>14.10</p></td>
+<td><p>16.14</p></td>
+</tr>
+<tr class="row-odd"><td><p>Gas (NCV)</p></td>
+<td><p>EUR2018/GJ</p></td>
+<td><p>14.83</p></td>
+<td><p>7.70</p></td>
+<td><p>7.38</p></td>
+<td><p>6.72</p></td>
+<td><p>8.28</p></td>
+<td><p>8.11</p></td>
+<td><p>7.87</p></td>
+</tr>
+<tr class="row-even"><td><p>Coal</p></td>
+<td><p>EUR2018/GJ</p></td>
+<td><p>3.69</p></td>
+<td><p>3.36</p></td>
+<td><p>3.28</p></td>
+<td><p>3.11</p></td>
+<td><p>3.11</p></td>
+<td><p>3.28</p></td>
+<td><p>3.28</p></td>
+</tr>
+<tr class="row-odd"><td><p>ETS WEM</p></td>
+<td><p>EUR2018/tCO₂</p></td>
+<td><p>53.27</p></td>
+<td><p>77.85</p></td>
+<td><p>77.85</p></td>
+<td><p>81.95</p></td>
+<td><p>81.95</p></td>
+<td><p>131.12</p></td>
+<td><p>155.71</p></td>
+</tr>
+<tr class="row-even"><td><p>ETS WAM</p></td>
+<td><p>EUR2018/tCO₂</p></td>
+<td><p>53.27</p></td>
+<td><p>77.85</p></td>
+<td><p>77.85</p></td>
+<td><p>114.73</p></td>
+<td><p>237.66</p></td>
+<td><p>352.39</p></td>
+<td><p>401.56</p></td>
+</tr>
+<tr class="row-odd"><td><p>ETS2 WEM</p></td>
+<td><p>EUR2018/tCO₂</p></td>
+<td><p>0</p></td>
+<td><p>0</p></td>
+<td><p>0</p></td>
+<td><p>0</p></td>
+<td><p>0</p></td>
+<td><p>0</p></td>
+<td><p>0</p></td>
+</tr>
+<tr class="row-even"><td><p>ETS2 WAM</p></td>
+<td><p>EUR2018/tCO₂</p></td>
+<td><p>0</p></td>
+<td><p>0</p></td>
+<td><p>45.07</p></td>
+<td><p>114.73</p></td>
+<td><p>237.66</p></td>
+<td><p>352.39</p></td>
+<td><p>401.56</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+</section>
+<section id="electricity-and-heat-generation">
+<h1>Electricity and heat generation<a class="headerlink" href="#electricity-and-heat-generation" title="Link to this heading"></a></h1>
+<p>Representation of electricity and heat generation is crucial in the CLEWs-EU model as it defines the long-term cost-competitiveness of these commodities as alternatives to fuel combustion at the final consumer level. A large set of technologies is used to represent this sector (Figure 3). The following subsections discuss the structure and key assumptions adopted in this sector.</p>
+<div style="margin-top:20px; margin-bottom:20px; text-align:center;">
+    <img src="../_static/electricity&heat.png" style="width:90%; margin-bottom:15px;">
+    <div style="font-size:13px;">
+        <b>Figure 3.</b> Simplified representation of electricity and heat generation in the CLEWs-EU model.
+    </div>
+</div><section id="electricity">
+<h2>Electricity<a class="headerlink" href="#electricity" title="Link to this heading"></a></h2>
+<p>The development of the electricity supply module has been based on detailed historical data for electricity demand, PV and wind profiles, as well as hydro availability. Data on existing installed capacity has been retrieved primarily from the JRC-IDEES 2021 database (Rózsai et al., 2024) and cross-verified with data from ENTSO-E. Furthermore, demand profiles have been downloaded from the ENTSO-E website for the year 2022 for all member countries (ENTSO‑E, . Moreover, an important constraint is set, related to the maximum total installed capacity of RES power plants: for hydropower, these values are adopted from each country’s NECP projections, whereas for solar and wind energy, from the JRC ENSPRESO database (Ruiz et al., 2019).
+PV and wind generation profiles have been downloaded from Renewables-Ninja (Pfenninger &amp; Staffell, 2022) and adjusted to get the average annual capacity factor based on Eurostat (Eurostat, 2025b). Wind and PV resources have been broken into high, average and low potential, based on data from the JRC-IDEES database (Rózsai et al., 2024) (Figure 4). For each country, there are 3 PV and wind technologies/resources associated with a different capacity factor (%) and economic potential (in GW).</p>
+<div style="margin-top:20px; margin-bottom:20px; text-align:center;">
+    <img src="../_static/capacity_factors_wind.png" style="width:90%; margin-bottom:15px;">
+    <div style="font-size:13px;">
+        <b>Figure 4.</b> Capacity factor assumptions for different classes of wind in Spain.
+    </div>
+</div><p>Run-of-River (RoR) hydro generation is modelled similarly as in the case of PV and wind, using a historical profile of generation, retrieved from ENTSO-E (ENTSO‑E, 2025) and adjusted to get the average capacity factor based on historical data by Eurostat (Eurostat, 2025b). The hourly profiles of demand, as well as generation from PV, wind and RoR have been treated and adjusted to the agreed temporal resolution that is used across the CLEWs-EU model (see Section 1.2.3).
+Hydro plants with dams are modelled as generators running on water (represented as a “fuel”), while the maximum capacity factor is capped based on historical generation. The main difference between RoR and hydro with dams is that hydro with dams can operate flexibly, subject to a seasonal cap on generation that is based on statistical analysis of historical hydro generation data for seven consecutive years. To better reflect the annual fluctuations of hydropower generation, the model considers 7-year cycles where 6 years with average hydrological data are followed by a single ”dry” year (Figure 5). All adopted profiles for hydro, PV, and wind have been compared with historical data based on Eurostat and have been treated to represent an average year. For this purpose, historical annual averages have been obtained from 1980-2019 for PV and Wind and 2015-2022 for hydro.</p>
+<div style="margin-top:20px; margin-bottom:20px; text-align:center;">
+    <img src="../_static/capacity_factors_dams.png" style="width:90%; margin-bottom:15px;">
+    <div style="font-size:13px;">
+        <b>Figure 5.</b> Capacity factors for hydro dams in Spain for average vs dry year. In RoRs, generation is pre-defined at the per time-slice level, while on hydros with dams, generation is capped on a seasonal level.
+    </div>
+</div><p>The model accounts for a wide range of technologies which comprise a portfolio of projects to be considered in the optimisation. The technological mix of conventional generators can be distinguished based on the thermodynamic cycle (steam (ST) vs gas, open vs closed cycle vs combined cycle (CCGT)), and on the fuel (biomass, nuclear, coal, natural gas, liquid fuels, waste, biogas etc.). The model also includes CCS for specific technologies, coal-ST with CCS, gas CCGT with CCS and biomass-ST with CCS.
+Utilising data from ENTSO-E (ENTSO‑E, , grid interconnections between the EU member states are represented in the model. Specifically, the existing and potential future capacities of interconnections have been incorporated in the model. The level of electricity trade between the systems is endogenously calculated in the model and it depends on the technoeconomic assumptions adopted for each scenario.
+The techno-economic parameters of electricity generation technologies (efficiency, capital cost, operation and maintenance cost, etc.), presented in Table 2 and Table 3, are based on the latest available EU Reference Scenario (European Commission - Directorate General for Energy. et al., 2021). The CLEWS-EU model considers two types of electricity storage, namely battery energy storage systems (BESS) and pumped hydro. The techno-economic parameters and trajectories for these storage options have been based on the Annual Technology Baseline (ATB) documentation of NREL (NREL, 2024). The model assumptions include capital cost trajectories for all technologies; this is especially important for technologies where the capital cost is expected to be reduced with time as in the case of PV, wind and BESS. The OSeMOSYS code used to run the CLEWs-EU model contains modified storage equations to ensure proper representation of the operation of these technologies.</p>
+<div style="font-size:13px; margin-top:10px; margin-bottom:8px; text-align:center;">
+    <b>Table 2.</b> CAPEX and FOM costs of electricity &amp; heat generation technologies
+</div><table class="docutils align-center">
+<colgroup>
+<col style="width: 29.4%" />
+<col style="width: 11.8%" />
+<col style="width: 11.8%" />
+<col style="width: 11.8%" />
+<col style="width: 11.8%" />
+<col style="width: 11.8%" />
+<col style="width: 11.8%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p><strong>Technology</strong></p></th>
+<th class="head"><p><strong>CAPEX 2021</strong></p></th>
+<th class="head"><p><strong>CAPEX 2030</strong></p></th>
+<th class="head"><p><strong>CAPEX 2050</strong></p></th>
+<th class="head"><p><strong>FOM 2021</strong></p></th>
+<th class="head"><p><strong>FOM 2030</strong></p></th>
+<th class="head"><p><strong>FOM 2050</strong></p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Nuclear Generation III</p></td>
+<td><p>4,770</p></td>
+<td><p>4,500</p></td>
+<td><p>4,500</p></td>
+<td><p>120</p></td>
+<td><p>115</p></td>
+<td><p>105</p></td>
+</tr>
+<tr class="row-odd"><td><p>Coal supercritical</p></td>
+<td><p>1,650</p></td>
+<td><p>1,650</p></td>
+<td><p>1,650</p></td>
+<td><p>33–41</p></td>
+<td><p>31–36</p></td>
+<td><p>28–31</p></td>
+</tr>
+<tr class="row-even"><td><p>Coal Supercritical with CCS</p></td>
+<td><p>3,432</p></td>
+<td><p>3,270</p></td>
+<td><p>3,075</p></td>
+<td><p>69</p></td>
+<td><p>66</p></td>
+<td><p>62</p></td>
+</tr>
+<tr class="row-odd"><td><p>Biomass Steam Turbine</p></td>
+<td><p>1,980</p></td>
+<td><p>1,800</p></td>
+<td><p>1,700</p></td>
+<td><p>47</p></td>
+<td><p>40</p></td>
+<td><p>38</p></td>
+</tr>
+<tr class="row-even"><td><p>Biomass Steam Turbine with CCS</p></td>
+<td><p>4,013</p></td>
+<td><p>3,675</p></td>
+<td><p>3,205</p></td>
+<td><p>80</p></td>
+<td><p>69</p></td>
+<td><p>61</p></td>
+</tr>
+<tr class="row-odd"><td><p>Steam Turbine CHP</p></td>
+<td><p>1,980</p></td>
+<td><p>1,800</p></td>
+<td><p>1,700</p></td>
+<td><p>46</p></td>
+<td><p>40</p></td>
+<td><p>38</p></td>
+</tr>
+<tr class="row-even"><td><p>Gas Turbine CC</p></td>
+<td><p>598</p></td>
+<td><p>579</p></td>
+<td><p>570</p></td>
+<td><p>22</p></td>
+<td><p>21</p></td>
+<td><p>19</p></td>
+</tr>
+<tr class="row-odd"><td><p>Gas Turbine OC *</p></td>
+<td><p>399–497</p></td>
+<td><p>386–465</p></td>
+<td><p>380–450</p></td>
+<td><p>12–29</p></td>
+<td><p>12–24</p></td>
+<td><p>12–24</p></td>
+</tr>
+<tr class="row-even"><td><p>Reciprocating engine</p></td>
+<td><p>1,897</p></td>
+<td><p>1,897</p></td>
+<td><p>1,897</p></td>
+<td><p>35</p></td>
+<td><p>35</p></td>
+<td><p>35</p></td>
+</tr>
+<tr class="row-odd"><td><p>Natural Gas CC with CCS</p></td>
+<td><p>1,738</p></td>
+<td><p>1,625</p></td>
+<td><p>1,500</p></td>
+<td><p>41</p></td>
+<td><p>38</p></td>
+<td><p>34</p></td>
+</tr>
+<tr class="row-even"><td><p>Geothermal</p></td>
+<td><p>3,211</p></td>
+<td><p>2,807</p></td>
+<td><p>2,614</p></td>
+<td><p>102</p></td>
+<td><p>95</p></td>
+<td><p>99</p></td>
+</tr>
+<tr class="row-odd"><td><p>Waste PP</p></td>
+<td><p>1,647</p></td>
+<td><p>1,615</p></td>
+<td><p>1,600</p></td>
+<td><p>52</p></td>
+<td><p>45</p></td>
+<td><p>39</p></td>
+</tr>
+<tr class="row-even"><td><p>Hydro reservoir PP</p></td>
+<td><p>2,100</p></td>
+<td><p>2,100</p></td>
+<td><p>2,100</p></td>
+<td><p>26</p></td>
+<td><p>26</p></td>
+<td><p>26</p></td>
+</tr>
+<tr class="row-odd"><td><p>Run of river PP</p></td>
+<td><p>1,711</p></td>
+<td><p>1,670</p></td>
+<td><p>1,650</p></td>
+<td><p>9</p></td>
+<td><p>8</p></td>
+<td><p>8</p></td>
+</tr>
+<tr class="row-even"><td><p>Batteries **</p></td>
+<td><p>578–1734</p></td>
+<td><p>380–1140</p></td>
+<td><p>300–900</p></td>
+<td><p>48</p></td>
+<td><p>31</p></td>
+<td><p>21</p></td>
+</tr>
+<tr class="row-odd"><td><p>Pumped Hydro Storage</p></td>
+<td><p>3,062</p></td>
+<td><p>30,612</p></td>
+<td><p>3,062</p></td>
+<td><p>19</p></td>
+<td><p>19</p></td>
+<td><p>19</p></td>
+</tr>
+</tbody>
+</table>
+<div style="font-size:13px; margin-top:20px; margin-bottom:8px; text-align:center;">
+    <b>Table 3.</b> CAPEX and FOM costs of solar and wind technologies based on resource potential
+</div><table class="docutils align-center">
+<colgroup>
+<col style="width: 29.4%" />
+<col style="width: 11.8%" />
+<col style="width: 11.8%" />
+<col style="width: 11.8%" />
+<col style="width: 11.8%" />
+<col style="width: 11.8%" />
+<col style="width: 11.8%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p><strong>Technology</strong></p></th>
+<th class="head"><p><strong>CAPEX 2021</strong></p></th>
+<th class="head"><p><strong>CAPEX 2030</strong></p></th>
+<th class="head"><p><strong>CAPEX 2050</strong></p></th>
+<th class="head"><p><strong>FOM 2021</strong></p></th>
+<th class="head"><p><strong>FOM 2030</strong></p></th>
+<th class="head"><p><strong>FOM 2050</strong></p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Wind onshore Low</p></td>
+<td><p>1198</p></td>
+<td><p>1175</p></td>
+<td><p>1100</p></td>
+<td><p>13</p></td>
+<td><p>13</p></td>
+<td><p>12</p></td>
+</tr>
+<tr class="row-odd"><td><p>Wind onshore Medium</p></td>
+<td><p>1045</p></td>
+<td><p>1000</p></td>
+<td><p>925</p></td>
+<td><p>14</p></td>
+<td><p>14</p></td>
+<td><p>12</p></td>
+</tr>
+<tr class="row-even"><td><p>Wind onshore High</p></td>
+<td><p>995</p></td>
+<td><p>950</p></td>
+<td><p>880</p></td>
+<td><p>21.9</p></td>
+<td><p>21</p></td>
+<td><p>20</p></td>
+</tr>
+<tr class="row-odd"><td><p>Wind offshore Low</p></td>
+<td><p>1778</p></td>
+<td><p>1650</p></td>
+<td><p>1503</p></td>
+<td><p>32.4</p></td>
+<td><p>27</p></td>
+<td><p>26</p></td>
+</tr>
+<tr class="row-even"><td><p>Wind offshore Medium</p></td>
+<td><p>1756</p></td>
+<td><p>1622</p></td>
+<td><p>1468</p></td>
+<td><p>32.4</p></td>
+<td><p>27</p></td>
+<td><p>26</p></td>
+</tr>
+<tr class="row-odd"><td><p>Wind offshore High</p></td>
+<td><p>1734</p></td>
+<td><p>1593</p></td>
+<td><p>1432</p></td>
+<td><p>32.4</p></td>
+<td><p>27</p></td>
+<td><p>26</p></td>
+</tr>
+<tr class="row-even"><td><p>Solar PV Low</p></td>
+<td><p>470</p></td>
+<td><p>400</p></td>
+<td><p>367</p></td>
+<td><p>14.8</p></td>
+<td><p>12.6</p></td>
+<td><p>8.2</p></td>
+</tr>
+<tr class="row-odd"><td><p>Solar PV Medium</p></td>
+<td><p>455</p></td>
+<td><p>387</p></td>
+<td><p>355</p></td>
+<td><p>14.8</p></td>
+<td><p>12.6</p></td>
+<td><p>8.2</p></td>
+</tr>
+<tr class="row-even"><td><p>Solar PV High</p></td>
+<td><p>447</p></td>
+<td><p>380</p></td>
+<td><p>348</p></td>
+<td><p>14.8</p></td>
+<td><p>12.6</p></td>
+<td><p>8.2</p></td>
+</tr>
+<tr class="row-odd"><td><p>Solar PV Rooftop Low</p></td>
+<td><p>470</p></td>
+<td><p>400</p></td>
+<td><p>367</p></td>
+<td><p>18.6</p></td>
+<td><p>14.9</p></td>
+<td><p>9</p></td>
+</tr>
+<tr class="row-even"><td><p>Solar PV Rooftop Medium</p></td>
+<td><p>635</p></td>
+<td><p>543</p></td>
+<td><p>500</p></td>
+<td><p>18.6</p></td>
+<td><p>14.9</p></td>
+<td><p>9</p></td>
+</tr>
+<tr class="row-odd"><td><p>Solar PV Rooftop High</p></td>
+<td><p>625</p></td>
+<td><p>536</p></td>
+<td><p>493</p></td>
+<td><p>18.6</p></td>
+<td><p>14.9</p></td>
+<td><p>9</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="heat">
+<h2>Heat<a class="headerlink" href="#heat" title="Link to this heading"></a></h2>
+<p>The heat module of the power sector of the CLEWs-EU model contains CHP plants with the main purpose of producing electricity, while heat is directed as a by-product into district heating networks. The existing capacity of CHP plants and the level of district heating demand are retrieved from the JRC-IDEES 2021 database (Rózsai et al., 2024). CHP units that are part of industrial facilities are excluded from this module, as end-use energy demand in the industry sector is accounted for separately.
+To vary the level of electricity and heat production throughout the model horizon and the intra-annual timesteps, we have added two modes of operation for each CHP technology. The first mode represents the maximum rate of electricity production for the CHP unit, while the highest heat-rate production is accounted for in the other mode. The electricity and heat efficiency ranges of CHPs for these two modes are taken from IEA ETSAP (IEA ETSAP, 2010). Depending on the level of electricity versus heat demand in the end-use sectors, the model chooses which of the two modes to prioritise.</p>
+</section>
+<section id="units-of-electricity-and-heat-generation-technologies">
+<h2>Units of electricity and heat generation technologies<a class="headerlink" href="#units-of-electricity-and-heat-generation-technologies" title="Link to this heading"></a></h2>
+<p>OSeMOSYS models do not have a specific unit definition, so the decision on the units to be used is entirely up to the modeller.
+The parameter “CapacityToActivityUnit” is used to relate the rate of activity of each technology to its capacity.
+In the energy module of CLEWs-EU, this parameter is either 1 or 31.536. In the former case, this means that the activity is in PJ
+and the capacity is in PJ/year, while in the latter case, the capacity is in GW.</p>
+<div style="font-size:13px; margin-top:10px; margin-bottom:8px; text-align:center;">
+    <b>Table 4.</b> Units for the capacity and cost characteristics of electricity and heat technologies in the CLEWs-EU model
+</div><table class="docutils align-center">
+<colgroup>
+<col style="width: 16.7%" />
+<col style="width: 16.7%" />
+<col style="width: 22.2%" />
+<col style="width: 22.2%" />
+<col style="width: 22.2%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p><strong>Capacity</strong></p></th>
+<th class="head"><p><strong>Activity</strong></p></th>
+<th class="head"><p><strong>Capital cost</strong></p></th>
+<th class="head"><p><strong>Fixed cost</strong></p></th>
+<th class="head"><p><strong>Variable cost</strong></p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>GW</p></td>
+<td><p>PJ</p></td>
+<td><p>Million EUR2018/GW</p></td>
+<td><p>Million EUR2018/GW</p></td>
+<td><p>Million EUR2018/PJ</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+</section>
+<section id="buildings">
+<h1>Buildings<a class="headerlink" href="#buildings" title="Link to this heading"></a></h1>
+<p>The buildings module aggregates the residential and commercial services sectors. It splits demand for energy services into four primary end-uses: heating (i.e., space heating &amp; hot water), space cooling, cooking and electrical appliances. Units for the capacity and cost characteristics of electricity and heat technologies in the CLEWs-EU model.
+For space heating, the module incorporates several technologies to reflect the heterogeneity of heating systems in buildings. These include solid fuel furnaces for solid fuels, oil boilers for LPG and gas/diesel oil, gas-based systems (including gas heat pumps and heaters), biomass boilers for biomass and waste, district heating systems, heat pumps (indicated as advanced electric heating in JRC-IDEES database (Rózsai et al., 2024)), electric furnaces (representing conventional electric heating and circulation systems), and solar thermal installations.
+Space cooling is represented by electric space cooling systems due to the predominance of electricity-based cooling technologies in both residential and commercial buildings. Cooking is represented using three primary technologies: LPG stoves, gas stoves, and electric stoves, capturing the most common cooking appliances across the sectors. Lighting and electrical appliances are treated as a single, aggregated category without further technological disaggregation.
+As in all modules of CLEWs-EU, to facilitate the independent development and testing of the buildings’ module, we introduce additional dummy technologies for electricity and centralised heat provision, as well as dummy technologies that can directly satisfy the defined energy service demands at an exceptionally high cost. These temporary additions allow for standalone operation of the module during development phases. However, it’s important to note that these dummy technologies are also included in the final integrated model version, where electricity and heat are endogenous to the model via the dedicated “Electricity &amp; Heat generation” module, as they allow identification of potential modelling faults.</p>
+<div style="margin-top:20px; margin-bottom:20px; text-align:center;">
+    <img src="../_static/building_sector_model.png" style="width:90%; margin-bottom:15px;">
+    <div style="font-size:13px;">
+        <b>Figure 6.</b> Simplified representation of the buildings sector in the CLEWs-EU model.
+    </div>
+</div><section id="technoeconomic-characteristics-of-building-technology-options">
+<h2>Technoeconomic characteristics of building technology options<a class="headerlink" href="#technoeconomic-characteristics-of-building-technology-options" title="Link to this heading"></a></h2>
+<p>The development of the buildings module was based on data from the Joint Research Centre of the European Commission, specifically the Joint Research Centre’s Integrated Database of the European Energy System (JRC-IDEES). The latest version of the publicly-available dataset, JRC-IDEES-2021 (Rózsai et al., 2024) was published in May 2024 and covers the timeframe from 2000 to 2021, making it suitable for the calibration of the model. The release introduces several methodological refinements and incorporates new statistical sources as well as feedback from the user community.
+As an analytical database, it goes beyond raw statistical data by processing and decomposing energy consumption into specific processes and end-uses, allowing for in-depth analysis of energy system dynamics. JRC-IDEES was created by harmonizing existing statistics with technical assumptions. For the buildings sector (both commercial and residential), JRC-IDEES (Rózsai et al., 2024) offers highly disaggregated data on energy demand, breaking it down by end-use (e.g., space heating, cooling, lighting) and fuel type and is aligned with Eurostat energy balances.
+As per the overarching model assumptions (Table 5), capital costs are derived from the EU Reference Scenario 2020 technology assumptions (European Commission - Directorate General for Energy. et al., 2021), with the exception of solid fuel boilers/furnaces, which are taken from IEA ETSAP (IEA ETSAP, 2012), which is also consulted to derive operation and maintenance costs.</p>
+<div style="font-size:13px; margin-top:20px; margin-bottom:8px; text-align:center;">
+    <b>Table 5.</b> Technoeconomic assumptions of buildings technologies in the CLEWs-EU model.
+</div><table class="docutils align-center">
+<colgroup>
+<col style="width: 21.7%" />
+<col style="width: 8.7%" />
+<col style="width: 8.7%" />
+<col style="width: 8.7%" />
+<col style="width: 8.7%" />
+<col style="width: 8.7%" />
+<col style="width: 8.7%" />
+<col style="width: 8.7%" />
+<col style="width: 8.7%" />
+<col style="width: 8.7%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p><strong>Technology</strong></p></th>
+<th class="head"><p><strong>Capital cost (EUR2018/kW)</strong></p></th>
+<th class="head"></th>
+<th class="head"></th>
+<th class="head"><p><strong>Fixed O&amp;M (EUR2018/kW)</strong></p></th>
+<th class="head"></th>
+<th class="head"></th>
+<th class="head"><p><strong>Energy Intensity Index (2021 = 100%)</strong></p></th>
+<th class="head"></th>
+<th class="head"></th>
+</tr>
+<tr class="row-even"><th class="head"></th>
+<th class="head"><p><strong>2021</strong></p></th>
+<th class="head"><p><strong>2030</strong></p></th>
+<th class="head"><p><strong>2050</strong></p></th>
+<th class="head"><p><strong>2021</strong></p></th>
+<th class="head"><p><strong>2030</strong></p></th>
+<th class="head"><p><strong>2050</strong></p></th>
+<th class="head"><p><strong>2021</strong></p></th>
+<th class="head"><p><strong>2030</strong></p></th>
+<th class="head"><p><strong>2050</strong></p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-odd"><td><p>Oil boiler</p></td>
+<td><p>170</p></td>
+<td><p>192</p></td>
+<td><p>180</p></td>
+<td><p>5.08</p></td>
+<td><p>5.08</p></td>
+<td><p>5.08</p></td>
+<td><p>100%</p></td>
+<td><p>100%</p></td>
+<td><p>100%</p></td>
+</tr>
+<tr class="row-even"><td><p>Gas boiler</p></td>
+<td><p>165</p></td>
+<td><p>187</p></td>
+<td><p>185</p></td>
+<td><p>5.08</p></td>
+<td><p>5.08</p></td>
+<td><p>5.08</p></td>
+<td><p>100%</p></td>
+<td><p>88%</p></td>
+<td><p>88%</p></td>
+</tr>
+<tr class="row-odd"><td><p>Coal boiler</p></td>
+<td><p>165</p></td>
+<td><p>187</p></td>
+<td><p>185</p></td>
+<td><p>5.08</p></td>
+<td><p>5.08</p></td>
+<td><p>5.08</p></td>
+<td><p>100%</p></td>
+<td><p>100%</p></td>
+<td><p>100%</p></td>
+</tr>
+<tr class="row-even"><td><p>Biomass boiler</p></td>
+<td><p>431</p></td>
+<td><p>488</p></td>
+<td><p>457</p></td>
+<td><p>13.22</p></td>
+<td><p>13.22</p></td>
+<td><p>13.22</p></td>
+<td><p>100%</p></td>
+<td><p>94%</p></td>
+<td><p>91%</p></td>
+</tr>
+<tr class="row-odd"><td><p>Electric furnace</p></td>
+<td><p>64</p></td>
+<td><p>78</p></td>
+<td><p>71</p></td>
+<td><p>5.08</p></td>
+<td><p>5.08</p></td>
+<td><p>5.08</p></td>
+<td><p>100%</p></td>
+<td><p>100%</p></td>
+<td><p>100%</p></td>
+</tr>
+<tr class="row-even"><td><p>Heat pump</p></td>
+<td><p>817</p></td>
+<td><p>865</p></td>
+<td><p>697</p></td>
+<td><p>5.08</p></td>
+<td><p>5.08</p></td>
+<td><p>5.08</p></td>
+<td><p>100%</p></td>
+<td><p>81%</p></td>
+<td><p>63%</p></td>
+</tr>
+<tr class="row-odd"><td><p>Solar thermal</p></td>
+<td><p>1308</p></td>
+<td><p>1432</p></td>
+<td><p>1119</p></td>
+<td><p>5.08</p></td>
+<td><p>5.08</p></td>
+<td><p>5.08</p></td>
+<td><p>100%</p></td>
+<td><p>95%</p></td>
+<td><p>92%</p></td>
+</tr>
+<tr class="row-even"><td><p>District heating</p></td>
+<td><p>96</p></td>
+<td><p>111</p></td>
+<td><p>104</p></td>
+<td><p>—</p></td>
+<td><p>—</p></td>
+<td><p>—</p></td>
+<td><p>100%</p></td>
+<td><p>99%</p></td>
+<td><p>99%</p></td>
+</tr>
+<tr class="row-odd"><td><p>Heat pump (cooling)</p></td>
+<td><p>817</p></td>
+<td><p>865</p></td>
+<td><p>697</p></td>
+<td><p>5.08</p></td>
+<td><p>5.08</p></td>
+<td><p>5.08</p></td>
+<td><p>100%</p></td>
+<td><p>81%</p></td>
+<td><p>66%</p></td>
+</tr>
+<tr class="row-even"><td><p>LPG stove</p></td>
+<td><p>198</p></td>
+<td><p>202</p></td>
+<td><p>195</p></td>
+<td><p>—</p></td>
+<td><p>—</p></td>
+<td><p>—</p></td>
+<td><p>100%</p></td>
+<td><p>95%</p></td>
+<td><p>91%</p></td>
+</tr>
+<tr class="row-odd"><td><p>Gas stove</p></td>
+<td><p>198</p></td>
+<td><p>202</p></td>
+<td><p>195</p></td>
+<td><p>—</p></td>
+<td><p>—</p></td>
+<td><p>—</p></td>
+<td><p>100%</p></td>
+<td><p>95%</p></td>
+<td><p>91%</p></td>
+</tr>
+<tr class="row-even"><td><p>Electric stove</p></td>
+<td><p>189</p></td>
+<td><p>194</p></td>
+<td><p>186</p></td>
+<td><p>—</p></td>
+<td><p>—</p></td>
+<td><p>—</p></td>
+<td><p>100%</p></td>
+<td><p>96%</p></td>
+<td><p>91%</p></td>
+</tr>
+<tr class="row-odd"><td><p>General appliances</p></td>
+<td><p>—</p></td>
+<td><p>—</p></td>
+<td><p>—</p></td>
+<td><p>—</p></td>
+<td><p>—</p></td>
+<td><p>—</p></td>
+<td><p>100%</p></td>
+<td><p>93%</p></td>
+<td><p>91%</p></td>
+</tr>
+<tr class="row-even"><td><p>Renovation (Low)</p></td>
+<td><p>1134</p></td>
+<td><p>1134</p></td>
+<td><p>1134</p></td>
+<td><p>—</p></td>
+<td><p>—</p></td>
+<td><p>—</p></td>
+<td><p>100%</p></td>
+<td><p>100%</p></td>
+<td><p>100%</p></td>
+</tr>
+<tr class="row-odd"><td><p>Renovation (Medium)</p></td>
+<td><p>705</p></td>
+<td><p>705</p></td>
+<td><p>705</p></td>
+<td><p>—</p></td>
+<td><p>—</p></td>
+<td><p>—</p></td>
+<td><p>100%</p></td>
+<td><p>100%</p></td>
+<td><p>100%</p></td>
+</tr>
+<tr class="row-even"><td><p>Renovation (High)</p></td>
+<td><p>900</p></td>
+<td><p>900</p></td>
+<td><p>900</p></td>
+<td><p>—</p></td>
+<td><p>—</p></td>
+<td><p>—</p></td>
+<td><p>100%</p></td>
+<td><p>100%</p></td>
+<td><p>100%</p></td>
+</tr>
+</tbody>
+</table>
+<div style="font-size:12px; line-height:1.35; margin-top:5px; margin-bottom:20px; font-style:italic;">
+    *The capital cost unit of building renovations is in Million EUR2018/PJ of yearly savings.
+            The values are indicative, as renovation cost and achieved savings vary by country.*
+</div><p>Efficiency factors are projected to evolve and are therefore inserted in the model as time series. For the period 2018-2021, these calculations were based on the JRC-IDEES-2021 database. Since both Final Energy Consumption (FEC) and Useful Energy Consumption (UEC) data for the Households (HH) and Services (SER) sectors are available in the database for all EU Member States and the European Union as a whole, we computed the efficiency factors as:</p>
+<p>Efficiency = <span class="math notranslate nohighlight">\(\frac{\text{Total UEC}}{\text{Total FEC}}\)</span></p>
+<p>For 2022-2050 projections, efficiencies are indexed to the estimated efficiencies for 2021 from JRC-IDEES as:</p>
+<p>Efficiency <span class="math notranslate nohighlight">\((y_n) = Efficiency_{2021} \times Energy\ Intensity\ Index\)</span></p>
+<p>Where</p>
+<p><span class="math notranslate nohighlight">\(Energy\ Intensity\ Index = \frac{Efficiency\ in\ Reference\ Scenario\ (y_n)}{Efficiency\ in\ Reference\ Scenario_{2021}}\)</span>,</p>
+<p>derived from the EU Reference Scenario 2020 technology assumptions.</p>
+<p>Some technologies, such as oil- and coal-based systems, are assumed to maintain constant efficiency over time.
+For lighting and electrical appliances, the model incorporates projected efficiency improvements due to equipment
+replacement and anticipated technological advancements. This is implemented by gradually improving the relevant
+efficiency parameters over time, reflecting the expected enhancement in energy conversion efficiency for these end-uses.</p>
+<p>Furthermore, according to the adopted technoeconomic assumptions, building renovation costs and savings potential
+are assumed to differ across EU regions, since both climatic and socioeconomic conditions influence renovation
+performance. EU Member States are grouped as follows:</p>
+<ul class="simple">
+<li><p>South: Greece, Cyprus, Italy, Spain, Malta, Portugal</p></li>
+<li><p>East: Bulgaria, Estonia, Latvia, Lithuania, Romania</p></li>
+<li><p>Centre/West: Austria, Belgium, Czech Republic, Germany, France, Croatia, Hungary, Ireland, Luxembourg, Netherlands, Poland, Slovenia, Slovakia</p></li>
+<li><p>North: Denmark, Finland, Sweden</p></li>
+</ul>
+<p>A limitation on annual renovation rates is also implemented in the model. Specifically, up to
+<span class="math notranslate nohighlight">\(1.5\%\)</span> of the building stock may be renovated per year, unless adjusted in a scenario.</p>
+<div style="font-size:13px; margin-top:10px; margin-bottom:8px; text-align:center;">
+    <b>Table 6.</b> Regional variation in savings and cost for renovation measures in the buildings sector of the CLEWs-EU model (adapted from the EU Reference Scenario 2020).
+</div><table class="docutils align-center">
+<colgroup>
+<col style="width: 21.4%" />
+<col style="width: 28.6%" />
+<col style="width: 21.4%" />
+<col style="width: 28.6%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p><strong>Region</strong></p></th>
+<th class="head"><p><strong>Extent of renovation</strong></p></th>
+<th class="head"><p><strong>Energy savings (%)</strong></p></th>
+<th class="head"><p><strong>Capital cost</strong>
+<em>(Million EUR2018/PJ annual savings)</em></p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Centre/West</p></td>
+<td><p>Light renovation</p></td>
+<td><p>15.8%</p></td>
+<td><p>1134</p></td>
+</tr>
+<tr class="row-odd"><td><p>Centre/West</p></td>
+<td><p>Medium renovation</p></td>
+<td><p>68.7%</p></td>
+<td><p>705</p></td>
+</tr>
+<tr class="row-even"><td><p>Centre/West</p></td>
+<td><p>Deep renovation</p></td>
+<td><p>78.0%</p></td>
+<td><p>900</p></td>
+</tr>
+<tr class="row-odd"><td><p>North</p></td>
+<td><p>Light renovation</p></td>
+<td><p>22.3%</p></td>
+<td><p>897</p></td>
+</tr>
+<tr class="row-even"><td><p>North</p></td>
+<td><p>Medium renovation</p></td>
+<td><p>67.4%</p></td>
+<td><p>749</p></td>
+</tr>
+<tr class="row-odd"><td><p>North</p></td>
+<td><p>Deep renovation</p></td>
+<td><p>86.6%</p></td>
+<td><p>870</p></td>
+</tr>
+<tr class="row-even"><td><p>South</p></td>
+<td><p>Light renovation</p></td>
+<td><p>16.1%</p></td>
+<td><p>853</p></td>
+</tr>
+<tr class="row-odd"><td><p>South</p></td>
+<td><p>Medium renovation</p></td>
+<td><p>56.5%</p></td>
+<td><p>682</p></td>
+</tr>
+<tr class="row-even"><td><p>South</p></td>
+<td><p>Deep renovation</p></td>
+<td><p>75.3%</p></td>
+<td><p>802</p></td>
+</tr>
+<tr class="row-odd"><td><p>East</p></td>
+<td><p>Light renovation</p></td>
+<td><p>12.9%</p></td>
+<td><p>780</p></td>
+</tr>
+<tr class="row-even"><td><p>East</p></td>
+<td><p>Medium renovation</p></td>
+<td><p>55.5%</p></td>
+<td><p>452</p></td>
+</tr>
+<tr class="row-odd"><td><p>East</p></td>
+<td><p>Deep renovation</p></td>
+<td><p>68.6%</p></td>
+<td><p>566</p></td>
+</tr>
+</tbody>
+</table>
+<p>Finally, technology lifetimes are also sourced from available technology briefs (IEA ETSAP, 2012), which provide standardised estimates for the operational lifespan of various heating and cooling technologies in residential and commercial buildings.</p>
+</section>
+<section id="input-data-transformation">
+<h2>Input data transformation<a class="headerlink" href="#input-data-transformation" title="Link to this heading"></a></h2>
+<p>Due to the lower technological complexity adopted in CLEWs-EU, aggregation from the relevant input data is pursued. Specifically, we group similar technologies together to keep the model complexity low and to create meaningful categories for analysis. Energy service demands for the tertiary and residential sectors are aggregated together. JRC-IDEES (Rózsai et al., 2024) provided data for the use of hot water separately, but we group this thermal demand with space heating.</p>
+<div style="font-size:13px; margin-top:10px; margin-bottom:8px; text-align:center;">
+    <b>Table 7.</b> Technology aggregation by end-use service and fuel, based on JRC-IDEES 2021 data.
+</div><div style="margin-top:20px; margin-bottom:20px; text-align:center;">
+    <img src="../_static/tech_aggr.png" style="width:90%; margin-bottom:15px;">
+</div></section>
+<section id="building-demand-projections">
+<h2>Building demand projections<a class="headerlink" href="#building-demand-projections" title="Link to this heading"></a></h2>
+<p>Demand projections in the baseline scenario of CLEWs-EU are based on final energy demand projections for the residential and commercial sectors, retrieved from the EU Reference Scenario 2020 (European Commission - Directorate General for Energy. et al., 2021). For consistency with the JRC-IDEES-2021 data used for the calibration of the model, we indexed the values of the final energy demand projections to the base year 2021 and calculated coefficients relative to this baseline.
+Specifically, in the baseline setup of the CLEWs-EU model, the growth rate of useful energy demand for each of the energy service demands in the period 2022-2050 resembles the collective final energy demand growth rate of the residential and tertiary sectors from the EU Reference Scenario 2020 (European Commission - Directorate General for Energy. et al., 2021). This implies that the overall efficiency will remain at current levels until mid-century. However, since the model allows building upgrades for improved energy efficiency, as well as assumes partial improvement of the energy efficiency of the technology stock for the various energy services, the baseline scenario of CLEWs-EU is expected to result to lower final energy demand projections than the EU Reference Scenario 2020.  This is an aspect that can be adjusted in the scenario exploration phase of the DIAMOND project (i.e., WP5).
+More details on the exact demand projections by country and energy service are provided in the Supplementary material within the model’s GitHub repository.</p>
+</section>
+<section id="units-of-building-sector-technologies-and-commodities">
+<h2>Units of building sector technologies and commodities<a class="headerlink" href="#units-of-building-sector-technologies-and-commodities" title="Link to this heading"></a></h2>
+<p>Since OSeMOSYS models do not have a specific unit definition, the adopted units must be defined externally prior to the model development. As indicated in the tables below, the output of building technologies is defined in terms of their activity. The existing capacity of technologies is estimated based on the activity of technologies as extracted from the JRC-IDEES 2021 database.</p>
+<div style="font-size:13px; margin-top:10px; margin-bottom:8px; text-align:center;">
+    <b>Table 8.</b> Units for the input and output of building technologies in the CLEWs-EU model.
+</div><table class="docutils align-center">
+<colgroup>
+<col style="width: 33.3%" />
+<col style="width: 22.2%" />
+<col style="width: 44.4%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p><strong>Energy service technologies</strong></p></th>
+<th class="head"><p><strong>Input</strong></p></th>
+<th class="head"><p><strong>Output</strong></p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Space heating &amp; hot water</p></td>
+<td><p>PJ fuel</p></td>
+<td><p>PJ of useful energy for heating</p></td>
+</tr>
+<tr class="row-odd"><td><p>Space cooling</p></td>
+<td><p>PJ electricity</p></td>
+<td><p>PJ of useful energy for cooling</p></td>
+</tr>
+<tr class="row-even"><td><p>Cooking</p></td>
+<td><p>PJ fuel</p></td>
+<td><p>PJ of useful thermal energy for cooking</p></td>
+</tr>
+<tr class="row-odd"><td><p>Appliances</p></td>
+<td><p>PJ electricity</p></td>
+<td><p>PJ of useful energy for appliances</p></td>
+</tr>
+<tr class="row-even"><td><p>Energy efficiency upgrades</p></td>
+<td><p>—</p></td>
+<td><p>PJ of useful energy savings (cooling &amp; heating)</p></td>
+</tr>
+</tbody>
+</table>
+<div style="font-size:13px; margin-top:20px; margin-bottom:8px; text-align:center;">
+    <b>Table 9.</b> Units for the capacity and cost characteristics of building technologies in the CLEWs-EU model.
+</div><table class="docutils align-center">
+<colgroup>
+<col style="width: 26.3%" />
+<col style="width: 21.1%" />
+<col style="width: 26.3%" />
+<col style="width: 26.3%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p><strong>Technology</strong></p></th>
+<th class="head"><p><strong>Capacity</strong></p></th>
+<th class="head"><p><strong>Capital cost</strong></p></th>
+<th class="head"><p><strong>Fixed cost</strong></p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Space heating &amp; hot water</p></td>
+<td><p>GW</p></td>
+<td><p>Million EUR2018/GW</p></td>
+<td><p>Million EUR2018/GW</p></td>
+</tr>
+<tr class="row-odd"><td><p>Space cooling</p></td>
+<td><p>GW</p></td>
+<td><p>Million EUR2018/GW</p></td>
+<td><p>Million EUR2018/GW</p></td>
+</tr>
+<tr class="row-even"><td><p>Cooking</p></td>
+<td><p>GW</p></td>
+<td><p>Million EUR2018/GW</p></td>
+<td><p>Million EUR2018/GW</p></td>
+</tr>
+<tr class="row-odd"><td><p>Appliances</p></td>
+<td><p>PJ/year</p></td>
+<td><p>—</p></td>
+<td><p>—</p></td>
+</tr>
+<tr class="row-even"><td><p>Energy efficiency upgrades</p></td>
+<td><p>PJ/year</p></td>
+<td><p>Million EUR2018/PJ yearly savings</p></td>
+<td><p>—</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+</section>
+<section id="industry">
+<h1>Industry<a class="headerlink" href="#industry" title="Link to this heading"></a></h1>
+<p>Representation of industry in the CLEWs-EU model is largely based on data retrieved from the JRC-IDEES 2021 database (Rózsai et al., 2024). Specifically, the database provides statistics on the final energy demand and useful energy demand for each sector by process and by technology/fuel for the period 2000-2021, but for the purposes of CLEWs-EU, we only focused on the period 2018-2021.</p>
+<div style="margin-top:20px; margin-bottom:20px; text-align:center;">
+    <img src="../_static/industry_model.png" style="width:90%; margin-bottom:15px;">
+    <div style="font-size:13px;">
+        <b>Figure 7.</b> Simplified representation of industry in the CLEWs-EU model.
+    </div>
+</div><p>As a first step, the key industrial sectors in each country are identified based on the level of final energy demand in 2021 (Table 2); for each country, up to 4 main sectors are represented separately, while the rest of the sectors are aggregated into an “Other industrial sectors” category. In countries where industrial energy demand is low, the number of sectors represented is lower (e.g., Cyprus, Luxembourg, Malta, etc.). As mentioned above, the output of each of the industries is represented in generic energy terms (i.e., PJ of useful energy services). As more data becomes available in the future after completion of the DIAMOND project, a more explicit representation of key industries can be pursued.</p>
+<div style="font-size:13px; margin-top:20px; margin-bottom:8px; text-align:center;">
+    <b>Table 10.</b> Industrial sector representation in the disaggregated CLEWs-EU version.
+</div><table class="docutils align-center">
+<colgroup>
+<col style="width: 10.2%" />
+<col style="width: 8.2%" />
+<col style="width: 8.2%" />
+<col style="width: 8.2%" />
+<col style="width: 8.2%" />
+<col style="width: 8.2%" />
+<col style="width: 8.2%" />
+<col style="width: 8.2%" />
+<col style="width: 8.2%" />
+<col style="width: 8.2%" />
+<col style="width: 8.2%" />
+<col style="width: 8.2%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p><strong>Country</strong></p></th>
+<th class="head"><p><strong>ISI</strong></p></th>
+<th class="head"><p><strong>NFM</strong></p></th>
+<th class="head"><p><strong>CHI</strong></p></th>
+<th class="head"><p><strong>NMM</strong></p></th>
+<th class="head"><p><strong>PPA</strong></p></th>
+<th class="head"><p><strong>FBT</strong></p></th>
+<th class="head"><p><strong>TRE</strong></p></th>
+<th class="head"><p><strong>MAE</strong></p></th>
+<th class="head"><p><strong>TEL</strong></p></th>
+<th class="head"><p><strong>WWP</strong></p></th>
+<th class="head"><p><strong>OIS</strong></p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>AT</p></td>
+<td><p>X</p></td>
+<td></td>
+<td></td>
+<td><p>X</p></td>
+<td><p>X</p></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td><p>X</p></td>
+</tr>
+<tr class="row-odd"><td><p>BE</p></td>
+<td><p>X</p></td>
+<td></td>
+<td></td>
+<td><p>X</p></td>
+<td><p>X</p></td>
+<td></td>
+<td><p>X</p></td>
+<td></td>
+<td></td>
+<td></td>
+<td><p>X</p></td>
+</tr>
+<tr class="row-even"><td><p>BG</p></td>
+<td></td>
+<td><p>X</p></td>
+<td><p>X</p></td>
+<td><p>X</p></td>
+<td></td>
+<td><p>X</p></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td><p>X</p></td>
+</tr>
+<tr class="row-odd"><td><p>CY</p></td>
+<td></td>
+<td></td>
+<td></td>
+<td><p>X</p></td>
+<td></td>
+<td><p>X</p></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td><p>X</p></td>
+</tr>
+<tr class="row-even"><td><p>CZ</p></td>
+<td><p>X</p></td>
+<td></td>
+<td></td>
+<td><p>X</p></td>
+<td><p>X</p></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td><p>X</p></td>
+</tr>
+<tr class="row-odd"><td><p>DE</p></td>
+<td><p>X</p></td>
+<td></td>
+<td></td>
+<td><p>X</p></td>
+<td><p>X</p></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td><p>X</p></td>
+</tr>
+<tr class="row-even"><td><p>DK</p></td>
+<td></td>
+<td></td>
+<td><p>X</p></td>
+<td><p>X</p></td>
+<td></td>
+<td><p>X</p></td>
+<td></td>
+<td><p>X</p></td>
+<td></td>
+<td></td>
+<td><p>X</p></td>
+</tr>
+<tr class="row-odd"><td><p>EE</p></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td><p>X</p></td>
+<td><p>X</p></td>
+<td></td>
+<td><p>X</p></td>
+<td></td>
+<td><p>X</p></td>
+<td><p>X</p></td>
+</tr>
+<tr class="row-even"><td><p>GR</p></td>
+<td><p>X</p></td>
+<td><p>X</p></td>
+<td></td>
+<td><p>X</p></td>
+<td></td>
+<td><p>X</p></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td><p>X</p></td>
+</tr>
+<tr class="row-odd"><td><p>ES</p></td>
+<td><p>X</p></td>
+<td></td>
+<td></td>
+<td><p>X</p></td>
+<td></td>
+<td><p>X</p></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td><p>X</p></td>
+</tr>
+<tr class="row-even"><td><p>FI</p></td>
+<td><p>X</p></td>
+<td></td>
+<td></td>
+<td></td>
+<td><p>X</p></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td><p>X</p></td>
+<td><p>X</p></td>
+</tr>
+<tr class="row-odd"><td><p>FR</p></td>
+<td></td>
+<td></td>
+<td><p>X</p></td>
+<td><p>X</p></td>
+<td><p>X</p></td>
+<td><p>X</p></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td><p>X</p></td>
+</tr>
+<tr class="row-even"><td><p>HR</p></td>
+<td></td>
+<td></td>
+<td><p>X</p></td>
+<td><p>X</p></td>
+<td><p>X</p></td>
+<td><p>X</p></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td><p>X</p></td>
+</tr>
+<tr class="row-odd"><td><p>HU</p></td>
+<td></td>
+<td></td>
+<td><p>X</p></td>
+<td><p>X</p></td>
+<td></td>
+<td><p>X</p></td>
+<td></td>
+<td><p>X</p></td>
+<td></td>
+<td></td>
+<td><p>X</p></td>
+</tr>
+<tr class="row-even"><td><p>IE</p></td>
+<td></td>
+<td><p>X</p></td>
+<td><p>X</p></td>
+<td><p>X</p></td>
+<td></td>
+<td><p>X</p></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td><p>X</p></td>
+</tr>
+<tr class="row-odd"><td><p>IT</p></td>
+<td><p>X</p></td>
+<td></td>
+<td></td>
+<td><p>X</p></td>
+<td></td>
+<td></td>
+<td></td>
+<td><p>X</p></td>
+<td></td>
+<td></td>
+<td><p>X</p></td>
+</tr>
+<tr class="row-even"><td><p>LT</p></td>
+<td></td>
+<td></td>
+<td><p>X</p></td>
+<td><p>X</p></td>
+<td></td>
+<td><p>X</p></td>
+<td></td>
+<td></td>
+<td></td>
+<td><p>X</p></td>
+<td><p>X</p></td>
+</tr>
+<tr class="row-odd"><td><p>LU</p></td>
+<td><p>X</p></td>
+<td></td>
+<td></td>
+<td><p>X</p></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td><p>X</p></td>
+</tr>
+<tr class="row-even"><td><p>LV</p></td>
+<td></td>
+<td></td>
+<td></td>
+<td><p>X</p></td>
+<td></td>
+<td><p>X</p></td>
+<td></td>
+<td></td>
+<td></td>
+<td><p>X</p></td>
+<td><p>X</p></td>
+</tr>
+<tr class="row-odd"><td><p>MT</p></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td><p>X</p></td>
+</tr>
+<tr class="row-even"><td><p>NL</p></td>
+<td><p>X</p></td>
+<td></td>
+<td></td>
+<td><p>X</p></td>
+<td></td>
+<td><p>X</p></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td><p>X</p></td>
+</tr>
+<tr class="row-odd"><td><p>PL</p></td>
+<td><p>X</p></td>
+<td></td>
+<td></td>
+<td><p>X</p></td>
+<td></td>
+<td><p>X</p></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td><p>X</p></td>
+</tr>
+<tr class="row-even"><td><p>PT</p></td>
+<td></td>
+<td></td>
+<td><p>X</p></td>
+<td><p>X</p></td>
+<td><p>X</p></td>
+<td><p>X</p></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td><p>X</p></td>
+</tr>
+<tr class="row-odd"><td><p>RO</p></td>
+<td><p>X</p></td>
+<td><p>X</p></td>
+<td><p>X</p></td>
+<td><p>X</p></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td><p>X</p></td>
+</tr>
+<tr class="row-even"><td><p>SE</p></td>
+<td><p>X</p></td>
+<td></td>
+<td></td>
+<td></td>
+<td><p>X</p></td>
+<td><p>X</p></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td><p>X</p></td>
+</tr>
+<tr class="row-odd"><td><p>SI</p></td>
+<td><p>X</p></td>
+<td></td>
+<td></td>
+<td><p>X</p></td>
+<td></td>
+<td></td>
+<td></td>
+<td><p>X</p></td>
+<td></td>
+<td></td>
+<td><p>X</p></td>
+</tr>
+<tr class="row-even"><td><p>SK</p></td>
+<td><p>X</p></td>
+<td></td>
+<td></td>
+<td><p>X</p></td>
+<td><p>X</p></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td><p>X</p></td>
+</tr>
+</tbody>
+</table>
+<div style="font-size:12px; line-height:1.35; margin-top:5px; margin-bottom:20px; font-style:italic;">
+    *Note: The industrial sectors represented are Iron and Steel (ISI), Non-ferrous metals (NFM), Chemical industry (CHI),
+            Non-metallic minerals (NMM), Pulp, paper and printing (PPA), Food, beverages and tobacco (FBT), Transport equipment (TRE),
+            Machinery equipment (MAE), Textiles and leather (TEL), Wood and wood products (WWP), and Other industrial sectors (OIS).*
+</div><section id="technoeconomic-characteristics-of-industrial-technology-options">
+<h2>Technoeconomic characteristics of industrial technology options<a class="headerlink" href="#technoeconomic-characteristics-of-industrial-technology-options" title="Link to this heading"></a></h2>
+<p>Data on final energy demand and useful energy demand are aggregated for each fuel category in each of the represented sectors, and an efficiency is calculated for the years 2018–2021. Specifically, the technological and fuel options for satisfying useful energy demand are the following:</p>
+<ul class="simple">
+<li><p>Thermal energy – coal (with and without CCS), oil, natural gas (with and without CCS), biomass/biofuels, hydrogen, solar thermal, centralised steam, electricity.</p></li>
+<li><p>Electrical processes (lighting, motor drives, etc.) – electricity.</p></li>
+</ul>
+<p>Adopting the same approach as for the buildings sector, projections for the evolution of capital costs and efficiencies of industrial boilers until 2050 are based on assumptions from the EU Reference Scenario 2020 (European Commission - Directorate General for Energy et al., 2021). However, efficiency is indexed to the last available year of statistics (i.e. 2021), using data from the JRC-IDEES 2021 database (Rózsai et al., 2024).</p>
+<p>An overview of the key technoeconomic assumptions for the industrial sector is provided in Table 11.</p>
+<div style="font-size:13px; margin-top:20px; margin-bottom:8px; text-align:center;">
+    <b>Table 11.</b> Technoeconomic assumptions of industrial technologies in the CLEWs-EU model (adapted from EU Reference Scenario 2020).
+</div><table class="docutils align-center">
+<colgroup>
+<col style="width: 18.2%" />
+<col style="width: 9.1%" />
+<col style="width: 9.1%" />
+<col style="width: 9.1%" />
+<col style="width: 9.1%" />
+<col style="width: 9.1%" />
+<col style="width: 9.1%" />
+<col style="width: 9.1%" />
+<col style="width: 9.1%" />
+<col style="width: 9.1%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p><strong>Technology</strong></p></th>
+<th class="head"><p><strong>Capital cost</strong> (EUR2018/kW)</p></th>
+<th class="head"></th>
+<th class="head"></th>
+<th class="head"><p><strong>Fixed O&amp;M</strong> (EUR2018/kW)</p></th>
+<th class="head"></th>
+<th class="head"></th>
+<th class="head"><p><strong>Energy Consumption Index</strong> (2021=100%)</p></th>
+<th class="head"></th>
+<th class="head"></th>
+</tr>
+<tr class="row-even"><th class="head"></th>
+<th class="head"><p><strong>2021</strong></p></th>
+<th class="head"><p><strong>2030</strong></p></th>
+<th class="head"><p><strong>2050</strong></p></th>
+<th class="head"><p><strong>2021</strong></p></th>
+<th class="head"><p><strong>2030</strong></p></th>
+<th class="head"><p><strong>2050</strong></p></th>
+<th class="head"><p><strong>2021</strong></p></th>
+<th class="head"><p><strong>2030</strong></p></th>
+<th class="head"><p><strong>2050</strong></p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-odd"><td><p>Oil</p></td>
+<td><p>232</p></td>
+<td><p>252</p></td>
+<td><p>252</p></td>
+<td><p>1.32</p></td>
+<td><p>1.32</p></td>
+<td><p>1.32</p></td>
+<td><p>100%</p></td>
+<td><p>91%</p></td>
+<td><p>91%</p></td>
+</tr>
+<tr class="row-even"><td><p>Coal</p></td>
+<td><p>356</p></td>
+<td><p>386</p></td>
+<td><p>386</p></td>
+<td><p>1.37</p></td>
+<td><p>1.37</p></td>
+<td><p>1.37</p></td>
+<td><p>100%</p></td>
+<td><p>91%</p></td>
+<td><p>91%</p></td>
+</tr>
+<tr class="row-odd"><td><p>Coal with CCS*</p></td>
+<td><p>2203</p></td>
+<td><p>2085</p></td>
+<td><p>1888</p></td>
+<td><p>38.37</p></td>
+<td><p>35.01</p></td>
+<td><p>30.46</p></td>
+<td><p>115%</p></td>
+<td><p>114%</p></td>
+<td><p>107%</p></td>
+</tr>
+<tr class="row-even"><td><p>Gas</p></td>
+<td><p>119</p></td>
+<td><p>128</p></td>
+<td><p>128</p></td>
+<td><p>1.25</p></td>
+<td><p>1.25</p></td>
+<td><p>1.25</p></td>
+<td><p>100%</p></td>
+<td><p>92%</p></td>
+<td><p>92%</p></td>
+</tr>
+<tr class="row-odd"><td><p>Gas with CCS*</p></td>
+<td><p>1350</p></td>
+<td><p>1256</p></td>
+<td><p>1133</p></td>
+<td><p>22.75</p></td>
+<td><p>20.14</p></td>
+<td><p>16.09</p></td>
+<td><p>132%</p></td>
+<td><p>126%</p></td>
+<td><p>121%</p></td>
+</tr>
+<tr class="row-even"><td><p>Biomass</p></td>
+<td><p>771</p></td>
+<td><p>836</p></td>
+<td><p>836</p></td>
+<td><p>1.37</p></td>
+<td><p>1.37</p></td>
+<td><p>1.37</p></td>
+<td><p>100%</p></td>
+<td><p>92%</p></td>
+<td><p>92%</p></td>
+</tr>
+<tr class="row-odd"><td><p>Electricity (heat)</p></td>
+<td><p>701</p></td>
+<td><p>683</p></td>
+<td><p>673</p></td>
+<td><p>10.36</p></td>
+<td><p>10.36</p></td>
+<td><p>10.36</p></td>
+<td><p>100%</p></td>
+<td><p>100%</p></td>
+<td><p>100%</p></td>
+</tr>
+<tr class="row-even"><td><p>Electrical processes</p></td>
+<td><p>—</p></td>
+<td><p>—</p></td>
+<td><p>—</p></td>
+<td><p>—</p></td>
+<td><p>—</p></td>
+<td><p>—</p></td>
+<td><p>100%</p></td>
+<td><p>94%</p></td>
+<td><p>87%</p></td>
+</tr>
+<tr class="row-odd"><td><p>Hydrogen</p></td>
+<td><p>119</p></td>
+<td><p>128</p></td>
+<td><p>128</p></td>
+<td><p>1.25</p></td>
+<td><p>1.25</p></td>
+<td><p>1.25</p></td>
+<td><p>100%</p></td>
+<td><p>92%</p></td>
+<td><p>92%</p></td>
+</tr>
+<tr class="row-even"><td><p>Solar thermal</p></td>
+<td><p>1308</p></td>
+<td><p>1432</p></td>
+<td><p>1119</p></td>
+<td><p>15.54</p></td>
+<td><p>15.54</p></td>
+<td><p>15.54</p></td>
+<td><p>100%</p></td>
+<td><p>95%</p></td>
+<td><p>92%</p></td>
+</tr>
+</tbody>
+</table>
+<div style="font-size:12px; line-height:1.35; margin-top:5px; margin-bottom:20px; font-style:italic;">
+    *Coal with CCS and gas with CCS capital and fixed costs are based on modellers’ own assumptions using cost differences from
+    relevant power generation technologies in the EU Reference Scenario 2020 assumptions. Similarly, their efficiency is estimated in
+    the same manner; in these cases, the Energy Consumption Index refers to a comparison with the respective technology without CCS
+    for the same year. For instance, the efficiency of gas with CCS is 32% higher in 2021 compared to the same technology without CCS.*
+</div><p>Data extraction and preparation from JRC-IDEES statistics to data ready for direct input to the model has been conducted with specially developed Python scripts. These scripts provide detail on the technology/fuel aggregation for each industry and how the selected industries vary across the countries and are made available on the model’s GitHub repository.</p>
+</section>
+<section id="industrial-demand-projections">
+<h2>Industrial demand projections<a class="headerlink" href="#industrial-demand-projections" title="Link to this heading"></a></h2>
+<p>In the baseline setup of the model, the growth rate of useful energy demand for the period 2022-2050 resembles the final energy demand growth rate of energy-intensive and non-energy intensive industries from the EU Reference Scenario 2020. Energy intensive industries include iron and steel, non-ferrous metals, chemicals, non-metallic minerals and pulp and paper; these are assumed to be subject to the existing Emissions Trading System (ETS). The rest of the industrial sectors are assumed to be subject to the new ETS (i.e., ETS2) from 2027 onwards (European Commission - Directorate-General for Energy, n.d.-a).
+Adopting the same growth rate for useful demand as for final energy demand from the EU Reference Scenario 2020 entails the assumption that the overall efficiency will remain at current levels until mid-century; this is an aspect that can be amended in the scenario exploration phase of the DIAMOND project (i.e., WP5). Separate demand projections are developed for each of the key industries of each member state. In turn, these are split between demand for useful thermal energy and useful demand for electrical processes; as indicated above, the latter is satisfied by a single technology option.
+More details on the exact demand projections by country and industrial sector are provided in the Supplementary material within the model’s GitHub repository.</p>
+</section>
+<section id="units-of-industrial-sector-technologies-and-commodities">
+<h2>Units of industrial sector technologies and commodities<a class="headerlink" href="#units-of-industrial-sector-technologies-and-commodities" title="Link to this heading"></a></h2>
+<p>OSeMOSYS models do not have a specific unit definition; as such, the adopted units must be defined externally before the model development. As indicated in the tables below, the output and capacity of industrial technologies are defined in terms of their activity. The existing capacity of technologies is estimated based on the activity of technologies as extracted from the JRC-IDEES 2021 database.</p>
+<div style="font-size:13px; margin-top:20px; margin-bottom:8px; text-align:center;">
+    <b>Table 12.</b> Units for the input and output of transport technologies in the CLEWs-EU model.
+</div><table class="docutils align-center">
+<colgroup>
+<col style="width: 19.0%" />
+<col style="width: 19.0%" />
+<col style="width: 19.0%" />
+<col style="width: 14.3%" />
+<col style="width: 14.3%" />
+<col style="width: 14.3%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p><strong>Technology</strong></p></th>
+<th class="head"><p><strong>Input</strong></p></th>
+<th class="head"><p><strong>Output</strong></p></th>
+<th class="head"><p><strong>Capacity</strong></p></th>
+<th class="head"><p><strong>Capital cost &amp; Fixed cost</strong></p></th>
+<th class="head"><p><strong>Fuel cost</strong></p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Thermal &amp; electrical processes</p></td>
+<td><p>PJ fuel</p></td>
+<td><p>PJ of useful heat</p></td>
+<td><p>GW</p></td>
+<td><p>Million EUR2018/GW</p></td>
+<td><p>Million EUR2018/PJ</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+</section>
+<section id="transport">
+<h1>Transport<a class="headerlink" href="#transport" title="Link to this heading"></a></h1>
+<p>Similar to the other sectors of the energy system, the representation of the transport sector is constructed using data from the JRC-IDEES 2021 database (Rózsai et al., 2024). Specifically, relevant statistics are retrieved on the biofuel blending ratios in each mode of transport, existing stock of technologies, annual rate of activity and current efficiency levels of each technology. Key assumptions (e.g., efficiencies, annual mileage etc.) vary considerably between member states, hence country-specific information is adopted. Table 13 summarises the technology options represented for each mode of transport.
+As in the case of the industrial sector, Python scripts have been used for the transport data preparation and are also made available in the model’s GitHub repository.</p>
+<div style="font-size:13px; margin-top:20px; margin-bottom:8px; text-align:center;">
+    <b>Table 13.</b> Technology options in the transport module of CLEWs-EU.
+</div><table class="docutils align-center">
+<colgroup>
+<col style="width: 20.0%" />
+<col style="width: 20.0%" />
+<col style="width: 60.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p><strong>Mode of transport</strong></p></th>
+<th class="head"><p><strong>Category</strong></p></th>
+<th class="head"><p><strong>Technology options</strong></p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Road transport</p></td>
+<td><p>Passenger cars</p></td>
+<td><p>Gasoline vehicles, Diesel vehicles, CNG/LNG vehicles, LPG vehicles, Hybrid electric vehicles, Plug-in electric vehicles, Battery electric vehicles, Hydrogen fuel cell vehicles</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>Buses</p></td>
+<td><p>Diesel bus, CNG bus, Battery electric bus, Hydrogen fuel cell bus</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>Light commercial vans</p></td>
+<td><p>Gasoline light trucks, Diesel light trucks, CNG/LNG light trucks, Hybrid electric light trucks, Plug-in electric light trucks, Battery electric light trucks, Hydrogen fuel cell light trucks</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>Heavy trucks</p></td>
+<td><p>Diesel heavy trucks, CNG/LNG heavy trucks, Hybrid electric heavy trucks, Battery electric heavy trucks, Hydrogen fuel cell heavy trucks</p></td>
+</tr>
+<tr class="row-even"><td><p>Rail transport</p></td>
+<td><p>Passenger</p></td>
+<td><p>Diesel train, Electric train</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>Freight</p></td>
+<td><p>Diesel train, Electric train</p></td>
+</tr>
+<tr class="row-even"><td><p>Aviation</p></td>
+<td><p>–</p></td>
+<td><p>Conventional kerosene planes, Electric planes, Hydrogen/e-fuel planes</p></td>
+</tr>
+<tr class="row-odd"><td><p>Shipping</p></td>
+<td><p>–</p></td>
+<td><p>Oil vessels, LNG vessels, Hydrogen/synthetic-fuel vessels</p></td>
+</tr>
+</tbody>
+</table>
+<div style="margin-top:20px; margin-bottom:20px; text-align:center;">
+    <img src="../_static/land_transport_model.png" style="width:90%; margin-bottom:15px;">
+    <div style="font-size:13px;">
+        <b>Figure 8.</b> Simplified representation of land transport in the CLEWs-EU model.
+    </div>
+</div><div style="margin-top:20px; margin-bottom:20px; text-align:center;">
+    <img src="../_static/aviation_model.png" style="width:90%; margin-bottom:15px;">
+    <div style="font-size:13px;">
+        <b>Figure 9.</b> Simplified representation of aviation and shipping in the CLEWs-EU model.
+    </div>
+</div><section id="technoeconomic-characteristics-of-mobility-technology-options">
+<h2>Technoeconomic characteristics of mobility technology options<a class="headerlink" href="#technoeconomic-characteristics-of-mobility-technology-options" title="Link to this heading"></a></h2>
+<p>Technoeconomic characteristics of the various technologies and the evolution of the mobility demand for each mode of transport are based on the equivalent assumptions from the EU Reference Scenario 2020 (European Commission - Directorate General for Energy. et al., 2021), but are adjusted to agree with the base year statistics. Specifically, efficiency for each transport technology from JRC-IDEES in 2021 in each country is used as the starting point and its evolution is indexed to the growth rate projected in the EU Reference Scenario for the period up to 2050. In addition, the capital cost of transport technologies is based on the relevant technology assumptions of the EU Reference Scenario 2020, but the adopted number of technologies is lower for the sake of simplification. For instance, in the case of passenger vehicles, the corresponding values for medium cars are chosen for each technology option and these act as representative technologies.</p>
+<div style="font-size:13px; margin-top:20px; margin-bottom:8px; text-align:center;">
+    <b>Table 14.</b> Capital cost of transport technologies in the CLEWs-EU model (adapted from EU Reference Scenario 2020).
+</div><table class="docutils align-center">
+<colgroup>
+<col style="width: 19.6%" />
+<col style="width: 23.9%" />
+<col style="width: 13.0%" />
+<col style="width: 8.7%" />
+<col style="width: 8.7%" />
+<col style="width: 8.7%" />
+<col style="width: 8.7%" />
+<col style="width: 8.7%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p><strong>Mode</strong></p></th>
+<th class="head"><p><strong>Technology</strong></p></th>
+<th class="head"><p><strong>Unit</strong></p></th>
+<th class="head"><p><strong>2021</strong></p></th>
+<th class="head"><p><strong>2025</strong></p></th>
+<th class="head"><p><strong>2030</strong></p></th>
+<th class="head"><p><strong>2040</strong></p></th>
+<th class="head"><p><strong>2050</strong></p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Passenger road</p></td>
+<td><p>Gasoline vehicles</p></td>
+<td><p>EUR2018/vehicle</p></td>
+<td><p>20,084</p></td>
+<td><p>20,140</p></td>
+<td><p>20,794</p></td>
+<td><p>21,553</p></td>
+<td><p>23,431</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>Diesel vehicles</p></td>
+<td><p>EUR2018/vehicle</p></td>
+<td><p>23,540</p></td>
+<td><p>23,685</p></td>
+<td><p>24,366</p></td>
+<td><p>25,833</p></td>
+<td><p>34,858</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>CNG/LNG vehicles</p></td>
+<td><p>EUR2018/vehicle</p></td>
+<td><p>22,239</p></td>
+<td><p>22,295</p></td>
+<td><p>22,949</p></td>
+<td><p>23,709</p></td>
+<td><p>25,586</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>LPG vehicles</p></td>
+<td><p>EUR2018/vehicle</p></td>
+<td><p>21,652</p></td>
+<td><p>21,708</p></td>
+<td><p>22,361</p></td>
+<td><p>23,121</p></td>
+<td><p>24,998</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>Hybrid electric vehicles</p></td>
+<td><p>EUR2018/vehicle</p></td>
+<td><p>22,450</p></td>
+<td><p>21,699</p></td>
+<td><p>21,854</p></td>
+<td><p>21,985</p></td>
+<td><p>22,264</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>Plug-in electric vehicles</p></td>
+<td><p>EUR2018/vehicle</p></td>
+<td><p>26,673</p></td>
+<td><p>23,419</p></td>
+<td><p>22,296</p></td>
+<td><p>21,967</p></td>
+<td><p>21,973</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>Battery electric vehicles</p></td>
+<td><p>EUR2018/vehicle</p></td>
+<td><p>37,319</p></td>
+<td><p>34,664</p></td>
+<td><p>24,709</p></td>
+<td><p>22,919</p></td>
+<td><p>22,396</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>Hydrogen fuel cell vehicles</p></td>
+<td><p>EUR2018/vehicle</p></td>
+<td><p>49,782</p></td>
+<td><p>37,348</p></td>
+<td><p>31,330</p></td>
+<td><p>29,985</p></td>
+<td><p>30,170</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>Diesel bus</p></td>
+<td><p>EUR2018/vehicle</p></td>
+<td><p>287,109</p></td>
+<td><p>287,844</p></td>
+<td><p>290,033</p></td>
+<td><p>291,898</p></td>
+<td><p>294,695</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>CNG bus</p></td>
+<td><p>EUR2018/vehicle</p></td>
+<td><p>312,165</p></td>
+<td><p>312,900</p></td>
+<td><p>315,089</p></td>
+<td><p>316,954</p></td>
+<td><p>319,751</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>Electric bus</p></td>
+<td><p>EUR2018/vehicle</p></td>
+<td><p>444,300</p></td>
+<td><p>420,053</p></td>
+<td><p>329,131</p></td>
+<td><p>308,306</p></td>
+<td><p>299,329</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>Hydrogen fuel cell bus</p></td>
+<td><p>EUR2018/vehicle</p></td>
+<td><p>576,118</p></td>
+<td><p>402,723</p></td>
+<td><p>343,597</p></td>
+<td><p>328,325</p></td>
+<td><p>328,729</p></td>
+</tr>
+<tr class="row-even"><td><p>Freight road</p></td>
+<td><p>Gasoline light trucks</p></td>
+<td><p>EUR2018/vehicle</p></td>
+<td><p>18,535</p></td>
+<td><p>18,608</p></td>
+<td><p>19,880</p></td>
+<td><p>22,328</p></td>
+<td><p>27,952</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>Diesel light trucks</p></td>
+<td><p>EUR2018/vehicle</p></td>
+<td><p>23,336</p></td>
+<td><p>23,571</p></td>
+<td><p>25,683</p></td>
+<td><p>31,935</p></td>
+<td><p>31,935</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>CNG/LNG light trucks</p></td>
+<td><p>EUR2018/vehicle</p></td>
+<td><p>20,701</p></td>
+<td><p>20,774</p></td>
+<td><p>22,046</p></td>
+<td><p>24,494</p></td>
+<td><p>30,118</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>Hybrid electric light trucks</p></td>
+<td><p>EUR2018/vehicle</p></td>
+<td><p>25,316</p></td>
+<td><p>24,340</p></td>
+<td><p>24,479</p></td>
+<td><p>24,651</p></td>
+<td><p>24,872</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>Plug-in electric light trucks</p></td>
+<td><p>EUR2018/vehicle</p></td>
+<td><p>29,346</p></td>
+<td><p>25,619</p></td>
+<td><p>24,518</p></td>
+<td><p>24,224</p></td>
+<td><p>24,359</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>Battery electric light trucks</p></td>
+<td><p>EUR2018/vehicle</p></td>
+<td><p>37,489</p></td>
+<td><p>35,018</p></td>
+<td><p>25,755</p></td>
+<td><p>22,940</p></td>
+<td><p>22,117</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>Hydrogen fuel cell light trucks</p></td>
+<td><p>EUR2018/vehicle</p></td>
+<td><p>45,010</p></td>
+<td><p>35,109</p></td>
+<td><p>29,449</p></td>
+<td><p>28,300</p></td>
+<td><p>28,633</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>Diesel heavy trucks</p></td>
+<td><p>EUR2018/vehicle</p></td>
+<td><p>82,977</p></td>
+<td><p>83,760</p></td>
+<td><p>85,202</p></td>
+<td><p>87,326</p></td>
+<td><p>90,454</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>CNG/LNG heavy trucks</p></td>
+<td><p>EUR2018/vehicle</p></td>
+<td><p>102,438</p></td>
+<td><p>103,221</p></td>
+<td><p>104,663</p></td>
+<td><p>106,787</p></td>
+<td><p>109,914</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>Hybrid electric heavy trucks</p></td>
+<td><p>EUR2018/vehicle</p></td>
+<td><p>91,463</p></td>
+<td><p>88,932</p></td>
+<td><p>88,031</p></td>
+<td><p>87,698</p></td>
+<td><p>88,517</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>Battery electric heavy trucks</p></td>
+<td><p>EUR2018/vehicle</p></td>
+<td><p>182,915</p></td>
+<td><p>170,477</p></td>
+<td><p>123,834</p></td>
+<td><p>107,803</p></td>
+<td><p>103,601</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>Hydrogen fuel cell heavy trucks</p></td>
+<td><p>EUR2018/vehicle</p></td>
+<td><p>273,991</p></td>
+<td><p>171,693</p></td>
+<td><p>132,082</p></td>
+<td><p>118,724</p></td>
+<td><p>119,183</p></td>
+</tr>
+<tr class="row-even"><td><p>Passenger rail</p></td>
+<td><p>Diesel train</p></td>
+<td><p>MillionEUR2018/unit</p></td>
+<td><p>9.2</p></td>
+<td><p>9.3</p></td>
+<td><p>9.4</p></td>
+<td><p>9.7</p></td>
+<td><p>10.1</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>Electric train</p></td>
+<td><p>MillionEUR2018/unit</p></td>
+<td><p>12.6</p></td>
+<td><p>12.7</p></td>
+<td><p>12.8</p></td>
+<td><p>13.2</p></td>
+<td><p>14.3</p></td>
+</tr>
+<tr class="row-even"><td><p>Freight rail</p></td>
+<td><p>Diesel train</p></td>
+<td><p>MillionEUR2018/unit</p></td>
+<td><p>10.1</p></td>
+<td><p>10.3</p></td>
+<td><p>10.6</p></td>
+<td><p>11.1</p></td>
+<td><p>12.0</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>Electric train</p></td>
+<td><p>MillionEUR2018/unit</p></td>
+<td><p>12.8</p></td>
+<td><p>13.0</p></td>
+<td><p>13.3</p></td>
+<td><p>13.8</p></td>
+<td><p>14.8</p></td>
+</tr>
+<tr class="row-even"><td><p>Aviation</p></td>
+<td><p>Kerosene planes</p></td>
+<td><p>MillionEUR2018/unit</p></td>
+<td><p>115.5</p></td>
+<td><p>117.0</p></td>
+<td><p>118.8</p></td>
+<td><p>123.1</p></td>
+<td><p>129.2</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>Electric planes</p></td>
+<td><p>MillionEUR2018/unit</p></td>
+<td><p>—</p></td>
+<td><p>—</p></td>
+<td><p>319.8</p></td>
+<td><p>247.3</p></td>
+<td><p>228.9</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>Hydrogen planes</p></td>
+<td><p>MillionEUR2018/unit</p></td>
+<td><p>—</p></td>
+<td><p>—</p></td>
+<td><p>149.8</p></td>
+<td><p>144.8</p></td>
+<td><p>146.1</p></td>
+</tr>
+<tr class="row-odd"><td><p>Shipping</p></td>
+<td><p>Oil vessels</p></td>
+<td><p>MillionEUR2018/unit</p></td>
+<td><p>22.3</p></td>
+<td><p>22.3</p></td>
+<td><p>22.3</p></td>
+<td><p>22.3</p></td>
+<td><p>22.3</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>Gas vessels</p></td>
+<td><p>MillionEUR2018/unit</p></td>
+<td><p>24.9</p></td>
+<td><p>24.9</p></td>
+<td><p>24.9</p></td>
+<td><p>24.9</p></td>
+<td><p>24.9</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>Hydrogen/syn fuel vessels</p></td>
+<td><p>MillionEUR2018/unit</p></td>
+<td><p>—</p></td>
+<td><p>—</p></td>
+<td><p>34.2</p></td>
+<td><p>31.1</p></td>
+<td><p>30.1</p></td>
+</tr>
+</tbody>
+</table>
+<p>Due to the large variation in the efficiency and mileage of each transport technology across countries, the relevant data extracted from JRC-IDEES 2021 is substantial. For this reason, the Python scripts used to extract and prepare the respective input data are provided in the model’s GitHub repository.</p>
+</section>
+<section id="new-ets-and-automotive-fuel-price-assumptions">
+<h2>New ETS and automotive fuel price assumptions<a class="headerlink" href="#new-ets-and-automotive-fuel-price-assumptions" title="Link to this heading"></a></h2>
+<p>The model uses as a starting point the international fuel price projections of the European Commission recommendations (European Commission - DG CLIMA, 2024). Then, statistics for automotive fuel prices from the Weekly Oil Bulletin (European Commission - Directorate-General for Energy, n.d.-b) are used to come up with fuel price projections until 2055. The price projections are initially estimated without taxes and duties, but the relevant information on the tax regime by the end of 2023 has been used to compile fuel prices with taxes and levies.
+The new Emission Trading System (ETS2) is planned to be expanded to include road transport and will become fully operational in 2027 (European Commission - Directorate-General for Energy, n.d.-a). The ETS2 is included in the baseline setup of the CLEWs-EU model.
+In the case of electricity cost for battery electric and plug-in hybrid vehicles, the cost of electricity includes all taxes and levies. Specifically, the cost of generated electricity in each country is calculated endogenously by the model, but the relevant technologies representing transmission and distribution also include relevant taxes and levies. Statistics from Eurostat are used to extract country-specific information on this aspect. Due to the higher number of passenger vehicles that correspond for battery electric vehicles, the relevant cost figures for household consumers are used (Eurostat, n.d.).</p>
+</section>
+<section id="mobility-demand-projections">
+<h2>Mobility demand projections<a class="headerlink" href="#mobility-demand-projections" title="Link to this heading"></a></h2>
+<p>The activity level of each mode of transport and technology option in 2021 is extracted from the JRC-IDEES 2021 database. The level of activity for each existing road transport technology option is only allowed to decrease within a certain percentage range to prevent unrealistic drops in the usage of specific technologies; this is primarily guided by the assumed operational lifetime of the respective vehicles. Similarly, the registrations of new vehicles are constrained by the actual rate of change of the vehicle fleet stock.
+In regards to the future evolution of activity for each mode of transport, the relevant projections from the EU Reference scenario are used (European Commission - Directorate General for Energy. et al., 2021). Specifically, the level of activity in 2021 is extracted from the JRC-IDEES 2021 database and used as a starting point. Then, the growth rate foreseen in the EU Reference Scenario is adopted and applied to come up with new projections until 2050. It should be clarified that the respective growth rate varies for each mode of transport and country across the EU.</p>
+</section>
+<section id="charging-infrastructure">
+<h2>Charging infrastructure<a class="headerlink" href="#charging-infrastructure" title="Link to this heading"></a></h2>
+<p>The future deployment of large numbers of electric vehicles will necessitate equivalent investments in charging infrastructure. A representative charging point technology is used to represent the relevant infrastructure, whose cost characteristics are based on the EU Reference Scenario 2020 technology assumptions.</p>
+<div style="font-size:13px; margin-top:20px; margin-bottom:8px; text-align:center;">
+    <b>Table 15.</b> Cost characteristics of electric recharging in the CLEWs-EU model (adapted from EU Reference Scenario 2020).
+</div><table class="docutils align-center">
+<colgroup>
+<col style="width: 25.0%" />
+<col style="width: 12.5%" />
+<col style="width: 12.5%" />
+<col style="width: 12.5%" />
+<col style="width: 12.5%" />
+<col style="width: 12.5%" />
+<col style="width: 12.5%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p><strong>Unit</strong></p></th>
+<th class="head"><p><strong>Capital cost (EUR2018/kW)</strong></p></th>
+<th class="head"></th>
+<th class="head"></th>
+<th class="head"><p><strong>Fixed O&amp;M cost (EUR2018/kW)</strong></p></th>
+<th class="head"></th>
+<th class="head"></th>
+</tr>
+<tr class="row-even"><th class="head"></th>
+<th class="head"><p><strong>2021</strong></p></th>
+<th class="head"><p><strong>2030</strong></p></th>
+<th class="head"><p><strong>2050</strong></p></th>
+<th class="head"><p><strong>2021</strong></p></th>
+<th class="head"><p><strong>2030</strong></p></th>
+<th class="head"><p><strong>2050</strong></p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-odd"><td><p>EUR2018/kW</p></td>
+<td><p>603</p></td>
+<td><p>440</p></td>
+<td><p>367</p></td>
+<td><p>7.24</p></td>
+<td><p>5.28</p></td>
+<td><p>4.40</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="biofuel-and-alternative-fuel-supply">
+<h2>Biofuel and alternative fuel supply<a class="headerlink" href="#biofuel-and-alternative-fuel-supply" title="Link to this heading"></a></h2>
+<p>The current energy mix of the transport sector in the EU is dominated by oil products, but this is gradually changing as alternative fuels are introduced in the stock of technologies. The model has the option to invest in technologies that are powered by natural gas, LPG, hydrogen and biofuels. The extent to which these fuels are used in the modelling horizon depends on the cost-competitiveness of the respective technology option is combination with the fuel cost and the respective emissions penalty, if applicable (i.e. through ETS2).
+In the case of biofuels, we allow conventional internal combustion engine (ICE) vehicle technologies to use blended fuel (e.g. diesel with biodiesel or gasoline with bio gasoline). The blending ratio at the start of the model horizon is based on the 2021 fuel statistics as retrieved for each country from the JRC-IDEES 2021 database. In the Baseline scenario setup of the CLEWs-EU model, this ratio is kept constant, but in future scenarios, it can be increased according to the relevant scenario narrative. Similarly, if one would like to explore the possibility of vehicles run by 100% biofuels, this adjustment can easily be accommodated in the model either through the aforementioned blending ratio or by altering the input fuel of ICE vehicles to the respective biofuel supply. A similar approach is followed for both road transport, rail transport and shipping.</p>
+<div style="margin-top:20px; margin-bottom:20px; text-align:center;">
+    <img src="../_static/biofuel_use_transport.png" style="width:90%; margin-bottom:15px;">
+    <div style="font-size:13px;">
+        <b>Figure 10.</b> Biofuel use in transport technologies in the CLEWs-EU model.
+    </div>
+</div><p>In the case of aviation, due to the very specific requirement of the ReFuelEU Aviation regulation, the provision for Sustainable Aviation Fuels (SAF) is included in the model but is kept deactivated in the Baseline Scenario setup of CLEWs-EU. SAF can refer to (a) synthetic aviation fuels, (b) aviation biofuels, or (c) recycled carbon aviation fuels; only the first two are represented in the CLEWs-EU model. Similar to the blending of biofuels in land transport, a minimum use of SAF is enforced based on the relevant legislation (Regulation (EU) 2023/2405 of the European Parliament and of the Council of 18 October 2023 on Ensuring a Level Playing Field for Sustainable Air Transport (ReFuelEU Aviation), 2023). It should be noted that the respective minimum requirements for synthetic aviation fuels are not forced in the Baseline scenario of the CLEWs-EU model. The adopted minimum shares of SAF are as follows:</p>
+<ol class="loweralpha simple">
+<li><p>From 1 January 2025, each year a minimum share of <strong>2% SAF</strong>.</p></li>
+<li><p>From 1 January 2030, each year a minimum share of <strong>6% SAF</strong>.</p></li>
+<li><p>From 1 January 2035, each year a minimum share of <strong>20% SAF</strong>.</p></li>
+<li><p>From 1 January 2040, each year a minimum share of <strong>34% SAF</strong>.</p></li>
+<li><p>From 1 January 2045, each year a minimum share of <strong>42% SAF</strong>.</p></li>
+<li><p>From 1 January 2050, each year a minimum share of <strong>70% SAF</strong>.</p></li>
+</ol>
+</section>
+<section id="units-of-transport-sector-technologies-and-commodities">
+<h2>Units of transport sector technologies and commodities<a class="headerlink" href="#units-of-transport-sector-technologies-and-commodities" title="Link to this heading"></a></h2>
+<p>As mentioned previously in the CLEWs-EU model documentation, OSeMOSYS models do not have a specific unit definition, and the adopted units must be defined externally prior to the model development. This is comparatively more complicated in the transport sector than for the rest of the energy module. As indicated in the tables below, the output and capacity of transport technologies is defined in terms of their activity. The stock of technologies is converted externally into the required units by multiplying the stock with the annual usage of each technology (i.e. mileage), which is extracted from the JRC-IDEES 2021 database.</p>
+<div style="font-size:13px; margin-top:20px; margin-bottom:8px; text-align:center;">
+    <b>Table 16.</b> Units for the input and output of transport technologies in the CLEWs-EU model.
+</div><table class="docutils align-center">
+<colgroup>
+<col style="width: 29.4%" />
+<col style="width: 23.5%" />
+<col style="width: 47.1%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p><strong>Mode of transport</strong></p></th>
+<th class="head"><p><strong>Input</strong></p></th>
+<th class="head"><p><strong>Output</strong></p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Road transport</p></td>
+<td><p>PJ</p></td>
+<td><p>Billion vehicle kilometres (G-veh km)</p></td>
+</tr>
+<tr class="row-odd"><td><p>Passenger rail</p></td>
+<td><p>PJ</p></td>
+<td><p>Billion passenger kilometres (Gpkm)</p></td>
+</tr>
+<tr class="row-even"><td><p>Freight rail</p></td>
+<td><p>PJ</p></td>
+<td><p>Billion tonne kilometres (Gtkm)</p></td>
+</tr>
+<tr class="row-odd"><td><p>Aviation</p></td>
+<td><p>PJ</p></td>
+<td><p>Million vehicle kilometres (M-veh km)</p></td>
+</tr>
+<tr class="row-even"><td><p>Shipping</p></td>
+<td><p>PJ</p></td>
+<td><p>Billion tonne kilometres (Gtkm)</p></td>
+</tr>
+</tbody>
+</table>
+<div style="font-size:13px; margin-top:20px; margin-bottom:8px; text-align:center;">
+    <b>Table 17.</b> Units for the capacity and cost characteristics of transport technologies in the CLEWs-EU model.
+</div><table class="docutils align-center">
+<colgroup>
+<col style="width: 25.0%" />
+<col style="width: 25.0%" />
+<col style="width: 25.0%" />
+<col style="width: 25.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p><strong>Mode of transport</strong></p></th>
+<th class="head"><p><strong>Capacity</strong></p></th>
+<th class="head"><p><strong>Capital cost</strong></p></th>
+<th class="head"><p><strong>Fuel cost</strong></p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Road transport</p></td>
+<td><p>G-veh km/year</p></td>
+<td><p>Million EUR2018/G-veh km/year</p></td>
+<td><p>Million EUR2018/PJ</p></td>
+</tr>
+<tr class="row-odd"><td><p>Passenger rail</p></td>
+<td><p>Gpkm/year</p></td>
+<td><p>Million EUR2018/Gpkm/year</p></td>
+<td><p>Million EUR2018/PJ</p></td>
+</tr>
+<tr class="row-even"><td><p>Freight rail</p></td>
+<td><p>Gtkm/year</p></td>
+<td><p>Million EUR2018/Gtkm/year</p></td>
+<td><p>Million EUR2018/PJ</p></td>
+</tr>
+<tr class="row-odd"><td><p>Aviation</p></td>
+<td><p>M-veh km/year</p></td>
+<td><p>Million EUR2018/M-veh km/year</p></td>
+<td><p>Million EUR2018/PJ</p></td>
+</tr>
+<tr class="row-even"><td><p>Shipping</p></td>
+<td><p>Gtkm/year</p></td>
+<td><p>Million EUR2018/Gtkm/year</p></td>
+<td><p>Million EUR2018/PJ</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+</section>
+<section id="hydrogen">
+<h1>Hydrogen<a class="headerlink" href="#hydrogen" title="Link to this heading"></a></h1>
+<p>Hydrogen is a fuel whose role may be critical to the decarbonisation of certain sectors. As such, the supply and production of this fuel have to be represented in the CLEWs-EU model. This fuel enters the energy module of the CLEWs-EU model either through imports or domestic production. Production of hydrogen can occur through steam methane reforming (SMR with or without Carbon Capture and Storage) using natural gas as feedstock, or through electrolysis. Hydrogen can then be used in the transport sector or in industry. For use in the aviation sector, hydrogen is first converted into jet fuel.</p>
+<div style="margin-top:20px; margin-bottom:20px; text-align:center;">
+    <img src="../_static/hydrogen_supply.png" style="width:90%; margin-bottom:15px;">
+    <div style="font-size:13px;">
+        <b>Figure 11.</b> Hydrogen supply in the CLEWs-EU model.
+    </div>
+</div><p>The technoeconomic assumptions for the relevant hydrogen production technologies are drawn from EU Reference Scenario 2020 assumptions (European Commission - Directorate General for Energy. et al., 2021). Specifically, the adopted input is shown in Table 16.</p>
+<div style="font-size:13px; margin-top:20px; margin-bottom:8px; text-align:center;">
+    <b>Table 18.</b> Technoeconomic characteristics of hydrogen production technologies (adapted from EU Reference Scenario 2020).
+</div><table class="docutils align-center">
+<colgroup>
+<col style="width: 18.2%" />
+<col style="width: 9.1%" />
+<col style="width: 9.1%" />
+<col style="width: 9.1%" />
+<col style="width: 9.1%" />
+<col style="width: 9.1%" />
+<col style="width: 9.1%" />
+<col style="width: 9.1%" />
+<col style="width: 9.1%" />
+<col style="width: 9.1%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p><strong>Technology</strong></p></th>
+<th class="head"><p><strong>Capital cost (EUR2018/kW)</strong></p></th>
+<th class="head"></th>
+<th class="head"></th>
+<th class="head"><p><strong>Fixed O&amp;M cost (EUR2018/kW)</strong></p></th>
+<th class="head"></th>
+<th class="head"></th>
+<th class="head"><p><strong>Efficiency (energy output vs input)</strong></p></th>
+<th class="head"></th>
+<th class="head"></th>
+</tr>
+<tr class="row-even"><th class="head"></th>
+<th class="head"><p><strong>2021</strong></p></th>
+<th class="head"><p><strong>2030</strong></p></th>
+<th class="head"><p><strong>2050</strong></p></th>
+<th class="head"><p><strong>2021</strong></p></th>
+<th class="head"><p><strong>2030</strong></p></th>
+<th class="head"><p><strong>2050</strong></p></th>
+<th class="head"><p><strong>2021</strong></p></th>
+<th class="head"><p><strong>2030</strong></p></th>
+<th class="head"><p><strong>2050</strong></p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-odd"><td><p>Electrolysis</p></td>
+<td><p>1241</p></td>
+<td><p>621</p></td>
+<td><p>186</p></td>
+<td><p>27.5</p></td>
+<td><p>14.5</p></td>
+<td><p>9.3</p></td>
+<td><p>72%</p></td>
+<td><p>79%</p></td>
+<td><p>85%</p></td>
+</tr>
+<tr class="row-even"><td><p>SMR</p></td>
+<td><p>564</p></td>
+<td><p>518</p></td>
+<td><p>466</p></td>
+<td><p>22.6</p></td>
+<td><p>20.7</p></td>
+<td><p>18.6</p></td>
+<td><p>70%</p></td>
+<td><p>72%</p></td>
+<td><p>73%</p></td>
+</tr>
+<tr class="row-odd"><td><p>SMR with CCS</p></td>
+<td><p>927</p></td>
+<td><p>880</p></td>
+<td><p>829</p></td>
+<td><p>37.1</p></td>
+<td><p>35.2</p></td>
+<td><p>33.1</p></td>
+<td><p>41%</p></td>
+<td><p>42%</p></td>
+<td><p>42%</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="../introduction/model_overview.html" class="btn btn-neutral float-left" title="Model Overview" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="../land_water/land_and_water_module.html" class="btn btn-neutral float-right" title="Land &amp; Water Module" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2025, CLEWS-EU modelling team.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

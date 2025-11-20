@@ -1,0 +1,421 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Time horizon and temporal resolution &mdash; CLEWS-EU 0.1 documentation</title>
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=e59714d7" />
+      <link rel="stylesheet" type="text/css" href="../_static/custom.css?v=326af39b" />
+
+  
+      <script src="../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../_static/documentation_options.js?v=2709fde1"></script>
+      <script src="../_static/doctools.js?v=9bcbadda"></script>
+      <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Software and hardware requirements" href="../manual/manual.html" />
+    <link rel="prev" title="Land &amp; Water Module" href="../land_water/land_and_water_module.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            CLEWS-EU
+              <img src="../_static/logo-diamond.png" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Introduction</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../introduction/intro.html">General Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../introduction/model_overview.html">Model Overview</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Energy Module</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../energy/energy_module.html">Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../energy/energy_module.html#electricity-and-heat-generation">Electricity and heat generation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../energy/energy_module.html#buildings">Buildings</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../energy/energy_module.html#industry">Industry</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../energy/energy_module.html#transport">Transport</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../energy/energy_module.html#hydrogen">Hydrogen</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Land &amp; Water Module</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../land_water/land_and_water_module.html">Land &amp; Water Module</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Overarching model structure</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Time horizon and temporal resolution</a></li>
+<li class="toctree-l1"><a class="reference internal" href="#emissions-accounting">Emissions accounting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="#naming-convention">Naming Convention</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">User Manual</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../manual/manual.html">Software and hardware requirements</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../manual/manual.html#model-setup">Model setup</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../manual/manual.html#using-the-clews-eu-model">Using the CLEWs-EU model</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Limitations &amp; Improvements</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../limitations/limitations.html">Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../limitations/limitations.html#energy-module">Energy module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../limitations/limitations.html#land-and-water-module">Land and Water module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../limitations/limitations.html#references">References</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">CLEWS-EU</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Time horizon and temporal resolution</li>
+
+    <span style="float:right; margin-right:20px; font-size:18px;">
+
+        <a href="https://github.com/CLIMATE-DIAMOND/EU-CLEWS"
+           target="_blank" title="GitHub"
+           style="margin-left: 12px; color: inherit;">
+           <i class="fa-brands fa-github"></i>
+        </a>
+
+        <a href="https://zenodo.org/records/16537822"
+           target="_blank" title="Zenodo"
+           style="margin-left: 12px; color: inherit;">
+           <i class="fa-solid fa-database"></i>
+        </a>
+
+    </span>
+
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="time-horizon-and-temporal-resolution">
+<h1>Time horizon and temporal resolution<a class="headerlink" href="#time-horizon-and-temporal-resolution" title="Link to this heading"></a></h1>
+<p>Considering the climate neutrality goal of the European Union by 2050, analysis by the model is performed up to 2050 . The extension of the modelling horizon beyond this point implies great uncertainty as to the technological advances and relevant cost assumptions, climatic conditions and energy demand projections required as input in the CLEWs-EU model. The base period is 2018-2021, with statistics up to 2021/2022 accounted for, and these years are calibrated accordingly, wherever possible. To reduce the computational effort required to run CLEWs-EU, a modified OSeMOSYS code version has been developed to allow scenario development with multi-year steps instead of adopting an annual resolution (e.g., one could choose to adopt an annual resolution for the period 2018-2035, and then the years 2040, 2045 and 2050). This same OSeMOSYS code can also be used for an outlook with annual resolution and is made available on the GitHub repository. The individual sectoral models of the disaggregated CLEWs-EU version are built with an annual resolution. However, the integrated CLEWs-EU model represents 2021 as a base year, then 2025 and the remaining horizon is in 5-year time-steps, due to the computational effort entailed; in the case of the energy module, the years 2018-2020 are also included in the reference period.
+The temporal resolution of the model is enhanced from the 3 intra-annual parts adopted in the GLUCOSE (i.e., Global CLEWs) model to <strong>16 annual timesteps</strong>, consisting of <strong>4 seasons</strong> (i.e., winter, spring, summer, autumn) represented by a typical day; each consisting of 4 intra-day parts (Table 23). The goal is to capture the daily characteristics of variability across electricity demand and variable renewable electricity generation. Initially, the model is developed with this temporal resolution, but in case the computational effort during the model optimisation permits further enhancement, this will be explored in future stages of model development. Such an enhancement would strengthen the model’s capability to provide valuable insights regarding variable renewable energy integration. In this sense, the data collection process for time-variable statistics (e.g., electricity demand variability, renewable energy generation profiles, heating and cooling demand profiles etc.) considered this plausibility.</p>
+<div style="font-size:13px; margin-top:20px; margin-bottom:8px; text-align:center;">
+    <b>Table 23.</b> Intra-year temporal breakdown of CLEWs-EU.
+</div><table class="docutils align-center">
+<colgroup>
+<col style="width: 20.0%" />
+<col style="width: 20.0%" />
+<col style="width: 20.0%" />
+<col style="width: 20.0%" />
+<col style="width: 20.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p><strong>Seasons</strong></p></th>
+<th class="head"><p><strong>Winter</strong></p></th>
+<th class="head"><p><strong>Spring</strong></p></th>
+<th class="head"><p><strong>Summer</strong></p></th>
+<th class="head"><p><strong>Autumn</strong></p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td></td>
+<td><p>December–February</p></td>
+<td><p>March–May</p></td>
+<td><p>June–August</p></td>
+<td><p>September–October</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>Day parts (UTC time)</strong></p></td>
+<td><p>00:00–07:00</p></td>
+<td><p>07:00–17:00</p></td>
+<td><p>17:00–21:00</p></td>
+<td><p>21:00–00:00</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>Day part duration (hours)</strong></p></td>
+<td><p>7</p></td>
+<td><p>10</p></td>
+<td><p>4</p></td>
+<td><p>3</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="emissions-accounting">
+<h1>Emissions accounting<a class="headerlink" href="#emissions-accounting" title="Link to this heading"></a></h1>
+<p>The CLEWs-EU model accounts for key greenhouse gas (GHG) emissions (CO2, CH4, N2O) separately, but also in terms of carbon dioxide equivalent (CO2eq). In the context of the European Union legislation, it is important to differentiate between GHG emissions that fall under the Emissions Trading System (ETS) and those that are part of the Effort Sharing Regulation (ESR), as different carbon pricing mechanisms are in place, while these will also change with the introduction of the new ETS. As such, a distinction is made in the model on the sectors that are relevant to ETS or ESR. Price projections for the existing and the new ETS are taken from a communication of the European Commission on the “Recommended parameters for reporting on GHG projections in 2025” (European Commission - DG CLIMA, 2024), which was used by member states in the preparation of the final revisions of their National Energy and Climate Plans (NECPs) (European Commission, n.d.). Accounting for GHG emissions in the energy module of CLEWs-EU occurs either at the fuel supply level or the use level (i.e., technology). Negative GHG emission rates are included in Carbon Capture and Storage (CCS) technologies, which are available for investment in electricity &amp; heat generation, as well as industry.
+Emissions in the Land module are captured at multiple levels. All land cover categories have an emission activity ratio corresponding to their CO2, CH4, N2O &amp; CO2eq emissions. Livestock emissions pertaining to enteric fermentation and manure management are obtained from the European GHG inventory (EEA, 2021) and divided by the total live heads of livestock in the base year to compute emission activity ratios for each type of livestock per EU-27 member state. Similarly, emissions from other AFOLU sectors are also sourced from the same source, and the factors are calculated by dividing the total GHG emissions by the area under the emitting/sequestering land cover category. The EU also declares the amount of GHG that is stored in harvested wood products. We represent this category as exogenous emission in the model. For land that has been under forest or grassland cover for a long time and changes to another land cover category (such as agriculture), an emission change factor has been implemented to specify the carbon stocks that will be released when land cover changes (Background Guide for the Calculation of Land Carbon Stocks in the Biofuels Sustainability Scheme, 2010). These emission activity ratios and the calculation are available in the GitHub repository.</p>
+</section>
+<section id="naming-convention">
+<h1>Naming Convention<a class="headerlink" href="#naming-convention" title="Link to this heading"></a></h1>
+<p>As the CLEWs-EU model has been built from scratch, the way in which technologies and commodities would be represented within the model and hence, the short codes abbreviating these had to be formulated. This would facilitate the standardisation and automation of data entry and results extraction and visualisation. A 12-character naming convention was followed for technologies, while a 6-character naming convention was adopted for commodities. Table 24 shows an extract of the naming convention adopted for the energy module, while Table 25 and Table 26 highlight the naming convention implemented for the land and water modules. The full explanation of the naming convention is available as part of the model documentation in the model’s GitHub repository. As further additions are made, the relevant documentation will be updated accordingly.</p>
+<div style="font-size:13px; margin-top:20px; margin-bottom:8px; text-align:center;">
+    <b>Table 24.</b> Naming convention sample for technologies and commodities in the energy module (CLEWs-EU).
+</div><table class="docutils align-center">
+<colgroup>
+<col style="width: 18.2%" />
+<col style="width: 13.6%" />
+<col style="width: 13.6%" />
+<col style="width: 13.6%" />
+<col style="width: 13.6%" />
+<col style="width: 13.6%" />
+<col style="width: 13.6%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p><strong>Technology</strong></p></th>
+<th class="head"><p><strong>Country/Region (2 Characters)</strong></p></th>
+<th class="head"><p><strong>Module (1 Character)</strong></p></th>
+<th class="head"><p><strong>Sector (2 Characters)</strong></p></th>
+<th class="head"><p><strong>Fuel (3 Characters)</strong></p></th>
+<th class="head"><p><strong>Technology / Destination (2 Characters)</strong></p></th>
+<th class="head"><p><strong>Type (2 Characters)</strong></p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>EUEPTVPGSLPH
+Gasoline-fired plug-in hybrid passenger car in the EU</p></td>
+<td><p>EU
+(European Union)</p></td>
+<td><p>E
+(Energy)</p></td>
+<td><p>PT
+(Passenger Transport)</p></td>
+<td><p>GSL
+(Gasoline)</p></td>
+<td><p>VP
+(Passenger vehicle)</p></td>
+<td><p>PH
+(Plug-in hybrid)</p></td>
+</tr>
+<tr class="row-odd"><td><p>ATEGNELCDEIC
+Electricity interconnector between Austria and Germany</p></td>
+<td><p>AT
+(Austria)</p></td>
+<td><p>E
+(Energy)</p></td>
+<td><p>GN
+(Grid Networks)</p></td>
+<td><p>ELC
+(Electricity)</p></td>
+<td><p>DE
+(Germany)</p></td>
+<td><p>IC
+(Inter-connector)</p></td>
+</tr>
+<tr class="row-even"><td><p>PLEEGCOAPPCS
+Coal power plant with CCS in Poland</p></td>
+<td><p>PL
+(Poland)</p></td>
+<td><p>E
+(Energy)</p></td>
+<td><p>EG
+(Electricity Generation)</p></td>
+<td><p>COA
+(Electricity)</p></td>
+<td><p>PP
+(Power Plant)</p></td>
+<td><p>CS
+(Carbon Capture and Storage)</p></td>
+</tr>
+</tbody>
+</table>
+<div style="font-size:13px; margin-top:20px; margin-bottom:8px; text-align:center;">
+    <b>Table 25.</b> Naming convention sample for technologies in the land module (CLEWs-EU).
+</div><table class="docutils align-center">
+<colgroup>
+<col style="width: 16.7%" />
+<col style="width: 16.7%" />
+<col style="width: 11.1%" />
+<col style="width: 11.1%" />
+<col style="width: 11.1%" />
+<col style="width: 11.1%" />
+<col style="width: 11.1%" />
+<col style="width: 11.1%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p><strong>Technology</strong></p></th>
+<th class="head"><p><strong>Country/Region (2 Characters)</strong></p></th>
+<th class="head"><p><strong>Module (1 Character)</strong></p></th>
+<th class="head"><p><strong>Identifier 1 (3 Characters)</strong></p></th>
+<th class="head"><p><strong>Identifier 2 (3 Characters)</strong></p></th>
+<th class="head"><p><strong>Input Level (1 Character)</strong></p></th>
+<th class="head"><p><strong>Water supply (1 Character)</strong></p></th>
+<th class="head"><p><strong>Dummy (1 Character)</strong></p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>EULIMPWHE000
+Wheat imports in the EU</p></td>
+<td><p>EU
+(Europe)</p></td>
+<td><p>L
+(Land)</p></td>
+<td><p>IMP
+(Imports)</p></td>
+<td><p>WHE
+(Wheat)</p></td>
+<td><p>0
+(Dummy)</p></td>
+<td><p>0
+(Dummy)</p></td>
+<td><p>0
+(Dummy)</p></td>
+</tr>
+<tr class="row-odd"><td><p>EUL000WAT000
+Land cover under water bodies</p></td>
+<td><p>EU
+(Europe)</p></td>
+<td><p>L
+(Land)</p></td>
+<td><p>000
+(Dummy)</p></td>
+<td><p>WAT
+(Water)</p></td>
+<td><p>0
+(Dummy)</p></td>
+<td><p>0
+(Dummy)</p></td>
+<td><p>0
+(Dummy)</p></td>
+</tr>
+<tr class="row-even"><td><p>EUL000MAIHR0
+Potential for rainfed maize cultivation under high input level</p></td>
+<td><p>EU
+(Europe)</p></td>
+<td><p>L
+(Land)</p></td>
+<td><p>000
+(Dummy)</p></td>
+<td><p>MAI
+(Maize)</p></td>
+<td><p>H
+(High Input Level)</p></td>
+<td><p>R
+(Rainfed type)</p></td>
+<td><p>0
+(Dummy)</p></td>
+</tr>
+</tbody>
+</table>
+<div style="font-size:13px; margin-top:20px; margin-bottom:8px; text-align:center;">
+    <b>Table 26.</b> Naming convention sample for technologies in the water module (CLEWs-EU).
+</div><table class="docutils align-center">
+<colgroup>
+<col style="width: 20.4%" />
+<col style="width: 18.4%" />
+<col style="width: 15.3%" />
+<col style="width: 15.3%" />
+<col style="width: 15.3%" />
+<col style="width: 15.3%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p><strong>Technology</strong></p></th>
+<th class="head"><p><strong>Country/Region (2 Characters)</strong></p></th>
+<th class="head"><p><strong>Module (1 Character)</strong></p></th>
+<th class="head"><p><strong>Identifier 1 (3 Characters)</strong></p></th>
+<th class="head"><p><strong>Identifier 2 (3 Characters)</strong></p></th>
+<th class="head"><p><strong>Identifier 3 (3 Characters)</strong></p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>EUWDEMPUBGWT
+Ground water supply technology for public use</p></td>
+<td><p>EU
+(Europe)</p></td>
+<td><p>W
+(Water)</p></td>
+<td><p>DEM
+(Demand)</p></td>
+<td><p>PUB
+(Public supply)</p></td>
+<td><p>GWT
+(Groundwater)</p></td>
+</tr>
+<tr class="row-odd"><td><p>EUWDEMAGRSUR
+Surface water supply technology for agricultural use</p></td>
+<td><p>EU
+(Europe)</p></td>
+<td><p>W
+(Water)</p></td>
+<td><p>DEM
+(Demand)</p></td>
+<td><p>AGR
+(Agricultural Use)</p></td>
+<td><p>SUR
+(Surface water)</p></td>
+</tr>
+<tr class="row-even"><td><p>EUWMIN000PRC
+Technology to produce water from precipitation</p></td>
+<td><p>EU
+(Europe)</p></td>
+<td><p>W
+(Water)</p></td>
+<td><p>MIN
+(Resource Technology)</p></td>
+<td><p>000
+(Dummy)</p></td>
+<td><p>PRC
+(Precipitation)</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="../land_water/land_and_water_module.html" class="btn btn-neutral float-left" title="Land &amp; Water Module" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="../manual/manual.html" class="btn btn-neutral float-right" title="Software and hardware requirements" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2025, CLEWS-EU modelling team.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

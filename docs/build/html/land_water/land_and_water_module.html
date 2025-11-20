@@ -1,0 +1,622 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Land &amp; Water Module &mdash; CLEWS-EU 0.1 documentation</title>
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=e59714d7" />
+      <link rel="stylesheet" type="text/css" href="../_static/custom.css?v=326af39b" />
+
+  
+      <script src="../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../_static/documentation_options.js?v=2709fde1"></script>
+      <script src="../_static/doctools.js?v=9bcbadda"></script>
+      <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Time horizon and temporal resolution" href="../overarching/overarching.html" />
+    <link rel="prev" title="Overview" href="../energy/energy_module.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            CLEWS-EU
+              <img src="../_static/logo-diamond.png" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Introduction</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../introduction/intro.html">General Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../introduction/model_overview.html">Model Overview</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Energy Module</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../energy/energy_module.html">Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../energy/energy_module.html#electricity-and-heat-generation">Electricity and heat generation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../energy/energy_module.html#buildings">Buildings</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../energy/energy_module.html#industry">Industry</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../energy/energy_module.html#transport">Transport</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../energy/energy_module.html#hydrogen">Hydrogen</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Land &amp; Water Module</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Land &amp; Water Module</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#overarching-assumptions">Overarching assumptions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#module-structure-and-technological-representation">Module structure and technological representation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#modelling-crop-selection-and-demands">Modelling crop selection and demands</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#modelling-other-land-categories">Modelling other land categories</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#energy-use-in-the-land-and-water-module">Energy use in the land and water module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#water-use-and-consumption">Water use and consumption</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#livestock-representation">Livestock representation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#biomass-production">Biomass production</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#data-sources">Data sources</a></li>
+</ul>
+</li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Overarching model structure</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../overarching/overarching.html">Time horizon and temporal resolution</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../overarching/overarching.html#emissions-accounting">Emissions accounting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../overarching/overarching.html#naming-convention">Naming Convention</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">User Manual</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../manual/manual.html">Software and hardware requirements</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../manual/manual.html#model-setup">Model setup</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../manual/manual.html#using-the-clews-eu-model">Using the CLEWs-EU model</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Limitations &amp; Improvements</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../limitations/limitations.html">Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../limitations/limitations.html#energy-module">Energy module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../limitations/limitations.html#land-and-water-module">Land and Water module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../limitations/limitations.html#references">References</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">CLEWS-EU</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Land &amp; Water Module</li>
+
+    <span style="float:right; margin-right:20px; font-size:18px;">
+
+        <a href="https://github.com/CLIMATE-DIAMOND/EU-CLEWS"
+           target="_blank" title="GitHub"
+           style="margin-left: 12px; color: inherit;">
+           <i class="fa-brands fa-github"></i>
+        </a>
+
+        <a href="https://zenodo.org/records/16537822"
+           target="_blank" title="Zenodo"
+           style="margin-left: 12px; color: inherit;">
+           <i class="fa-solid fa-database"></i>
+        </a>
+
+    </span>
+
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="land-water-module">
+<h1>Land &amp; Water Module<a class="headerlink" href="#land-water-module" title="Link to this heading"></a></h1>
+<p>The land use and water modules are effectively interlinked. Although we use different naming conventions and technologies to represent the two modules in CLEWs-EU, their inputs and outputs are interdependent. The water module represents the following primary sources: water from precipitation and snowmelt (represented as a single entity); water from existing surface and groundwater sources; water from neighbouring geographies through transboundary river exchanges; and water from desalination and secondary sources, such as treatment plants in some countries.  The model includes a simplified representation of the water balance for each country.  In the land module, the total land available in the continent (in the aggregated model) and in each country (in the disaggregated model) is divided into eight major land categories based on the European Space Agency’s land cover classifications (Eurostat, 2025). These are: grassland, cropland, barren land (including snow-covered areas), water bodies, shrubland, forest cover, built-up land, and wetlands (including mangroves, lichens, and other types of wetlands). Representing land and water systems in a generic systems optimisation setup involves using relevant assumptions to simplify their characterisation while ensuring that little essential detail is lost. Effectively, the land and water modules represent the balance of the two resources (i.e., land and water) in the respective systems. Despite accounting for the balance of these resources, some components, like groundwater storage, are not considered in these modules as they involve detailed subsurface flow modelling, which is outside the scope of the model. Additionally, detailed hydrological water routing across the countries is outside the scope of this work. In the following sections, the overarching assumptions and the technology representation in the land and water module are presented.</p>
+<section id="overarching-assumptions">
+<h2>Overarching assumptions<a class="headerlink" href="#overarching-assumptions" title="Link to this heading"></a></h2>
+<p>In the land and water module, the central assumptions concern the simplifications used to represent the actual setup in each country. In each of the following sections, the country-specific assumptions used in the model are detailed. One common assumption that holds across countries is the growth rate of crop production, which is used as a demand driver in this model. These growth rates (presented in Table 19) are obtained from the European Union’s agricultural outlook 2024-2035 (DG Agriculture and Rural Development, 2024). For crops without a specific growth rate in the outlook, we use an average of all crops, which is also applied to the other (OTH) crop category, which aggregates the crops other than the top ten in each country by planted area. We have maintained the same growth rate between 2035 and 2055, as no specific projections were available for that period.</p>
+<div style="font-size:13px; margin-top:20px; margin-bottom:8px; text-align:center;">
+    <b>Table 19.</b> Annual growth rates (%) in crop production from the EU-Agricultural Outlook (2024–2035).
+</div><table class="docutils align-center">
+<colgroup>
+<col style="width: 38.5%" />
+<col style="width: 23.1%" />
+<col style="width: 38.5%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p><strong>Crops</strong></p></th>
+<th class="head"><p><strong>Code</strong></p></th>
+<th class="head"><p><strong>Average annual growth rate (2024–2035)</strong></p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Wheat</p></td>
+<td><p>WHE</p></td>
+<td><p>-0.10%</p></td>
+</tr>
+<tr class="row-odd"><td><p>Barley</p></td>
+<td><p>BRL</p></td>
+<td><p>0.10%</p></td>
+</tr>
+<tr class="row-even"><td><p>Rape seed</p></td>
+<td><p>RAP</p></td>
+<td><p>-0.40%</p></td>
+</tr>
+<tr class="row-odd"><td><p>Rye</p></td>
+<td><p>RYE</p></td>
+<td><p>0.20%</p></td>
+</tr>
+<tr class="row-even"><td><p>Maize</p></td>
+<td><p>MAI</p></td>
+<td><p>0.40%</p></td>
+</tr>
+<tr class="row-odd"><td><p>Sugar beet</p></td>
+<td><p>SUG</p></td>
+<td><p>-0.70%</p></td>
+</tr>
+<tr class="row-even"><td><p>Potatoes</p></td>
+<td><p>POT</p></td>
+<td><p>-0.80%</p></td>
+</tr>
+<tr class="row-odd"><td><p>Oats</p></td>
+<td><p>OAT</p></td>
+<td><p>0.20%</p></td>
+</tr>
+<tr class="row-even"><td><p>Grapes</p></td>
+<td><p>GRP</p></td>
+<td><p>-0.80%</p></td>
+</tr>
+<tr class="row-odd"><td><p>Olives</p></td>
+<td><p>OLI</p></td>
+<td><p>-0.40%</p></td>
+</tr>
+<tr class="row-even"><td><p>Other crops</p></td>
+<td><p>OTH</p></td>
+<td><p>-0.23%</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="module-structure-and-technological-representation">
+<h2>Module structure and technological representation<a class="headerlink" href="#module-structure-and-technological-representation" title="Link to this heading"></a></h2>
+<p>Figure 12 provides a schematic representation of the land component within the broader CLEWs systems framework. The diagram decomposes <em>Total land</em> into distinct land-use categories and their associated products or services. It serves as an illustrative example of how land cover and land use are typically represented in CLEWs models.</p>
+<p><strong>Land uses</strong>
+The land module classifies land into several categories, including cropland, barren land, forests, pastures/grasslands, built-up land, water bodies, and wetlands. Each category is linked to a specific type of production activity or ecosystem service.</p>
+<p><strong>Production</strong>
+Each land-use category contributes to different outputs:</p>
+<ul class="simple">
+<li><p><strong>Cropland</strong> supports agricultural production, including crops such as maize, rice, coffee, sugarcane, and others, depending on national cultivation patterns. Crop residues form a portion of the biomass available to the energy system.</p></li>
+<li><p><strong>Forests</strong> provide woody biomass.</p></li>
+<li><p><strong>Pastures and grasslands</strong> support livestock activities, contributing to meat and dairy production.</p></li>
+<li><p><strong>Built-up land</strong> relates to residential, industrial, commercial, and transport services.</p></li>
+</ul>
+<p>The arrows shown in the diagram indicate the flow from land-use categories to their respective outputs. Overall, the illustration highlights the interconnectedness of land systems with food, energy, water, and ecosystem services. It reflects the integrated nature of CLEWs modelling, where changes in land-use policy or resource availability propagate across multiple sectors.</p>
+<div style="margin-top:20px; margin-bottom:20px; text-align:center;">
+    <img src="../_static/land_categories.png" style="width:90%; margin-bottom:15px;">
+    <div style="font-size:13px;">
+        <b>Figure 12.</b> Primary level of land categories breakdown in the land module (CLEWs-EU).
+    </div>
+</div><p>A more detailed system representation is shown in Figure 13, illustrating how the CLEWs-EU land and water modules are formulated, along with their key interactions with the energy module. Solid arrows indicate active links, while dotted arrows denote potential connections that exist in the full CLEWs formulation but are currently disabled to reduce computational load during optimisation.</p>
+<p>The diagram is organised by colour, with each group representing a different component of the CLEWs framework:</p>
+<ol class="arabic simple">
+<li><p><strong>Land Use (green):</strong>
+This group includes agricultural land (disaggregated into up to ten crop types), barren land, forests, built-up land, water bodies, and wetlands. Each land category is associated with specific outputs—for example, individual crops or contributions to water availability (runoff, infiltration, etc.).</p></li>
+<li><p><strong>Precipitation and Sea Water (blue):</strong>
+This part of the diagram shows the sources and allocation of water, distinguishing between precipitation-derived surface water, groundwater, and seawater. It highlights the water flows used in agriculture, power generation (PWR), and other sectoral demands.</p></li>
+<li><p><strong>Energy Supply and Use (red and black):</strong>
+These elements represent the interactions between the energy system and the land and water components, particularly energy use in agriculture and forestry operations, as well as pumping and water treatment processes within the water module.</p></li>
+<li><p><strong>Interlinkages (arrows of different colours):</strong>
+The arrows illustrate resource flows between the land, water, and energy systems. Examples include water supplied to cropland for irrigation and runoff contributions from each land-use category to surface and groundwater resources.</p></li>
+<li><p><strong>Backstop technologies (pink):</strong>
+The pink nodes represent modelling constructs included to detect infeasibilities and resource shortages within the optimisation framework.</p></li>
+<li><p><strong>Fertiliser inputs (orange):</strong>
+This group shows fertiliser applications that enhance crop yields. Some fertilisers used in the model are imported from outside the EU27.</p></li>
+</ol>
+<div style="margin-top:20px; margin-bottom:20px; text-align:center;">
+    <img src="../_static/CLEWs_model_Structure.png" style="width:70%; margin-bottom:15px;">
+    <div style="font-size:13px;">
+        <b>Figure 13.</b> The CLEWs model structure represented in each EU27 country.
+    </div>
+</div></section>
+<section id="modelling-crop-selection-and-demands">
+<h2>Modelling crop selection and demands<a class="headerlink" href="#modelling-crop-selection-and-demands" title="Link to this heading"></a></h2>
+<p>As described earlier, within the cropland category for each country, we rank crops by cultivated area in 2018 and select the top 9, which are represented individually. The remaining crops are grouped together and included in a bundled category. Therefore, there are effectively 10 crop categories, with 9 unique ones represented in each country. The number of crops is lower for countries like Malta and Luxembourg, owing to the total number of crops grown. In the majority of EU27 countries, the top nine crops account for more than 85% of cultivated cropland (FAO, 2024). The crops selected for each country can be accessed in the country-specific input files for the land and water module (on GitHub).
+For each of these selected crops, two input levels and two water supply options are considered. The input levels (high and low) refer to the degree of mechanisation and the use of fertilisers in the farming techniques, both of which directly influence yield. The water supply options refer to whether the crop is irrigated or rainfed. The water requirement for irrigation is derived from GAEZ’s crop water deficit, which is specific to each crop and the climatic pattern and the country (Fischer, 2021). The different input and water supply combinations available for each crop are presented in Figure 14.
+As the exact area under irrigation per crop per country is not available, we use the EU-wide average percentage of irrigated area for each crop. We decided to use this value to simplify the representation of irrigation inside the model. For example, crops such as olives have a higher irrigation share (19% of total cultivated area), while crops such as wheat may have a lower share (~2–3%). Overall, the share of cultivated land under irrigation is approximately 7% (Eurostat, 2019).</p>
+<div style="margin-top:20px; margin-bottom:20px; text-align:center;">
+    <img src="../_static/crop_classification.png" style="width:90%; margin-bottom:15px;">
+    <div style="font-size:13px;">
+        <b>Figure 14.</b> Crop classification in the CLEWs EU model.
+    </div>
+</div><p>The EU agricultural outlook (European Commission, 2025) provides projections for major EU agricultural markets until 2035. In this model, the actual production numbers are presented as crop demands until 2023. From 2024, the crop production projections from the outlook have been used to estimate demand for each crop in each EU member state. These growth rates and the assumptions are presented in Table 17. It must be noted that the import and export of crop commodities have not been included in this model. Owing to the uncertainty in price projections and to avoid computational complexity, it has been decided to represent only local production. Having said that, the model provides for the inclusion of exports and imports of any commodity.</p>
+</section>
+<section id="modelling-other-land-categories">
+<h2>Modelling other land categories<a class="headerlink" href="#modelling-other-land-categories" title="Link to this heading"></a></h2>
+<p>The model also considers other landcover types, namely: forests, grasslands (includes pasture), wetlands, built-up lands, barren land, water bodies and shrublands. In this model, the focus is on croplands, forests and grasslands. Therefore, as a common practice in similar modelling studies, we keep the shares of other categories, except built-</p>
+<p><strong>Built up land</strong>
+To represent urban growth on artificially built-up land, we use the OECD’s land cover change dataset between 2000 and 2020 and use the 20-year CAGR for each country (Vladimir Tesnière, Mikaël J. A. Maes, Ivan Haščič, 2024). This process involves using the raw GIS data to compute the final numbers. The country-specific values are available on the public GitHub repository.</p>
+<p><strong>Forests and grasslands expansion</strong>
+The area in forests and grasslands is given an economic incentive to maintain land under their cover. It is also essential to highlight that they have GHG sequestration potential, which varies by country.  The incentive presented as negative variable costs is basically a way to represent the opportunity cost of removing the forests and grasslands for agriculture and other purposes. We have maintained these costs unchanged across all countries, as it was not possible to estimate an opportunity cost for each country. This is also one of the limitations of the model, as highlighted in section 2.2. Additionally, the forests and grasslands in each country have maximum growth rates aligned with national policies. These values are derived from national projections. The maximum annual growth rate is limited from 2024 onward, as actual land cover values are only available through 2023.</p>
+</section>
+<section id="energy-use-in-the-land-and-water-module">
+<h2>Energy use in the land and water module<a class="headerlink" href="#energy-use-in-the-land-and-water-module" title="Link to this heading"></a></h2>
+<div style="margin-top:20px; margin-bottom:20px; text-align:center;">
+    <img src="../_static/electricity_use_water.png" style="width:90%; margin-bottom:15px;">
+    <div style="font-size:13px;">
+        <b>Figure 15.</b> Electricity use in the water system
+    </div>
+</div><p>Energy used in the water and land use module is modelled by linking the energy inputs (fossil fuels and electricity) from the energy module with the respective end-use sectors. Electricity is used in the agricultural sector for pumping water from surface and groundwater sources, for treating water before sending it for consumption in households, and for treating water after use to be let out into surface water bodies. Figure 15 presents the section of the system where the electricity flows from the energy module are provided as inputs to the pumping technologies that supply water for irrigation, cooling in thermal power plants and supply to other commercial and industrial needs. The energy use factors for pumping were obtained from (Plappally &amp; Lienhard V, 2012). The efficiencies and the cost of both types of treatment mentioned above are obtained from ((Paraschiv et al., 2023; Schiller &amp; Dirlich, 2015; Urban Waste Water Directive Treatment Plants Data Viewer, 2017). We assume a uniform energy intensity for all the countries. The cost of treatment always includes an energy component. We have attempted to remove this component to prevent double-counting. However, this section could be improved with more actual project-specific costs.
+Additionally, the national-level energy balances (Rózsai et al., 2024) have been used to account for all other energy flows to the agriculture and forestry sectors. To simplify the representation of these energy inputs, we subtracted the total energy for pumping and diesel consumption in the land-use sector from the total energy used (by fuel) in the Agricultural and forestry sector. This resulting value was divided by the total cropland area to derive the energy intensity per unit area of cultivated cropland in each EU-27 country. These fuels were disaggregated into Diesel, Natural Gas, Coal and biomass fuel (which includes biomass, biofuel and other bio-based energy commodities found in the energy balance). We used these intensities to calibrate energy consumption in the agriculture and land-use sector.</p>
+</section>
+<section id="water-use-and-consumption">
+<h2>Water use and consumption<a class="headerlink" href="#water-use-and-consumption" title="Link to this heading"></a></h2>
+<div style="margin-top:20px; margin-bottom:20px; text-align:center;">
+    <img src="../_static/water_module.png" style="width:90%; margin-bottom:15px;">
+    <div style="font-size:13px;">
+        <b>Figure 16.</b> Simplified representation of the water module with the flow of water to end-use sectors.
+    </div>
+</div><p>In the CLEWs-EU model, the demands for water in the power, agriculture, and domestic use sectors are modelled explicitly.  All other water use, predominantly the commercial and industrial sectors, is grouped into the “Other” category. Water used for cooling thermal power plants and for irrigation of cropland is endogenously determined within the model. Figure 16 highlights the structure of the water supply to the respective end uses. For household use, the water is first treated before supply, and the wastewater is channelled through a technology that represents post-use treatment before being returned to surface water sources.</p>
+<p><strong>Water use in the residential sector</strong>
+The demand (withdrawal and consumption) for water in the residential sector was obtained from (Fridman et al., 2024). These values are calibrated against actual numbers from Eurostat. The data set has different projections available until 2100. We assume a median projection from SSP2 for the base scenario. Figure 17 presents the values for all the EU27 countries together. The values are expected to decline owing to an expected decline in the population and lower per capita water use.</p>
+<div style="margin-top:20px; margin-bottom:20px; text-align:center;">
+    <img src="../_static/household_water.png" style="width:90%; margin-bottom:15px;">
+    <div style="font-size:13px;">
+        <b>Figure 17.</b> Household water withdrawal and consumption in the EU under SSP2.
+    </div>
+</div><p><strong>Water use in the commercial and industrial sectors</strong></p>
+<div style="margin-top:20px; margin-bottom:20px; text-align:center;">
+    <img src="../_static/commercial_industrial.png" style="width:90%; margin-bottom:15px;">
+    <div style="font-size:13px;">
+        <b>Figure 18.</b> Commercial and Industrial sectors water withdrawal and consumption in the EU under SSP2.
+    </div>
+</div><p>The demand (withdrawal and consumption) for water in the commercial and industrial sectors was obtained from (Fridman et al., 2024). These values are calibrated against actual numbers from Eurostat. The data set has different projections available until 2100. We assume a median projection from SSP2 for the base scenario. Figure 18 presents the values for all the EU27 countries together. The values are expected to decline due to a projected decrease in population and lower per capita water use. Like the household projections, the demand for water in these sectors is also expected to decline.</p>
+<p><strong>Water use in the power sector</strong></p>
+<p>Thermal power plants (fossil fuel, biomass, Nuclear, etc.) need to be cooled, and water is used in most of them. There are two primary types of water-based cooling technologies: once-through cooling (direct) and wet-recirculating/closed-loop (indirect). Sometimes the water used for cooling is from a nearby river, pond, or even seawater. In our model, we simplify the representation of water for cooling in thermal power plants. We calibrate the water used for cooling (obtained as a single number per country and year) from Eurostat with the total electricity generation from thermal power plants to calculate a cooling water withdrawal and consumption intensity, presented per unit of electricity produced. This methodology provides us with good accuracy in water withdrawal and consumption, eliminating the need to represent cooling technologies and thereby reducing the computational load.  Table 20 presents the water withdrawal for cooling in thermal power plants in the EU27 countries. The data was obtained for Eurostat</p>
+<div style="font-size:13px; margin-top:20px; margin-bottom:8px; text-align:center;">
+    <b>Table 20.</b> Thermal electricity generation and water withdrawal in 2021 across the EU-27 countries.
+</div><table class="docutils align-center">
+<colgroup>
+<col style="width: 33.3%" />
+<col style="width: 33.3%" />
+<col style="width: 33.3%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p><strong>Country</strong></p></th>
+<th class="head"><p><strong>Thermal electricity generation (PJ)</strong></p></th>
+<th class="head"><p><strong>Water withdrawal (MCM)</strong></p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Austria</p></td>
+<td><p>291.61</p></td>
+<td><p>1495.1</p></td>
+</tr>
+<tr class="row-odd"><td><p>Belgium</p></td>
+<td><p>142.44</p></td>
+<td><p>2256.5</p></td>
+</tr>
+<tr class="row-even"><td><p>Bulgaria</p></td>
+<td><p>20.45</p></td>
+<td><p>3471.7</p></td>
+</tr>
+<tr class="row-odd"><td><p>Croatia</p></td>
+<td><p>15.86</p></td>
+<td><p>167.3</p></td>
+</tr>
+<tr class="row-even"><td><p>Cyprus</p></td>
+<td><p>282.27</p></td>
+<td><p>14.8</p></td>
+</tr>
+<tr class="row-odd"><td><p>Czechia</p></td>
+<td><p>56.42</p></td>
+<td><p>264.5</p></td>
+</tr>
+<tr class="row-even"><td><p>Denmark</p></td>
+<td><p>21.94</p></td>
+<td><p>3.5</p></td>
+</tr>
+<tr class="row-odd"><td><p>Estonia</p></td>
+<td><p>170.17</p></td>
+<td><p>681.7</p></td>
+</tr>
+<tr class="row-even"><td><p>Finland</p></td>
+<td><p>1575.11</p></td>
+<td><p>405.4</p></td>
+</tr>
+<tr class="row-odd"><td><p>France</p></td>
+<td><p>1444.75</p></td>
+<td><p>14368.4</p></td>
+</tr>
+<tr class="row-even"><td><p>Germany</p></td>
+<td><p>118.87</p></td>
+<td><p>13321.6</p></td>
+</tr>
+<tr class="row-odd"><td><p>Greece</p></td>
+<td><p>112.65</p></td>
+<td><p>Data not available</p></td>
+</tr>
+<tr class="row-even"><td><p>Hungary</p></td>
+<td><p>75.49</p></td>
+<td><p>3586.7</p></td>
+</tr>
+<tr class="row-odd"><td><p>Ireland</p></td>
+<td><p>680.88</p></td>
+<td><p>359.2</p></td>
+</tr>
+<tr class="row-even"><td><p>Italy</p></td>
+<td><p>10.76</p></td>
+<td><p>4594.2</p></td>
+</tr>
+<tr class="row-odd"><td><p>Latvia</p></td>
+<td><p>8.06</p></td>
+<td><p>2.6</p></td>
+</tr>
+<tr class="row-even"><td><p>Lithuania</p></td>
+<td><p>2.27</p></td>
+<td><p>87.5</p></td>
+</tr>
+<tr class="row-odd"><td><p>Luxembourg</p></td>
+<td><p>7.05</p></td>
+<td><p>Data not available</p></td>
+</tr>
+<tr class="row-even"><td><p>Malta</p></td>
+<td><p>331.68</p></td>
+<td><p>Data not available</p></td>
+</tr>
+<tr class="row-odd"><td><p>Netherlands</p></td>
+<td><p>562.60</p></td>
+<td><p>3183.3</p></td>
+</tr>
+<tr class="row-even"><td><p>Poland</p></td>
+<td><p>78.82</p></td>
+<td><p>5216</p></td>
+</tr>
+<tr class="row-odd"><td><p>Portugal</p></td>
+<td><p>120.41</p></td>
+<td><p>786.9</p></td>
+</tr>
+<tr class="row-even"><td><p>Romania</p></td>
+<td><p>89.02</p></td>
+<td><p>566</p></td>
+</tr>
+<tr class="row-odd"><td><p>Slovakia</p></td>
+<td><p>37.52</p></td>
+<td><p>50.4</p></td>
+</tr>
+<tr class="row-even"><td><p>Slovenia</p></td>
+<td><p>291.61</p></td>
+<td><p>717.1</p></td>
+</tr>
+<tr class="row-odd"><td><p>Spain</p></td>
+<td><p>547.23</p></td>
+<td><p>4682.7</p></td>
+</tr>
+<tr class="row-even"><td><p>Sweden</p></td>
+<td><p>248.77</p></td>
+<td><p>113.4</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="livestock-representation">
+<h2>Livestock representation<a class="headerlink" href="#livestock-representation" title="Link to this heading"></a></h2>
+<p>In the CLEWs-EU model, the land used for livestock farming and the corresponding GHG emissions are modelled. The livestock representation includes bovine animals (cattle, etc.), pigs, sheep, goats, and poultry (Figure 19). The demands for livestock are exogenously defined in the model. In the model, livestock demand is defined as a function of the live head count for each animal category. Additionally, the demand is specified in Livestock Units (LSU) rather than individual animal categories. The assumptions for the conversions were derived from a European Commission study on livestock greenhouse gas emissions (Leip &amp; Weiss, 2010). The assumptions for the land footprint of the livestock are obtained again from a modelling study conducted by the European Commission (De et al., 2022). The figure below provides a simplified representation of the livestock sector. We have made provisions in the model to develop an analysis that takes into consideration more climate-friendly agricultural practices. The main objective of representing livestock is to capture the GHG emissions and account for the land used to maintain them.</p>
+<div style="margin-top:20px; margin-bottom:20px; text-align:center;">
+    <img src="../_static/livestock.png" style="width:90%; margin-bottom:15px;">
+    <div style="font-size:13px;">
+        <b>Figure 19.</b> Simplified representation of livestock in the CLEWs-EU model.
+    </div>
+</div></section>
+<section id="biomass-production">
+<h2>Biomass production<a class="headerlink" href="#biomass-production" title="Link to this heading"></a></h2>
+<p>Biomass (woody biomass, crop residue, biofuels, biodegradable waste and other bio-derived sources of energy) is used in all sectors in varying amounts. Approximately 96% of all the biomass used in the EU-27 countries is sourced within its borders. However, this share is different from country to country.  For example, Cyprus imports a significant share of its biomass used in various local sectors, whereas the share is lower in Ireland. The National Renewable Energy Action Plans (NREAPs) for each EU-27 country specify the share of woody biomass, agricultural residue and other sources of biomass supply (Scarlat et al., 2019). In this model, to simplify the representation of biomass availability, we have two main categories: woody biomass from forests and all the other sources represented as agricultural residue. The woody biomass energy potential for each member state is calculated using the forested area in each country, the country-wide average wood intensity, the LHV value and the availability factor of wood for energy purposes (Avitabile et al., 2024). These values were calibrated for the base year, and an intensity of woody biomass per unit of forested area was calculated. Table 21 presents the potential for each EU-27 member state.</p>
+<div style="font-size:13px; margin-top:20px; margin-bottom:8px; text-align:center;">
+    <b>Table 21.</b> Woody biomass energy intensity in EU27 countries.
+</div><table class="docutils align-center">
+<colgroup>
+<col style="width: 50.0%" />
+<col style="width: 50.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p><strong>Country</strong></p></th>
+<th class="head"><p><strong>Woody biomass energy potential – Intensity (PJ/1000 sqkm/year)</strong></p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Austria</p></td>
+<td><p>1.68</p></td>
+</tr>
+<tr class="row-odd"><td><p>Belgium</p></td>
+<td><p>2.125</p></td>
+</tr>
+<tr class="row-even"><td><p>Bulgaria</p></td>
+<td><p>1.123</p></td>
+</tr>
+<tr class="row-odd"><td><p>Croatia</p></td>
+<td><p>1.634</p></td>
+</tr>
+<tr class="row-even"><td><p>Cyprus</p></td>
+<td><p>0.333</p></td>
+</tr>
+<tr class="row-odd"><td><p>Czechia</p></td>
+<td><p>2.308</p></td>
+</tr>
+<tr class="row-even"><td><p>Denmark</p></td>
+<td><p>3.169</p></td>
+</tr>
+<tr class="row-odd"><td><p>Estonia</p></td>
+<td><p>1.527</p></td>
+</tr>
+<tr class="row-even"><td><p>Finland</p></td>
+<td><p>1.11</p></td>
+</tr>
+<tr class="row-odd"><td><p>France</p></td>
+<td><p>1.608</p></td>
+</tr>
+<tr class="row-even"><td><p>Germany</p></td>
+<td><p>2.783</p></td>
+</tr>
+<tr class="row-odd"><td><p>Greece</p></td>
+<td><p>0.867</p></td>
+</tr>
+<tr class="row-even"><td><p>Hungary</p></td>
+<td><p>1.587</p></td>
+</tr>
+<tr class="row-odd"><td><p>Ireland</p></td>
+<td><p>2.588</p></td>
+</tr>
+<tr class="row-even"><td><p>Italy</p></td>
+<td><p>0.947</p></td>
+</tr>
+<tr class="row-odd"><td><p>Latvia</p></td>
+<td><p>1.55</p></td>
+</tr>
+<tr class="row-even"><td><p>Luxembourg</p></td>
+<td><p>2.03</p></td>
+</tr>
+<tr class="row-odd"><td><p>Malta</p></td>
+<td><p>0.333</p></td>
+</tr>
+<tr class="row-even"><td><p>Netherlands</p></td>
+<td><p>2.087</p></td>
+</tr>
+<tr class="row-odd"><td><p>Poland</p></td>
+<td><p>2.125</p></td>
+</tr>
+<tr class="row-even"><td><p>Portugal</p></td>
+<td><p>1.40</p></td>
+</tr>
+<tr class="row-odd"><td><p>Romania</p></td>
+<td><p>1.184</p></td>
+</tr>
+<tr class="row-even"><td><p>Slovakia</p></td>
+<td><p>1.847</p></td>
+</tr>
+<tr class="row-odd"><td><p>Slovenia</p></td>
+<td><p>1.894</p></td>
+</tr>
+<tr class="row-even"><td><p>Spain</p></td>
+<td><p>0.68</p></td>
+</tr>
+<tr class="row-odd"><td><p>Sweden</p></td>
+<td><p>0.897</p></td>
+</tr>
+<tr class="row-even"><td><p>Lithuania</p></td>
+<td><p>1.905</p></td>
+</tr>
+</tbody>
+</table>
+<p>The component of biomass from agricultural residues is calculated using the Residue-to-Product-Ratio (RPR), the LHV for each crop and the surplus availability factor (SAF). These are calculated for each crop type and used in the model as output activity ratios for each crop-producing technology in each country. The detailed methodology for the calculation is provided in (Singhal et al., 2024) and the associated GitHub repository.</p>
+</section>
+<section id="data-sources">
+<h2>Data sources<a class="headerlink" href="#data-sources" title="Link to this heading"></a></h2>
+<p>The construction of the Land and Water modules within the CLEWs-EU framework necessitates an extensive acquisition and processing of data. Table 22 delineates a summary of the primary data requisites pertinent to the land and water components of the model. In alignment with the approach adopted for the energy module, we are collecting data at the individual country level, despite the initial development focus on a regional EU aggregate. For land, this includes data on land use patterns, agricultural productivity, and forest cover policies, among others. For water, we gather information on water availability, usage statistics across sectors, withdrawal limits, and water use intensities. Exceptions are made for general hydrological parameters and land management practices, where universally applicable figures are employed in the preliminary stages. Nevertheless, country-specific calibration is still essential to enhance accuracy and relevance, particularly in reflecting the unique hydrological and agricultural conditions of each member state.</p>
+<div style="font-size:13px; margin-top:20px; margin-bottom:8px; text-align:center;">
+    <b>Table 22.</b> Key data requirements of the CLEWs-EU land and water modules.
+</div><table class="docutils align-center">
+<colgroup>
+<col style="width: 25.0%" />
+<col style="width: 37.5%" />
+<col style="width: 37.5%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p><strong>Sector</strong></p></th>
+<th class="head"><p><strong>Data item</strong></p></th>
+<th class="head"><p><strong>Primary Source</strong></p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Land Cover</p></td>
+<td><p>Area under different land cover classes
+Area under crop cultivation
+Emission factors</p></td>
+<td><p>FAO, Eurostat, European Space Agency (WorldCover2021)
+Aquastat &amp; Eurostat
+Eurostat and European GHG Inventory</p></td>
+</tr>
+<tr class="row-odd"><td><p>Agriculture</p></td>
+<td><p>Crop yields and production statistics
+Fertiliser usage in crop production
+Crop import statistics
+Costs involved in crop production
+Fuel usage in agriculture and forestry</p></td>
+<td><p>Global Agro-Ecological Zoning (GAEZ – FAO/IIASA), Magpie modelling group
+Eurostat, peer-reviewed literature
+FAOSTAT
+National statistics, Eurostat, derived values
+JRC IDEES – Energy Balances</p></td>
+</tr>
+<tr class="row-even"><td><p>Water Availability and Use</p></td>
+<td><p>Precipitation statistics
+Groundwater potential
+Water use factors in different sectors
+Evapotranspiration under different land categories
+Demand projections for water in different sectors</p></td>
+<td><p>Eurostat, GAEZ
+Peer-reviewed journals, Eurostat
+Eurostat
+GAEZ
+IIASA projections calibrated with Eurostat</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="../energy/energy_module.html" class="btn btn-neutral float-left" title="Overview" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="../overarching/overarching.html" class="btn btn-neutral float-right" title="Time horizon and temporal resolution" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2025, CLEWS-EU modelling team.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

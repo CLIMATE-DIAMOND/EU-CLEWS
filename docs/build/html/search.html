@@ -6,15 +6,16 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Search &mdash; CLEWS-EU 0.1 documentation</title>
-      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=92fd9be5" />
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=b86133f3" />
       <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=e59714d7" />
+      <link rel="stylesheet" type="text/css" href="_static/custom.css?v=326af39b" />
 
   
     
       <script src="_static/jquery.js?v=5d32c60e"></script>
       <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
       <script src="_static/documentation_options.js?v=2709fde1"></script>
-      <script src="_static/doctools.js?v=9a2dae69"></script>
+      <script src="_static/doctools.js?v=9bcbadda"></script>
       <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="_static/js/theme.js"></script>
     <script src="_static/searchtools.js"></script>
@@ -33,6 +34,7 @@
           
           <a href="index.html" class="icon icon-home">
             CLEWS-EU
+              <img src="_static/logo-diamond.png" class="logo" alt="Logo"/>
           </a>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="#" method="get">
@@ -42,13 +44,42 @@
   </form>
 </div>
         </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
-              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+              <p class="caption" role="heading"><span class="caption-text">Introduction</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="Overview.html">1. Overview and model Structure</a></li>
-<li class="toctree-l1"><a class="reference internal" href="Energy_module.html">2. Energy Module</a></li>
-<li class="toctree-l1"><a class="reference internal" href="Land_and_Water_module.html">3. Land and Water Module</a></li>
-<li class="toctree-l1"><a class="reference internal" href="Model_aggregations.html">4. Model aggregations</a></li>
-<li class="toctree-l1"><a class="reference internal" href="How_to_use_CLEWS-EU.html">5. How to use CLEWS-EU</a></li>
+<li class="toctree-l1"><a class="reference internal" href="introduction/intro.html">General Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="introduction/model_overview.html">Model Overview</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Energy Module</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="energy/energy_module.html">Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="energy/energy_module.html#electricity-and-heat-generation">Electricity and heat generation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="energy/energy_module.html#buildings">Buildings</a></li>
+<li class="toctree-l1"><a class="reference internal" href="energy/energy_module.html#industry">Industry</a></li>
+<li class="toctree-l1"><a class="reference internal" href="energy/energy_module.html#transport">Transport</a></li>
+<li class="toctree-l1"><a class="reference internal" href="energy/energy_module.html#hydrogen">Hydrogen</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Land &amp; Water Module</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="land_water/land_and_water_module.html">Land &amp; Water Module</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Overarching model structure</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="overarching/overarching.html">Time horizon and temporal resolution</a></li>
+<li class="toctree-l1"><a class="reference internal" href="overarching/overarching.html#emissions-accounting">Emissions accounting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="overarching/overarching.html#naming-convention">Naming Convention</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">User Manual</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="manual/manual.html">Software and hardware requirements</a></li>
+<li class="toctree-l1"><a class="reference internal" href="manual/manual.html#model-setup">Model setup</a></li>
+<li class="toctree-l1"><a class="reference internal" href="manual/manual.html#using-the-clews-eu-model">Using the CLEWs-EU model</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Limitations &amp; Improvements</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="limitations/limitations.html">Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="limitations/limitations.html#energy-module">Energy module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="limitations/limitations.html#land-and-water-module">Land and Water module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="limitations/limitations.html#references">References</a></li>
 </ul>
 
         </div>
@@ -64,8 +95,26 @@
         <div class="rst-content">
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
+    
       <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
       <li class="breadcrumb-item active">Search</li>
+
+    <span style="float:right; margin-right:20px; font-size:18px;">
+
+        <a href="https://github.com/CLIMATE-DIAMOND/EU-CLEWS"
+           target="_blank" title="GitHub"
+           style="margin-left: 12px; color: inherit;">
+           <i class="fa-brands fa-github"></i>
+        </a>
+
+        <a href="https://zenodo.org/records/16537822"
+           target="_blank" title="Zenodo"
+           style="margin-left: 12px; color: inherit;">
+           <i class="fa-solid fa-database"></i>
+        </a>
+
+    </span>
+
       <li class="wy-breadcrumbs-aside">
       </li>
   </ul>
