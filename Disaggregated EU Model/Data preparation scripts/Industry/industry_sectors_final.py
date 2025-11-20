@@ -188,7 +188,7 @@ def industry_sectors_function(code):
             solar = solar.to_frame().transpose()
             solar.rename(index={0:'Solar'}, inplace=True)        
             # Distributed heat
-            dist_heat = sectors_fec_dic[z].iloc[48] + sectors_fec_dic[z].iloc[52] 
+            dist_heat = sectors_fec_dic[z].iloc[48] + sectors_fec_dic[z].iloc[92] 
             dist_heat = dist_heat.to_frame().transpose()
             dist_heat.rename(index={0:'Distributed heat'}, inplace=True)  
             # Electricity (heat)
@@ -670,7 +670,7 @@ def industry_sectors_function(code):
             solar = solar.to_frame().transpose()
             solar.rename(index={0:'Solar'}, inplace=True)        
             # Distributed heat
-            dist_heat = sectors_ued_dic[z].iloc[48] + sectors_ued_dic[z].iloc[52] 
+            dist_heat = sectors_ued_dic[z].iloc[48] + sectors_ued_dic[z].iloc[92] 
             dist_heat = dist_heat.to_frame().transpose()
             dist_heat.rename(index={0:'Distributed heat'}, inplace=True)  
             # Electricity (heat)
@@ -1135,8 +1135,9 @@ def industry_sectors_function(code):
     fuels_fec_pj_df = pd.concat(fec_list_pj, keys = sectors_fec_keys) # Create a single dataframe
     fuels_fec_pj_df.index.names = ['Final Energy [PJ]', 'Fuel']
     
-    fuels_ued_pj_dic = dict(zip(sectors_fec_keys, ued_list_pj))
+    fuels_ued_pj_dic = dict(zip(sectors_ued_keys, ued_list_pj))
     fuels_ued_pj_df = pd.concat(ued_list_pj, keys= sectors_ued_keys) # Create a single dataframe
     fuels_ued_pj_df.index.names = ['Useful Energy [PJ]', 'Fuel']
+
 
     return fuels_fec_pj_df, fuels_ued_pj_df
