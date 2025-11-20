@@ -42,7 +42,7 @@ for k in countries.index:
         
         if code == 'EU27':
             rev_fuels_fec_pj_df = fuels_fec_pj_df
-            rev_fuels_ued_pj_df = fuels_fec_pj_df            
+            rev_fuels_ued_pj_df = fuels_ued_pj_df            
             energy_efficiency_df = rev_fuels_ued_pj_df / rev_fuels_fec_pj_df
             energy_intensity_df = rev_fuels_fec_pj_df / rev_fuels_ued_pj_df
         elif code == 'AT':
@@ -1025,3 +1025,4 @@ for k in countries.index:
 
     energy_intensity_df_rev = energy_intensity_df_rev.astype(float).round(4)        
     energy_intensity_df_rev.to_csv(path_dir_export+'/Energy_Intensity_Projections.csv')
+
