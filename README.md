@@ -1,5 +1,5 @@
 # CLEWS-EU
-This repository contains the CLEWs-EU model development work carried out under the Horizon-DIAMOND project. It has two main sections: The Aggregated CLEWs-EU model and the Disaggregated CLEWs-EU model.
+This repository contains the CLEWs-EU model development work carried out under the Horizon-DIAMOND project. It has two main sections: (1) the Aggregated CLEWs-EU model, and (2) the Disaggregated CLEWs-EU model.
 
 Zenodo link to CLEWs-EU releases: https://doi.org/10.5281/zenodo.16537821
 
