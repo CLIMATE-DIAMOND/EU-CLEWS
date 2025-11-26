@@ -15,4 +15,4 @@ Similary, you can install [pandas]([url](https://pandas.pydata.org/docs/)) follo
 
 ## Instructions:
 
-Please note that to run the file road_transport_function_final.py you need to define the path in which you have the downoladed the JRC database. There is a comment denoting the respective section at the beginning of the script. The results will be created in a separate file in the folder of each country.
+Please note that to run the file road_transport_function_final.py you need to define the path in which you have the downoladed the JRC-IDEES 2021 database. There is a comment denoting the respective section at the beginning of the script. The results will be created in a separate file in the folder of each country.
