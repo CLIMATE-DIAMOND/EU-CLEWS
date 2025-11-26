@@ -70,7 +70,9 @@ By comparison, the aggregated version requires only **~8 GB**, despite using ann
 
 Model setup
 ===========
-The GitHub repository provides the following material:
+
+The `GitHub repository <https://github.com/CLIMATE-DIAMOND/EU-CLEWS>`_ provides the following material:
+
 
 a) **OSeMOSYS code**  
    This is the version of the OSeMOSYS code developed specifically for this project. 
