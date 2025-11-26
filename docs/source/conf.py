@@ -9,7 +9,7 @@
 project = 'CLEWS-EU'
 copyright = '2025, CLEWS-EU modelling team'
 author = 'CLEWS-EU modelling team'
-release = '0.1'
+release = '1.0'
 
 # -- General configuration ---------------------------------------------------
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#general-configuration

@@ -21,8 +21,7 @@ for them.
 Copyright
 ---------
 
-This documentation and the associated model (unless otherwise stated) are
-licensed under the **Creative Commons Attribution 4.0 International License
+This documentation is licensed under the **Creative Commons Attribution 4.0 International License
 (CC BY 4.0)**.
 
 You are free to:
@@ -41,29 +40,37 @@ License information: https://creativecommons.org/licenses/by/4.0/
 Project Information
 -------------------
 
-**Grant Agreement Number:** 101081179  
-**Acronym:** DIAMOND  
-**Funding Scheme:** Horizon Europe, RIA – Research and Innovation Action  
-**Topic:** HORIZON-CL5-2022-D1-02  
-**Project Duration:** December 2022 – November 2026  
+**Grant Agreement Number:** 101081179 \ 
+ 
+**Acronym:** DIAMOND \   
+
+**Funding Scheme:** Horizon Europe, RIA – Research and Innovation Action  \ 
+  
+**Topic:** HORIZON-CL5-2022-D1-02
+  
+**Project Duration:** December 2022 – November 2026
+  
 **Project Website:** http://www.climate-diamond.eu/  
 
 **Project Coordinator:**  
-Institute of Communications and Computer Systems (ICCS), Greece  
+Institute of Communications and Computer Systems (ICCS), Greece
+  
 **EU Project Advisor:** Silvia Vaghi (CINEA)
 
-**Deliverable:** D3.5 – CLEWs-EU Final Version & Documentation  
+**Deliverable:** D3.5 – CLEWs-EU Final Version & Documentation
+  
 **Work Package:** WP3 – Update & Upgrade  
-**Lead Beneficiary:** The Cyprus Institute (CYI)  
-**Responsible Author:** Constantinos Taliotis (CYI)  
+
+**Lead Beneficiary:** The Cyprus Institute (CYI) 
+ 
+**Responsible Author:** Constantinos Taliotis 
+ 
 **Contact:** c.taliotis@cyi.ac.cy
 
 Contributors
 ------------
 
-Vignesh Sridharan, Leigh Martindale, Nathan Johnson (Imperial),  
-Anastasios Karamaneas, Thomas Nikolakakis, Sophia Kokoni (ICCS),  
-Marios Karmellos, Irene Gkiouleka (CYI)
+Vignesh Sridharan, Leigh Martindale, Nathan Johnson (Imperial); Anastasios Karamaneas, Thomas Nikolakakis, Sophia Kokoni (ICCS); Marios Karmellos, Irene Gkiouleka, Elias Kousoulos, Ioanna Konstantinou, Theodoros Zachariadis (CYI)
 
 Preface
 -------

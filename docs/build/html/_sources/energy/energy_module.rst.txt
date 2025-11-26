@@ -48,7 +48,7 @@ The existing ETS initially applied only to electricity and heat generation and e
      - **2021**
      - **2025**
      - **2030**
-     - **20335**
+     - **2035**
      - **2040**
      - **2045**
      - **2050**

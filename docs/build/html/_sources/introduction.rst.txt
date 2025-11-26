@@ -1,7 +1,0 @@
-.. this is the first introduction file for CLEWs EU documentation
-
-Welcome toCLEWs EU
-====================
-
-.. _create-model-structure:
-Creating the model structure

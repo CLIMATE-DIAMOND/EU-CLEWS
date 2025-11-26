@@ -118,7 +118,7 @@ The diagram is organised by colour, with each group representing a different com
 .. raw:: html
 
     <div style="margin-top:20px; margin-bottom:20px; text-align:center;">
-        <img src="../_static/CLEWs_model_Structure.png" style="width:70%; margin-bottom:15px;">
+        <img src="../_static/CLEWs_model.png" style="width:70%; margin-bottom:15px;">
         <div style="font-size:13px;">
             <b>Figure 13.</b> The CLEWs model structure represented in each EU27 country.
         </div>
