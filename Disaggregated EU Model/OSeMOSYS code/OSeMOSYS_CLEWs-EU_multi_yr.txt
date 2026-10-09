@@ -67,6 +67,13 @@ set DAILYTIMEBRACKET;
 set FLEXIBLEDEMANDTYPE;
 set STORAGE;
 set UDC;
+### old defintion if you preprocess the code###
+# Sets for Input to Capacity Ratio functionality - technology-fuel mappings
+#set INPUTxNEWxCAPACITYperFUEL{FUEL} within TECHNOLOGY;
+#set INPUTxTOTALxCAPACITYperFUEL{FUEL} within TECHNOLOGY;
+#set INPUTxFUEL;
+###
+
 #set STORAGEINTRADAY;
 #set STORAGEINTRAYEAR;
 #set MODEperTECHNOLOGY{TECHNOLOGY} within MODE_OF_OPERATION;
@@ -153,6 +160,9 @@ param AvailabilityFactor{r in REGION, t in TECHNOLOGY, y in YEAR};
 #param OperationalLife{r in REGION, t in TECHNOLOGY};
 param ResidualCapacity{r in REGION, t in TECHNOLOGY, y in YEAR};
 param InputActivityRatio{r in REGION, t in TECHNOLOGY, f in FUEL, m in MODE_OF_OPERATION, y in YEAR};
+# Parameters for input to capacity ratios - fuel requirement per unit of new/total capacity
+param InputToNewCapacityRatio{r in REGION, t in TECHNOLOGY, f in FUEL, y in YEAR};
+param InputToTotalCapacityRatio{r in REGION, t in TECHNOLOGY, f in FUEL, y in YEAR};
 param OutputActivityRatio{r in REGION, t in TECHNOLOGY, f in FUEL, m in MODE_OF_OPERATION, y in YEAR};
 param SeasonalCF{r in REGION, ht in HYDROTECHS, ls in SEASON, y in YEAR}; #new parameter to set a seasonal CF for hydro dam PPs, in the normal CF parameter their values are set as 1
 #
@@ -279,6 +289,24 @@ set MODExTECHNOLOGYperSTORAGEto{s in STORAGE} within MODE_OF_OPERATION cross TEC
     := {m in MODE_OF_OPERATION, t in TECHNOLOGY : exists{r in REGION} TechnologyToStorage[r,t,s,m] > 0};
 set MODExTECHNOLOGYperSTORAGEfrom{s in STORAGE} within MODE_OF_OPERATION cross TECHNOLOGY
     := {m in MODE_OF_OPERATION, t in TECHNOLOGY : exists{r in REGION} TechnologyFromStorage[r,t,s,m] > 0};
+###
+# Sets for Input to Capacity Ratio functionality - technology-fuel mappings
+set INPUTxNEWxCAPACITYperFUEL{f in FUEL} within TECHNOLOGY
+    := {t in TECHNOLOGY : exists{r in REGION, y in YEAR} InputToNewCapacityRatio[r,t,f,y] <> 0};
+
+set INPUTxTOTALxCAPACITYperFUEL{f in FUEL} within TECHNOLOGY
+    := {t in TECHNOLOGY : exists{r in REGION, y in YEAR} InputToTotalCapacityRatio[r,t,f,y] <> 0};
+
+set INPUTxFUEL := {f in FUEL : 
+    card(INPUTxNEWxCAPACITYperFUEL[f]) > 0 or card(INPUTxTOTALxCAPACITYperFUEL[f]) > 0};
+# Build pair sets from per-fuel technology mappings
+# INPUT_TF_PAIRS_NEW: technology-fuel pairs for input to new capacity ratios
+set INPUT_TF_PAIRS_NEW :=
+    setof {f in INPUTxFUEL, t in INPUTxNEWxCAPACITYperFUEL[f]} (t,f);
+
+# INPUT_TF_PAIRS_TOTAL: technology-fuel pairs for input to total capacity ratios
+set INPUT_TF_PAIRS_TOTAL :=
+    setof {f in INPUTxFUEL, t in INPUTxTOTALxCAPACITYperFUEL[f]} (t,f);
 
 set TIMESLICEofSEASON{ls in SEASON} within TIMESLICE := {l in TIMESLICE : Conversionls[l,ls] = 1};
 set TIMESLICEofDAYTYPE{ld in DAYTYPE} within TIMESLICE := {l in TIMESLICE : Conversionld[l,ld] = 1};
@@ -414,6 +442,18 @@ var AnnualFixedOperatingCost{r in REGION, t in TECHNOLOGY, y in YEAR};
 #var TotalDiscountedCostByTechnology{r in REGION, t in TECHNOLOGY, y in YEAR};
 #var TotalDiscountedCost{r in REGION, y in YEAR}>= 0;
 #var ModelPeriodCostByRegion{r in REGION};
+
+# Variables over sparse domains for input to capacity ratios
+# Only includes (technology, fuel) pairs that have non-zero InputToNewCapacityRatio
+var InputToNewCapacity
+    {r in REGION,  t in TECHNOLOGY, f in FUEL, y in YEAR:
+     (t,f) in INPUT_TF_PAIRS_NEW}   >= 0;
+
+# Only includes (technology, fuel) pairs that have non-zero InputToTotalCapacityRatio
+var InputToTotalCapacity
+    {r in REGION,  t in TECHNOLOGY, f in FUEL, y in YEAR:
+     (t,f) in INPUT_TF_PAIRS_TOTAL} >= 0;
+
 #
 #########                        Reserve Margin                                #############
 #
@@ -646,7 +686,29 @@ s.t. EBa11_EnergyBalanceEachTS5{r in REGION, l in TIMESLICE, f in FUEL, y in YEA
 #s.t. EBb1_EnergyBalanceEachYear1{r in REGION, f in FUEL, y in YEAR}: sum{(m,t) in MODExTECHNOLOGYperFUELout[f], l in TIMESLICE} RateOfActivity[r,l,t,m,y]*OutputActivityRatio[r,t,f,m,y]*YearSplit[l,y] = ProductionAnnual[r,f,y];
 #s.t. EBb2_EnergyBalanceEachYear2{r in REGION, f in FUEL, y in YEAR}: sum{(m,t) in MODExTECHNOLOGYperFUELin[f], l in TIMESLICE} RateOfActivity[r,l,t,m,y]*InputActivityRatio[r,t,f,m,y]*YearSplit[l,y] = UseAnnual[r,f,y];
 #s.t. EBb3_EnergyBalanceEachYear3{r in REGION, rr in REGION, f in FUEL, y in YEAR}: sum{l in TIMESLICE} Trade[r,rr,l,f,y] = TradeAnnual[r,rr,f,y];
-s.t. EBb4_EnergyBalanceEachYear4{r in REGION, f in FUEL, y in YEAR}: sum{(m,t) in MODExTECHNOLOGYperFUELout[f], l in TIMESLICE} RateOfActivity[r,l,t,m,y]*OutputActivityRatio[r,t,f,m,y]*YearSplit[l,y] >= sum{(m,t) in MODExTECHNOLOGYperFUELin[f], l in TIMESLICE} RateOfActivity[r,l,t,m,y]*InputActivityRatio[r,t,f,m,y]*YearSplit[l,y] + sum{l in TIMESLICE, rr in REGION} Trade[r,rr,l,f,y]*TradeRoute[r,rr,f,y] + AccumulatedAnnualDemand[r,f,y];
+# Energy balance including input to capacity ratios
+# Added terms for InputToNewCapacity and InputToTotalCapacity to account for fuel/commodity required for capacity investment and maintenance
+s.t. EBb4_EnergyBalanceEachYear4{r in REGION, f in FUEL, y in YEAR}: sum{(m,t) in MODExTECHNOLOGYperFUELout[f], l in TIMESLICE} RateOfActivity[r,l,t,m,y]*OutputActivityRatio[r,t,f,m,y]*YearSplit[l,y] >= sum{(m,t) in MODExTECHNOLOGYperFUELin[f], l in TIMESLICE} RateOfActivity[r,l,t,m,y]*InputActivityRatio[r,t,f,m,y]*YearSplit[l,y] + sum{l in TIMESLICE, rr in REGION} Trade[r,rr,l,f,y]*TradeRoute[r,rr,f,y] + AccumulatedAnnualDemand[r,f,y] + sum { t in TECHNOLOGY : (t,f) in INPUT_TF_PAIRS_NEW   }   InputToNewCapacity[r,t,f,y] + sum { t in TECHNOLOGY : (t,f) in INPUT_TF_PAIRS_TOTAL }   InputToTotalCapacity[r,t,f,y];
+
+#  InputToCapacityRatios - Constraints linking input requirements to capacity investments
+# Constraint INC1: Input to new capacity = InputToNewCapacityRatio * NewCapacity
+# This calculates fuel/commodity inputs required for building new capacity in each year
+s.t. INC1_InputToNewCapacity
+{r in REGION, y in YEAR,
+ (t,f) in INPUT_TF_PAIRS_NEW  :
+   InputToNewCapacityRatio[r,t,f,y] <> 0}:
+    InputToNewCapacityRatio[r,t,f,y] * NewCapacity[r,t,y]
+  = InputToNewCapacity[r,t,f,y];
+
+# Constraint ITC1: Input to total capacity = InputToTotalCapacityRatio * TotalCapacityAnnual
+# This calculates fuel/commodity inputs required for maintaining/operating existing and new capacity in each year
+s.t. ITC1_InputToTotalCapacity
+{r in REGION, y in YEAR,
+ (t,f) in INPUT_TF_PAIRS_TOTAL:
+   InputToTotalCapacityRatio[r,t,f,y] <> 0}:
+    InputToTotalCapacityRatio[r,t,f,y] * TotalCapacityAnnual[r,t,y]
+  = InputToTotalCapacity[r,t,f,y];
+
 #
 #########                Accounting Technology Production/Use        #############
 #
@@ -827,7 +889,7 @@ s.t. TCC2_TotalAnnualMinCapacityConstraint{r in REGION, t in TECHNOLOGY, y in YE
 #########                    New Capacity Constraints          ##############
 ###K_YearWeight
 s.t. NCC1_TotalAnnualMaxNewCapacityConstraint{r in REGION, t in TECHNOLOGY, y in YEAR}: NewCapacity[r,t,y] <= TotalAnnualMaxCapacityInvestment[r,t,y]*YearWeight[y];
-s.t. NCC2_TotalAnnualMinNewCapacityConstraint{r in REGION, t in TECHNOLOGY, y in YEAR: TotalAnnualMinCapacityInvestment[r,t,y]>0}: NewCapacity[r,t,y] >= TotalAnnualMinCapacityInvestment[r,t,y];
+s.t. NCC2_TotalAnnualMinNewCapacityConstraint{r in REGION, t in TECHNOLOGY, y in YEAR: TotalAnnualMinCapacityInvestment[r,t,y]>0}: NewCapacity[r,t,y] >= TotalAnnualMinCapacityInvestment[r,t,y]*YearWeight[y];
 #
 #########                   Annual Activity Constraints        ##############
 #
@@ -862,7 +924,7 @@ s.t. RE4_EnergyConstraint{r in REGION, y in YEAR}:REMinProductionTarget[r,y]*sum
 
 ###	Imports Limit ####
 
-s.t. IM_ImporsContraint{r in REGION, c in COUNTRY, y in YEAR}: sum {f in FUEL} TransmissionDemand[r,c,f,y]*ImportsLimit[r,c,y] >= sum {t in TECHNOLOGY, f in FUEL} (sum{(m,t) in MODExTECHNOLOGYperFUELout[f], l in TIMESLICE} RateOfActivity[r,l,t,m,y]*YearSplit[l,y]*Interconnections[r,t,c,f]); #new equation to set imports limit
+#s.t. IM_ImporsContraint{r in REGION, c in COUNTRY, y in YEAR}: sum {f in FUEL} TransmissionDemand[r,c,f,y]*ImportsLimit[r,c,y] >= sum {t in TECHNOLOGY, f in FUEL} (sum{(m,t) in MODExTECHNOLOGYperFUELout[f], l in TIMESLICE} RateOfActivity[r,l,t,m,y]*YearSplit[l,y]*Interconnections[r,t,c,f]); #new equation to set imports limit
 
 ## Solar & Wind annual investment limit ##
 
@@ -874,7 +936,7 @@ s.t. EUCapacityLimit{r in REGION, fl in FUELSWITHLIMIT, y in YEAR}: TotalCapacit
 
 ## Generation Limit ##
 
-s.t. GenerationLimit{r in REGION, c in COUNTRY, y in YEAR}: sum {f in FUEL} TransmissionDemand[r,c,f,y]*1.2 >= sum {t in TECHNOLOGY, f in FUEL} (sum{(m,t) in MODExTECHNOLOGYperFUELout[f], l in TIMESLICE} RateOfActivity[r,l,t,m,y]*YearSplit[l,y]*GenerationLimitTechs[r,t,c,f]); #checks if the total generated electricity is lower than 120% of the total demand
+#s.t. GenerationLimit{r in REGION, c in COUNTRY, y in YEAR}: sum {f in FUEL} TransmissionDemand[r,c,f,y]*1.2 >= sum {t in TECHNOLOGY, f in FUEL} (sum{(m,t) in MODExTECHNOLOGYperFUELout[f], l in TIMESLICE} RateOfActivity[r,l,t,m,y]*YearSplit[l,y]*GenerationLimitTechs[r,t,c,f]); #checks if the total generated electricity is lower than 120% of the total demand
 
 ## NG CCGT Lower Limit CF ##
 
