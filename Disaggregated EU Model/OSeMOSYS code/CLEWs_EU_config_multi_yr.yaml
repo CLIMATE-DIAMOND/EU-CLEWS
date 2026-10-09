@@ -1,3 +1,4 @@
+# March 2026 update. Enabled InputToNewCapacityRatio and InputToTotalCapacityRatio
 AccumulatedAnnualDemand:
     indices: [REGION,FUEL,YEAR]
     type: param
@@ -13,41 +14,16 @@ AnnualExogenousEmission:
     type: param
     dtype: float
     default: 0
-#InputToNewCapacityRatio:
-#    indices: [REGION,TECHNOLOGY,FUEL,YEAR]
-#    type: param
-#    dtype: float
-#    default: 0
-#UDCMultiplierTotalCapacity:
-#    indices: [REGION,TECHNOLOGY,UDC,YEAR]
-#    type: param
-#    dtype: float
-#    default: 0
-#UDCMultiplierNewCapacity:
-#    indices: [REGION,TECHNOLOGY,UDC,YEAR]
-#    type: param
-#    dtype: float
-#    default: 0
-#UDCMultiplierActivity:
-#    indices: [REGION,TECHNOLOGY,UDC,YEAR]
-#    type: param
-#    dtype: float
-#    default: 0
-#UDCConstant:
-#    indices: [REGION,UDC,YEAR]
-#    type: param
-#    dtype: float
-#    default: 0
-#UDCTag:
-#    indices: [REGION,UDC]
-#    type: param
-#    dtype: int
-#    default: -1
-#InputToTotalCapacityRatio: 
-#    indices: [REGION,TECHNOLOGY,FUEL,YEAR]
-#    type: param
-#    dtype: float
-#    default: 0
+InputToNewCapacityRatio:
+    indices: [REGION,TECHNOLOGY,FUEL,YEAR]
+    type: param
+    dtype: float
+    default: 0
+InputToTotalCapacityRatio: 
+    indices: [REGION,TECHNOLOGY,FUEL,YEAR]
+    type: param
+    dtype: float
+    default: 0
 UDCMultiplierTotalCapacity:
     indices: [REGION,TECHNOLOGY,UDC,YEAR]
     type: param
@@ -566,27 +542,27 @@ CapitalInvestmentStorage:
     type: result
     dtype: float
     default: 0
-DiscountedCapitalInvestmentStorage:
-    short_name: DiscountedCapitalInvestmentSto
-    indices: [REGION, STORAGE, YEAR]
-    type: result
-    dtype: float
-    default: 0
-DiscountedSalvageValueStorage:
-    indices: [REGION, STORAGE, YEAR]
-    type: result
-    dtype: float
-    default: 0
-TotalDiscountedStorageCost:
-    indices: [REGION, STORAGE, YEAR]
-    type: result
-    dtype: float
-    default: 0
-AccumulatedNewStorageCapacity:
-    indices: [REGION, STORAGE, YEAR]
-    type: result
-    dtype: float
-    default: 0
+#DiscountedCapitalInvestmentStorage:
+#   short_name: DiscountedCapitalInvestmentSto
+#    indices: [REGION, STORAGE, YEAR]
+#    type: result
+#    dtype: float
+#    default: 0
+#DiscountedSalvageValueStorage:
+#    indices: [REGION, STORAGE, YEAR]
+#    type: result
+#    dtype: float
+#    default: 0
+#TotalDiscountedStorageCost:
+#    indices: [REGION, STORAGE, YEAR]
+#    type: result
+#    dtype: float
+#    default: 0
+#AccumulatedNewStorageCapacity:
+#    indices: [REGION, STORAGE, YEAR]
+#    type: result
+#    dtype: float
+#    default: 0
 TotalAnnualTechnologyActivityByMode:
     short_name: TotalAnnualTechActivityByMode
     indices: [REGION, TECHNOLOGY, MODE_OF_OPERATION, YEAR]
